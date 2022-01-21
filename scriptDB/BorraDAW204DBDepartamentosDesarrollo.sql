@@ -6,7 +6,7 @@
  */
 
 /* Eliminación de la base de datos */
-DROP DATABASE IF EXISTS DB204DWESLoginLogout;
+DROP DATABASE IF EXISTS DB204DWESAplicacionFinal;
 
 /* Eliminación del usuario */
-DROP USER IF EXISTS 'User204DWESLoginLogout'@'%';
+DROP USER IF EXISTS 'User204DWESAplicacionFinal'@'%';

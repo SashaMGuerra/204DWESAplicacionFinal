@@ -34,7 +34,12 @@
             <hr/>
             <div class="info">
                 <a href="https://github.com/SashaMGuerra/204DWESAplicacionLoginLogout" target="_blank"><img src="webroot/media/img/github_logo_white.png" alt="repositorio"></a>
-                <div>© 2021-2022 Isabel Martínez Guerra — IES Los Sauces (Benavente, Zamora) — Modificado el 21/12/2021.</div>
+                <div>© 2021-2022 IES Los Sauces (Benavente, Zamora)<br>SashaMGuerra — Isabel Martínez Guerra</div>
+                <a href="doc/index.html" target="_blank">phpdoc</a>
+                <a href="" target="_blank">Web del autor</a>
+                <a href="" target="_blank">Currículo</a>
+                <a href="" target="_blank">Página imitada</a>
+                <div>Modificado el METE FECHA.</div>
             </div>
         </footer>
     </body>
