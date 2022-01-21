@@ -1,0 +1,15 @@
+/* 
+    Created on : 12 ene. 2022, 12:18:48
+    Author     : daw2
+*/
+
+#vDetalle table{
+    width: 100%;
+    max-width: 1200px;
+    table-layout: fixed;
+    margin: auto;
+}
+#vDetalle h3{
+    text-align: center;
+    margin: 15px 0 10px;
+}

@@ -1,0 +1,84 @@
+/* 
+    Created on : 21 dic. 2021, 17:07:05
+    Author     : Usuario
+*/
+
+@font-face{
+    font-family: "OpenSans Medium";
+    src: url("fonts/OpenSans/OpenSans-Medium.ttf");
+}
+@font-face{
+    font-family: "OpenSans Light";
+    src: url("fonts/OpenSans/OpenSans-Light.ttf");
+}
+
+*{
+    margin: 0;
+}
+
+body{
+    font-family: "OpenSans Medium", sans-serif;
+}
+
+/* Para mantener el footer abajo */
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+    margin: 10px;
+}
+footer {
+    flex-shrink: 0;
+}
+
+/* Estilo del header */   
+header{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+header > *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos de footer */
+footer{
+    font-family: "OpenSans Light";
+    background-color: black;
+    color: white;
+    font-size: small;
+    text-align: justify;
+    padding-top: 5px;
+}
+footer div.info{
+    padding: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+footer img{
+    width: 30px;
+}
+
+/* Estilos comunes a los formularios */
+fieldset.submit{
+    border: none;
+    text-align: center;
+}
+label.obligatorio:after{
+    content: "*";
+    color: firebrick;
+}
+.error{
+    color: firebrick;
+    font-size: small;
+}

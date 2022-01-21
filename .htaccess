@@ -1,0 +1,5 @@
+# Autor: Sasha
+# Redirección de las páginas de error.
+
+ErrorDocument 403 /AplicacionFinal/error/403.html
+ErrorDocument 404 /AplicacionFinal/error/404.html

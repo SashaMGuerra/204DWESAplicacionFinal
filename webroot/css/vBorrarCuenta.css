@@ -1,0 +1,52 @@
+/* 
+    Created on : 20 ene. 2022, 9:45:35
+    Author     : Sasha
+*/
+
+#vHeaderBorrarCuenta{
+    background-color: mistyrose;
+}
+
+#vBorrarCuenta{
+    text-align: center;
+}
+
+#vBorrarCuenta h3{
+    margin: 10px;
+}
+
+#vBorrarCuenta button{
+    font-size: large;
+    margin: 0 30px;
+}
+
+#vBorrarCuenta button{
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+#vBorrarCuenta button#aceptar{
+    background-color: mistyrose;
+    box-shadow:
+        inset 3px 2px 2px lavender,
+        inset -3px -2px 2px firebrick;   
+}
+#vBorrarCuenta button#aceptar:hover{
+    box-shadow:
+        inset -3px -2px 2px lavender,
+        inset 3px 2px 2px firebrick;
+}
+
+#vBorrarCuenta button#cancelar{
+    background-color: lightsteelblue;
+    box-shadow:
+        inset 3px 2px 2px lavender,
+        inset -3px -2px 2px midnightblue;   
+}
+#vBorrarCuenta button#cancelar:hover{
+    box-shadow:
+        inset -3px -2px 2px lavender,
+        inset 3px 2px 2px midnightblue;
+}

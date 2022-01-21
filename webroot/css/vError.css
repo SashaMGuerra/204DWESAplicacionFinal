@@ -1,0 +1,28 @@
+/* 
+    Created on : 12 ene. 2022, 8:57:33
+    Author     : daw2
+*/
+
+#vError{
+    text-align: center;
+}
+
+#vError table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    max-width: 1000px;
+}
+#vError table td, #vError table th{
+    border: 1px solid black;
+    padding: 10px;
+}
+#vError table td{
+    text-align: left;
+}
+
+#vError form{
+    margin-top: 20px;
+}
+    

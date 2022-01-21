@@ -1,0 +1,22 @@
+/* 
+    Created on : 12 ene. 2022, 12:28:42
+    Author     : daw2
+*/
+
+#vInicioPublico{
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+}
+
+#vInicioPublico h1{
+    margin: 3% auto 50px;
+    font-size: 60px;
+}
+
+#vInicioPublico form button{
+    font-size: large;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+}
