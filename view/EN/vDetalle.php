@@ -8,8 +8,8 @@
  */
 ?>
 <header>
-    <h2>Aplicación<br>Login-Logout</h2>
-    <h1>Detalle</h1>
+    <h2>Login-Logout<br>Application</h2>
+    <h1>Detail window</h1>
     <div></div>
 </header>
 <main id="vDetalle">

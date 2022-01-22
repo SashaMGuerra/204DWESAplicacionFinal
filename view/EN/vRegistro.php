@@ -9,8 +9,8 @@
  */
 ?>
 <header id="vHeaderRegistro">
-    <h1>Aplicación Login-Logout</h1>
-    <h2>Registro</h2>
+    <h1>Final Application</h1>
+    <h2>Sign up</h2>
 </header>
 <main id="vRegistro">
     <form method="post">

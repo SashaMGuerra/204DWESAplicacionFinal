@@ -48,6 +48,16 @@ header > *{
     align-items: center;
 }
 
+header button.language{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+header button.language img{
+    width: 50px;
+    cursor: pointer;
+}
+
 /* Estilos de footer */
 footer{
     font-family: "OpenSans Light";

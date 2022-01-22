@@ -14,6 +14,9 @@
         <div id="menu">
             <button type="submit" form="formInicio" id="miCuenta" name="miCuenta" value="miCuenta">Ver perfil</button>
             <button type="submit" form="formInicio" id="logout" name="logout" value="logout">Cerrar sesión</button>
+            <button class="language" type="submit" form="formInicio" id="cookieLanguage" name="cookieLanguage" value="<?php echo $_COOKIE['language']=='EN'?'ES':'EN'; ?>">
+                <img src="webroot/media/img/lang/<?php echo $_COOKIE['language']=='EN'?'ES':'EN'; ?>.png" alt="language">
+            </button>
         </div>
     </div>
 </header>
