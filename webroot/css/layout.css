@@ -1,28 +1,39 @@
 /* 
-    Created on : 21 dic. 2021, 17:07:05
+    Created on : 23 ene. 2022, 11:45:58
     Author     : Sasha
 */
 
+/* Colores */
+:root{
+    --dark: #0d0d38;
+    --blue: midnightblue;
+    --pink: hotpink;
+    --lightpink: #ffb4d4;
+    --lightblue: #8c8cb8;
+    --lightestblue: #c6c6dc;
+}
+
+/* Fuentes */
 @font-face{
-    font-family: "OpenSans Medium";
+    font-family: "OpenSans";
     src: url("fonts/OpenSans/OpenSans-Medium.ttf");
 }
 @font-face{
-    font-family: "OpenSans Light";
-    src: url("fonts/OpenSans/OpenSans-Light.ttf");
+    font-family: "Ubuntu";
+    src: url("fonts/Ubuntu/Ubuntu-Regular.ttf");
+}
+@font-face{
+    font-family: "LibreBaskerville";
+    src: url("fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf");
 }
 
 *{
     margin: 0;
 }
 
-body{
-    font-family: "OpenSans Medium", sans-serif;
-}
-
 /* Para mantener el footer abajo */
 html, body {
-    height: 100%;
+    height: 100vh;
 }
 body {
     display: flex;
@@ -30,65 +41,141 @@ body {
 }
 main {
     flex: 1 0 auto;
-    margin: 10px;
 }
 footer {
     flex-shrink: 0;
 }
 
-/* Estilo del header */   
-header{
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-}
-header > *{
+/* Estructura de las partes del body */
+body > *{
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+.container{
+    width: 100vw;
+    max-width: 1200px;
+    margin: 5px 10px;
+}
+main > .container{
+    min-height: 100%;
 }
 
-header button.language{
+/* Estilo común a todo el body */
+body{
+    color: var(--blue);
+}
+
+/* Header */
+header{
+    font-family: OpenSans, sans-serif;
+    transition: 0.3s ease-in-out;
+}
+header .container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    min-height: 100px;
+}
+header .container .logo{
+    justify-self: left;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+header .container h1{
+    text-align: center;
+}
+header .container h2{
+    font-size: smaller;
+    color: var(--lightblue);
+}
+header .container h2:before{
+    content: "• ";
+}
+header .container nav{
+    width: 75%;
+    justify-self: right;
+    height: 100%;
+}
+header nav form{
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 20px;
+}
+header button{
+    font-size: x-large;
     border: none;
     background-color: transparent;
-    padding: 0;
+    color: var(--blue);
 }
-header button.language img{
+header nav img{
     width: 50px;
+    transition: .3s ease-in-out;
+}
+header button:hover{
+    font-weight: bolder;
+}
+header button img:hover{
+    width: 75px;
+}
+header nav:hover{
+    border-bottom: 1px solid var(--blue);
+}
+header:hover{
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+/* Main */
+main{
+    font-family: LibreBaskerville, sans-serif;
+    text-align: justify;
+}
+main h1,
+main h2,
+main h3{
+    font-family: Ubuntu, sans-serif;
+}
+main h1{
+    text-align: center;
+}
+
+main button{
+    font-family: OpenSans, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 9px 15px;
+    border-radius: 3px;
+    transition: .15s ease-in-out;
+    
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    background: transparent;
+}
+main button:hover{
+    color: var(--lightpink);
+    border: 2px solid var(--lightpink);
+    background: var(--blue);
+}
+
+footer{
+    font-family: Ubuntu, sans-serif;
+    background-color: var(--dark);
+    color: white;
+}
+footer img{
+    width: 350px;
+}
+
+
+/* Estilos comunes a todas las vistas */
+button{
     cursor: pointer;
 }
 
-/* Estilos de footer */
-footer{
-    font-family: "OpenSans Light";
-    background-color: black;
-    color: white;
-    font-size: small;
-    text-align: justify;
-    padding-top: 5px;
-}
-footer div.info{
-    padding: 5px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-footer img{
-    width: 30px;
-}
-
-/* Estilos comunes a los formularios */
-fieldset.submit{
+fieldset{
     border: none;
-    text-align: center;
-}
-label.obligatorio:after{
-    content: "*";
-    color: firebrick;
-}
-.error{
-    color: firebrick;
-    font-size: small;
 }
