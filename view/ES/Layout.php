@@ -24,13 +24,15 @@
             <div class="container">
                 <div class="logo">
                     <h1>Aplicación Final</h1>
-                    <h2>Versión 1.0</h2>
+                    <h2>• Versión 1.0</h2>
                 </div>
                 <nav>
                     <form id="headerForm" method="post">
                         <button name="menuInicio" value="menuInicio">Inicio</button>
                         <?php if(isset($_SESSION['usuarioDAW204AppLoginLogout'])){ ?>
                         <button name="menuMiCuenta" value="menuMiCuenta">Mi cuenta</button>
+                        <?php } else { ?>
+                        <button name="menuLogin" value="menuLogin">Iniciar sesión</button>
                         <?php } ?>
                         <button class="language" name="cookieLanguage" value="<?php echo $_COOKIE['language']=='EN'?'ES':'EN'; ?>">
                             <img src="webroot/media/img/lang/<?php echo $_COOKIE['language']=='EN'?'ES':'EN'; ?>.png" alt="language">
@@ -42,15 +44,21 @@
         <?php require_once $aVistas[$_SESSION['paginaEnCurso']]; // Requiere la vista indicada en la variable de página. ?>
         <footer>
             <div class="container">
+                <div class="movingImage">Acá está la imagen que habla</div>
                 <hr/>
-                <div class="info">
-                    <a href="https://github.com/SashaMGuerra/204DWESAplicacionLoginLogout" target="_blank"><img src="webroot/media/img/github_logo_white.png" alt="repositorio"></a>
-                    <div>© 2021-2022 IES Los Sauces (Benavente, Zamora)<br>SashaMGuerra — Isabel Martínez Guerra</div>
+                <div>
+                    <h3>Borrar div</h3>
                     <a href="doc/index.html" target="_blank">phpdoc</a>
                     <a href="" target="_blank">Web del autor</a>
                     <a href="" target="_blank">Currículo</a>
                     <a href="https://www.timetochoose.com/" target="_blank">Página imitada</a>
                     <a href="https://www.thelonelypixel.co.uk/" target="_blank">Página imitada</a>
+                    <hr>
+                </div>
+                <div class="info">
+                    <a href="https://github.com/SashaMGuerra/204DWESAplicacionLoginLogout" target="_blank"><img src="webroot/media/img/github_logo_white.png" alt="repositorio"></a>
+                    <div class="author">SashaMGuerra — Isabel Martínez Guerra</div>
+                    <div>© IES Los Sauces (Benavente, Zamora) 2021-2022</div>
                     <div>Modificado el METE FECHA.</div>
                 </div>
             </div>

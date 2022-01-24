@@ -90,9 +90,6 @@ header .container h2{
     font-size: smaller;
     color: var(--lightblue);
 }
-header .container h2:before{
-    content: "• ";
-}
 header .container nav{
     width: 75%;
     justify-self: right;
@@ -167,7 +164,16 @@ footer{
     color: white;
 }
 footer img{
-    width: 350px;
+    width: 100px;
+}
+footer div.info{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+}
+footer div.info a,
+footer div.info div:nth-of-type(3){
+    justify-items: center;
 }
 
 

@@ -24,17 +24,11 @@ require_once './config/configApp.php';
 // Inicio o recuperación de la sesión.
 session_start();
 
-// Si se ha seleccionado cambiar de idioma, cambia el valor de la cookie y recarga la página.
-if(isset($_REQUEST['cookieLanguage'])){
-    setcookie('language', $_REQUEST['cookieLanguage'], time()+60*60*24*30);
-    header('Location: index.php');
-    exit;
-}
 /**
  * Si se ha elegido un idioma, y el idioma elegido está entre los existentes en
  * la lista de idiomas, modifica la cookie y recarga la página.
  */
-if (isset($_REQUEST['idioma']) && !validacionFormularios::validarElementoEnLista($_REQUEST['idioma'], ['ES', 'EN'])) {
+if (isset($_REQUEST['cookieLanguage']) && !validacionFormularios::validarElementoEnLista($_REQUEST['cookieLanguage'], ['ES', 'EN'])) {
     setcookie('language', $_REQUEST['cookieLanguage'], time()+60*60*24*30);
     header('Location: index.php');
     exit;
@@ -46,6 +40,11 @@ if (isset($_REQUEST['idioma']) && !validacionFormularios::validarElementoEnLista
  */
 if(isset($_REQUEST['menuInicio'])){
     $_SESSION['paginaEnCurso'] = isset($_SESSION['usuarioDAW204AppLoginLogout'])?'inicioPrivado':'inicioPublico';
+}
+
+// Si desde el menú el usuario desea acceder a iniciar sesión, lo hace.
+if(isset($_REQUEST['menuLogin'])){
+    $_SESSION['paginaEnCurso'] = 'login';
 }
 
 // Si desde el menú el usuario desea acceder a su cuenta, lo hace.
