@@ -42,25 +42,23 @@
             </div>
         </header>
         <?php require_once $aVistas[$_SESSION['paginaEnCurso']]; // Requiere la vista indicada en la variable de página. ?>
+        <div class="movingImage"></div>
         <footer>
             <div class="container">
-                <div class="movingImage">Acá está la imagen que habla</div>
                 <hr/>
-                <div>
-                    <h3>Borrar div</h3>
-                    <a href="doc/index.html" target="_blank">phpdoc</a>
-                    <a href="" target="_blank">Web del autor</a>
-                    <a href="" target="_blank">Currículo</a>
-                    <a href="https://www.timetochoose.com/" target="_blank">Página imitada</a>
-                    <a href="https://www.thelonelypixel.co.uk/" target="_blank">Página imitada</a>
-                    <hr>
-                </div>
                 <div class="info">
                     <a href="https://github.com/SashaMGuerra/204DWESAplicacionLoginLogout" target="_blank"><img src="webroot/media/img/github_logo_white.png" alt="repositorio"></a>
-                    <div class="author">SashaMGuerra — Isabel Martínez Guerra</div>
-                    <div>© IES Los Sauces (Benavente, Zamora) 2021-2022</div>
-                    <div>Modificado el METE FECHA.</div>
+                    <div class="author">
+                        <p>SashaMGuerra (Isabel Martínez Guerra)</p>
+                        <p>alexmtnezguerra@gmail.com</p>
+                    </div>
+                    <div><a href="doc/index.html"><img src="webroot/media/img/doc.png" alt="phpdoc"><br>Documentación</a></div>
+                    <div class="placedate">
+                        <p>© IES Los Sauces (Benavente, Zamora) 2021-2022</p>
+                        <p>Modificado el 24/01/2022</p>
+                    </div>
                 </div>
+                <div>Diseño inspirado por <a href="https://www.timetochoose.com/" target="_blank">timetochoose.com</a> y <a href="https://www.thelonelypixel.co.uk/" target="_blank">thelonelypixel.co.uk</a>.</div>
             </div>
         </footer>
     </body>

@@ -147,7 +147,7 @@ main button{
     padding: 9px 15px;
     border-radius: 3px;
     transition: .15s ease-in-out;
-    
+
     color: var(--blue);
     border: 2px solid var(--blue);
     background: transparent;
@@ -158,22 +158,69 @@ main button:hover{
     background: var(--blue);
 }
 
+/* Footer */
 footer{
     font-family: Ubuntu, sans-serif;
     background-color: var(--dark);
     color: white;
 }
-footer img{
-    width: 100px;
+footer a{
+    color: var(--pink);
+    text-decoration: none;
 }
-footer div.info{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
+footer a:hover{
+    font-weight: bold;
 }
-footer div.info a,
-footer div.info div:nth-of-type(3){
-    justify-items: center;
+footer .container{
+    text-align: center;
+}
+.movingImage{
+    display: none;
+    height: 80px;
+    background-image: url('../../webroot/media/img/footer.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+
+    animation: slide 10s linear infinite;
+}
+@keyframes slide {
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(-2243px, 0);
+    }
+}
+
+footer hr{
+    border: 1px var(--pink) outset;
+}
+footer .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+footer .info .author{
+    text-align: left;
+}
+footer .info .placedate{
+    text-align: right;
+}
+footer a img{
+    width: 50px;
+    transition: .2s ease-in-out;
+}
+footer a:hover img{
+    width: 60px;
+}
+footer p{
+    margin: 5px;
+}
+
+footer .container > div:last-of-type{
+    font-size: small;
 }
 
 
