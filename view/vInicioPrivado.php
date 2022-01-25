@@ -28,6 +28,7 @@
         <form method="post" id="formInicio">
             <fieldset class="submit">
                 <button type="submit" id="detalle" name="detalle" value="detalle">Detalle</button>
+                <button type="submit" id="rest" name="rest" value="rest">REST</button>
                 <button type="submit" id="fallar" name="fallar" value="fallar">Hacer un select fallido</button>
                 <button type="submit" id="mtoDepartamentos" name="mtoDepartamentos" value="mtoDepartamentos">Ir a MtoDepartamentos</button>
             </fieldset>

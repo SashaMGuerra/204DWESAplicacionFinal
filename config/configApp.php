@@ -35,6 +35,7 @@ $aControladores = [
     'cambiarPassword' => 'controller/cCambiarPassword.php',
     'borrarCuenta' => 'controller/cBorrarCuenta.php',
     'detalle' => 'controller/cDetalle.php',
+    'rest' => 'controller/cREST.php',
     'wip' => 'controller/cWIP.php',
     'error' => 'controller/cError.php'
 ];
@@ -50,6 +51,7 @@ $aVistas = [
     'cambiarPassword' => 'view/vCambiarPassword.php',
     'borrarCuenta' => 'view/vBorrarCuenta.php',
     'detalle' => 'view/vDetalle.php',
+    'rest' => 'view/vREST.php',
     'wip' => 'view/vWIP.php',
     'error' => 'view/vError.php'
 ];

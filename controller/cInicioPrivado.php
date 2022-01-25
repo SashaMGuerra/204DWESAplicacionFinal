@@ -47,6 +47,14 @@ if(isset($_REQUEST['detalle'])){
     exit;
 }
 
+// Si se selecciona ir a la ventana de las api rest, va.
+if(isset($_REQUEST['rest'])){
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'rest';
+    header('Location: index.php');
+    exit;
+}
+
 // Botón para probar la página de error que muestra las excepciones.
 if(isset($_REQUEST['fallar'])){
     $sSelect = 'SELECT * FROM TablaFalsa;';
