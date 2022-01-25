@@ -35,6 +35,7 @@ $aControladores = [
     'cambiarPassword' => 'controller/cCambiarPassword.php',
     'borrarCuenta' => 'controller/cBorrarCuenta.php',
     'detalle' => 'controller/cDetalle.php',
+    'rest' => 'controller/cREST.php',
     'wip' => 'controller/cWIP.php',
     'error' => 'controller/cError.php'
 ];
@@ -50,6 +51,7 @@ $aVistas = [
     'cambiarPassword' => 'view/'.$_COOKIE['language'].'/vCambiarPassword.php',
     'borrarCuenta' => 'view/'.$_COOKIE['language'].'/vBorrarCuenta.php',
     'detalle' => 'view/'.$_COOKIE['language'].'/vDetalle.php',
+    'rest' => 'view/'.$_COOKIE['language'].'/vREST.php',
     'wip' => 'view/'.$_COOKIE['language'].'/vWIP.php',
     'error' => 'view/'.$_COOKIE['language'].'/vError.php'
 ];
