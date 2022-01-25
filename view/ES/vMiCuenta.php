@@ -7,7 +7,7 @@
  * Vista del inicio.
  */
 ?>
-<main id="vMiCuenta">
+<main>
     <div class="container">
         <h1>Mi cuenta</h1>
         <form method="post" enctype="multipart/form-data">

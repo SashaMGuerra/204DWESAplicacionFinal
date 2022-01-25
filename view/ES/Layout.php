@@ -17,39 +17,37 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <title>Aplicación Final</title>
         <link href="webroot/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="webroot/css/vInicioPublico.css" rel="stylesheet" type="text/css"/>
         <!-- <script src="webroot/js/vMiCuenta.js" type="text/javascript"></script> -->
     </head>
-    <body>
-        <header id="vHeaderInicioPrivado">
-            <div class="container">
-                <div class="logo">
-                    <h1>Aplicación Final</h1>
-                    <h2>• Versión 1.0</h2>
+    <body id="<?php echo 'v' . ucfirst($_SESSION['paginaEnCurso']); ?>">
+        <header>
+                <div class="container">
+                    <div class="logo">
+                        <h1>Aplicación de Sasha</h1>
+                        <h2>• Versión 1.0</h2>
+                    </div>
+                    <nav>
+                        <form id="headerForm" method="post">
+                            <button class="language" name="cookieLanguage" value="<?php echo $_COOKIE['language'] == 'EN' ? 'ES' : 'EN'; ?>">
+                                <img src="webroot/media/img/lang/<?php echo $_COOKIE['language'] == 'EN' ? 'ES' : 'EN'; ?>.png" alt="language">
+                            </button>
+                            <button name="menuInicio" value="menuInicio">Inicio</button>
+                        </form>
+                    </nav>
                 </div>
-                <nav>
-                    <form id="headerForm" method="post">
-                        <button name="menuInicio" value="menuInicio">Inicio</button>
-                        <?php if(isset($_SESSION['usuarioDAW204AppLoginLogout'])){ ?>
-                        <button name="menuMiCuenta" value="menuMiCuenta">Mi cuenta</button>
-                        <?php } else { ?>
-                        <button name="menuLogin" value="menuLogin">Iniciar sesión</button>
-                        <?php } ?>
-                        <button class="language" name="cookieLanguage" value="<?php echo $_COOKIE['language']=='EN'?'ES':'EN'; ?>">
-                            <img src="webroot/media/img/lang/<?php echo $_COOKIE['language']=='EN'?'ES':'EN'; ?>.png" alt="language">
-                        </button>
-                    </form>
-                </nav>
-            </div>
         </header>
         <?php require_once $aVistas[$_SESSION['paginaEnCurso']]; // Requiere la vista indicada en la variable de página. ?>
-        <div class="movingImage"></div>
+        <div class="movingImage">
+            <div class="slidingImage"></div>
+        </div>
         <footer>
             <div class="container">
                 <hr/>
                 <div class="info">
                     <a href="https://github.com/SashaMGuerra/204DWESAplicacionLoginLogout" target="_blank"><img src="webroot/media/img/github_logo_white.png" alt="repositorio"></a>
                     <div class="author">
-                        <p>SashaMGuerra (Isabel Martínez Guerra)</p>
+                        <p>SashaMGuerra</p>
                         <p>alexmtnezguerra@gmail.com</p>
                     </div>
                     <div><a href="doc/index.html"><img src="webroot/media/img/doc.png" alt="phpdoc"><br>Documentación</a></div>

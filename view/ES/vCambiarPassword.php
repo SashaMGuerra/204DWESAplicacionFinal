@@ -7,7 +7,7 @@
  * Ventana de cambio de contraseña.
  */
 ?>
-<main id="vCambiarPassword">
+<main>
     <div class="container">
         <form method='post'>
             <fieldset class="main">

@@ -8,7 +8,7 @@
  * Contiene un formulario para introducir usuario y contraseña.
  */
 ?>
-<main id="vLogin">
+<main>
     <div class="container">
         <h1>Login</h1>
         <form method="post">

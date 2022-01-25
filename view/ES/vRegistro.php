@@ -8,9 +8,9 @@
  * Contiene un formulario para introducir los datos del nuevo usuario.
  */
 ?>
-<main id="vRegistro">
+<main>
     <div class="container">
-    <h2>Registro</h2>
+        <h1>Registro</h1>
         <form method="post">
             <fieldset>
                 <ul>

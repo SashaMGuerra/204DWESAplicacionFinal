@@ -7,7 +7,7 @@
  * Vista para mostrado de errores y excepciones.
  */
 ?>
-<main id="vError">
+<main>
     <div class="container">
         <h1>Error</h1>
         <h3>Ha sucedido el siguiente error:</h3>

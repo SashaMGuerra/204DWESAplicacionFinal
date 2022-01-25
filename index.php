@@ -29,9 +29,16 @@ session_start();
  * la lista de idiomas, modifica la cookie y recarga la página.
  */
 if (isset($_REQUEST['cookieLanguage']) && !validacionFormularios::validarElementoEnLista($_REQUEST['cookieLanguage'], ['ES', 'EN'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'wip';
+    header('Location: index.php');
+    exit;
+    
+    /*
     setcookie('language', $_REQUEST['cookieLanguage'], time()+60*60*24*30);
     header('Location: index.php');
     exit;
+     */
 }
 
 /*
@@ -39,17 +46,8 @@ if (isset($_REQUEST['cookieLanguage']) && !validacionFormularios::validarElement
  * si ha iniciado sesión. Si está, carga la privada, y si no, a la pública.
  */
 if(isset($_REQUEST['menuInicio'])){
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = isset($_SESSION['usuarioDAW204AppLoginLogout'])?'inicioPrivado':'inicioPublico';
-}
-
-// Si desde el menú el usuario desea acceder a iniciar sesión, lo hace.
-if(isset($_REQUEST['menuLogin'])){
-    $_SESSION['paginaEnCurso'] = 'login';
-}
-
-// Si desde el menú el usuario desea acceder a su cuenta, lo hace.
-if(isset($_REQUEST['menuMiCuenta'])){
-    $_SESSION['paginaEnCurso'] = 'miCuenta';
 }
 
 // Si no hay una página a cargar indicada, carga el login.

@@ -102,6 +102,9 @@ header nav form{
     align-items: center;
     gap: 20px;
 }
+header nav form button:first-of-type{
+    order: 100; /* Para que la bandera de idioma esté a la derecha. */
+}
 header button{
     font-size: x-large;
     border: none;
@@ -158,6 +161,22 @@ main button:hover{
     background: var(--blue);
 }
 
+/* Imagen sobre el footer que se mueve */
+.movingImage {
+    overflow: hidden;
+    display: block;
+}
+.slidingImage {
+    background: url("../media/img/footer.png") repeat-x;
+    height: 89px;
+    width: 6000px;
+    animation: slide 25s linear infinite;
+}
+@keyframes slide {
+    0% { transform: translate3d(0, 0, 0);}
+    100% { transform: translate3d(-2000px, 0, 0); }
+}
+
 /* Footer */
 footer{
     font-family: Ubuntu, sans-serif;
@@ -173,24 +192,6 @@ footer a:hover{
 }
 footer .container{
     text-align: center;
-}
-.movingImage{
-    display: none;
-    height: 80px;
-    background-image: url('../../webroot/media/img/footer.png');
-    background-size: auto 100%;
-    background-repeat: repeat-x;
-    background-position: 0 0;
-
-    animation: slide 10s linear infinite;
-}
-@keyframes slide {
-    0%{
-        transform: translate(0, 0);
-    }
-    100%{
-        transform: translate(-2243px, 0);
-    }
 }
 
 footer hr{
@@ -231,4 +232,14 @@ button{
 
 fieldset{
     border: none;
+}
+fieldset ul{
+    list-style: none;
+    padding: none;
+}
+
+.error{
+    font-size: small;
+    color: red;
+    text-align: justify;
 }

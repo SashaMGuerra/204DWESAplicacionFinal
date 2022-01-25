@@ -8,7 +8,7 @@
  * Tiene un botón para regresar al inicio.
  */
 ?>
-<main id="vWIP">
+<main>
     <div class="container">
         <h1>WIP</h1>
         <div>Se ha encontrado con una página aún en desarrollo.</div>

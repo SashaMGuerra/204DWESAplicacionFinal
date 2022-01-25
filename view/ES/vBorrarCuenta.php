@@ -7,7 +7,7 @@
  * Ventana de borrado de cuenta.
  */
 ?>
-<main id="vBorrarCuenta">
+<main>
     <div class="container">
         <form method="post">
             <h3>¿Está seguro que quiere borrar la cuenta?</h3>

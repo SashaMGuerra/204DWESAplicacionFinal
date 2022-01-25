@@ -7,7 +7,7 @@
  * Ventana de detalle.
  */
 ?>
-<main id="vDetalle">
+<main>
     <div class="container">
         <h1>Ventana de detalle</h1>
         <form method="post">
