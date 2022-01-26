@@ -17,6 +17,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <title>Aplicación Final</title>
         <link href="webroot/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="webroot/css/multiple.css" rel="stylesheet" type="text/css"/>
         <link href="webroot/css/v<?php echo ucfirst($_SESSION['paginaEnCurso']); ?>.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -43,21 +44,24 @@
         <footer>
             <div class="container">
                 <div>
-                    <button type="submit" form="layoutForm" name="tecnologias" value="tecnologias">Tecnologías</button>
                     <button type="submit" form="layoutForm" name="opiniones" value="opiniones">Ver opiniones</button>
                 </div>
                 <hr/>
                 <div class="info">
                     <a href="https://github.com/SashaMGuerra/204DWESAplicacionLoginLogout" target="_blank">
-                        <img src="webroot/media/img/github_logo_white.png" alt="repositorio">
+                        <img src="webroot/media/img/footer/github_logo_white.png" alt="repositorio">
                         <p>SashaMGuerra</p>
                     </a>
+                    <button type="submit" form="layoutForm" name="tecnologias" value="tecnologias">
+                        <img src="webroot/media/img/footer/php.png" alt="repositorio">
+                        <p>Tecnologías</p>
+                    </button>
                     <a href="doc/index.html">
-                        <img src="webroot/media/img/doc.png" alt="phpdoc">
+                        <img src="webroot/media/img/footer/doc.png" alt="phpdoc">
                         <p>Documentación</p>
                     </a>
                     <button type="submit" form="layoutForm" name="rss" value="rss">
-                        <img src="webroot/media/img/rss_white.png" alt="rss"/>
+                        <img src="webroot/media/img/footer/rss_white.png" alt="rss"/>
                         <p>RSS</p>
                     </button>
                     <div class="placedate">

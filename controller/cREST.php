@@ -46,6 +46,15 @@ else {
  * mostrará al usuario la palabra o un mensaje de error.
  */
 if ($bEntradaOK) {
+    // Si la palabra tiene letras con caracteres especiales, los sustituye.
+    $sPalabra = $_REQUEST['word'];
+    $sPalabra = str_replace(['á', 'à', 'â'], 'a', $sPalabra);
+    $sPalabra = str_replace(['é', 'è', 'ê'], 'e', $sPalabra);
+    $sPalabra = str_replace(['í', 'ì', 'î'], 'i', $sPalabra);
+    $sPalabra = str_replace(['ó', 'ò', 'ô'], 'o', $sPalabra);
+    $sPalabra = str_replace(['ú', 'ù', 'û', 'ü'], 'u', $sPalabra);    
+    $_REQUEST['word'] = $sPalabra;
+    
     $devolucion = REST::buscarPalabra($_REQUEST['language'], $_REQUEST['word']);
 }
 

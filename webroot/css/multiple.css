@@ -1,0 +1,24 @@
+/* 
+    Created on : 26 ene. 2022, 16:48:50
+    Author     : Sasha
+*/
+
+/* Estilos comunes para algunas vistas, pero no todas. */
+
+
+/* Main con título y formulario de regreso */
+main div.mainH1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+main div.mainH1 h1{
+    grid-column: 1/-1;
+    grid-row: 1;
+}
+main div.mainH1 > div{
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: right;
+}

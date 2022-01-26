@@ -50,6 +50,12 @@ if(isset($_REQUEST['menuInicio'])){
     $_SESSION['paginaEnCurso'] = isset($_SESSION['usuarioDAW204AppLoginLogout'])?'inicioPrivado':'inicioPublico';
 }
 
+// Si desde el footer el usuario quiere ir a la página de tecnologías, va.
+if(isset($_REQUEST['tecnologias'])){
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'tecnologias';
+}
+
 // Si no hay una página a cargar indicada, carga el login.
 if(!isset($_SESSION['paginaEnCurso'])){
     $_SESSION['paginaEnCurso'] = 'inicioPublico';

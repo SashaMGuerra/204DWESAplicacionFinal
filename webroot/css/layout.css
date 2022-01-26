@@ -79,7 +79,7 @@ header .container{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
-    min-height: 100px;
+    min-height: 90px;
 }
 header .container .logo{
     justify-self: left;
@@ -93,6 +93,11 @@ header .container h1{
 header .container h2{
     font-size: smaller;
     color: var(--lightblue);
+}
+@media (max-width: 820px){
+    header .container h2{
+        display: none;
+    }
 }
 header .container nav{
     width: 75%;
@@ -173,7 +178,7 @@ main button:hover{
     margin-top: 30px;
 }
 .slidingImage {
-    background: url("../media/img/footer.png") repeat-x;
+    background: url("../media/img/footer/footer.png") repeat-x;
     height: 89px;
     width: 6000px;
     animation: slide 25s linear infinite;
@@ -189,7 +194,19 @@ footer{
     background-color: var(--dark);
     color: white;
 }
-
+footer .container{
+    text-align: center;
+}
+footer hr{
+    border: 1px var(--pink) outset;
+}
+footer .info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
 footer button,
 footer a{
     color: var(--pink);
@@ -201,21 +218,6 @@ footer button:hover,
 footer a:hover{
     font-weight: bold;
 }
-footer .container{
-    text-align: center;
-}
-footer hr{
-    border: 1px var(--pink) outset;
-}
-footer .info{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px;
-}
-footer .info .placedate{
-    text-align: right;
-}
 footer button img,
 footer a img{
     height: 50px;
@@ -226,8 +228,22 @@ footer a:hover img{
     height: 60px;
 }
 footer p{
-    margin: 5px;
+    font-family: Ubuntu, sans-serif;
+    font-size: medium;
+    margin: 3px 0 5px;
 }
+@media (max-width: 820px){
+    footer .info .placedate{
+        flex-basis: 100%;
+    }
+}
+@media (min-width: 820px){
+    footer .info .placedate{
+        text-align: right;
+    }
+}
+
+
 
 footer .container > div:last-of-type{
     font-size: small;

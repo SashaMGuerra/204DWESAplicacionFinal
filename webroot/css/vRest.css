@@ -3,30 +3,62 @@
     Author     : Sasha
 */
 
-main form{    
+h2{
+    text-align: center;
+}
+h2 sup{
+    font-size: small;
+    position: relative;
+    cursor: help;
+}
+sup + span{
+    position: absolute;
+    background-color: var(--lightpink);
+    font-size: small;
+    font-weight: normal;
+    padding: 5px;
+    max-width: 150px;
+    border-radius: 5px;
+    cursor: help;
+    text-align: justify;
+    
+    display: none;
+}
+sup + span:hover{
+    display: initial;
+}
+sup:hover + span{
+    display: initial;
 }
 
-main form fieldset:first-of-type{
+.diccionario form fieldset:first-of-type{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-
-main form fieldset:last-of-type{
+.diccionario form fieldset:last-of-type{
     width: 50%;
     margin: auto;
     display: flex;
     justify-content: space-around;
 }
-
-main form,
-main .palabra{
+.diccionario form,
+.diccionario .palabra{
     margin: 5px 0;
 }
-
-main .palabra span{
+.diccionario .palabra > div:first-of-type{
+    margin: 10px auto;
+}
+.diccionario .palabra li{
+    margin-bottom: 7px;
+}
+.diccionario .palabra span{
     display: block;
     text-align: center;
+}
+.diccionario .palabra .sinant{
+    font-size: smaller;
+    margin-left: 15px;
 }

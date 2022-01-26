@@ -1,0 +1,19 @@
+/* 
+    Created on : 26 ene. 2022, 16:41:49
+    Author     : Usuario
+*/
+
+body{
+    box-sizing: border-box;
+}
+
+section{
+    margin-top: 5px;
+    height: 95%;
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}

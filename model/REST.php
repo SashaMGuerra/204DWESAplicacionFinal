@@ -30,7 +30,7 @@ class REST{
         
         $devuelto = $sDevolucion?json_decode($sDevolucion)[0]:'No se han obtenido resultados.';
         if(is_object($devuelto)){
-            return new RESTPalabra($devuelto->word, $devuelto->origin??'' , $devuelto->meanings);
+            return new RESTPalabra($devuelto->word, $devuelto->origin??'no indicado.' , $devuelto->meanings);
         }
         else{
             return 'No se han encontrado resultados.';

@@ -9,10 +9,12 @@
 ?>
 <main>
     <div class="container">
-        <div class="menuPrivado">
+        <div class="mainH1">
             <h1>Inicio</h1>
-            <button type="submit" form="formInicio" name="miCuenta" value="miCuenta">Ver perfil</button>
-            <button type="submit" form="formInicio" name="logout" value="logout">Cerrar sesión</button>
+            <div>
+                <button type="submit" form="formInicio" name="miCuenta" value="miCuenta">Ver perfil</button>
+                <button type="submit" form="formInicio" name="logout" value="logout">Cerrar sesión</button>
+            </div>
         </div>
         <section>
             <div class="bienvenida">Bienvenid@ <span class="user"><?php echo $aVInicioPrivado['descUsuario']; ?></span>, esta es la <?php echo $aVInicioPrivado['numAccesos']; ?>ª vez que se conecta<?php
