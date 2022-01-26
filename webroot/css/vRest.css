@@ -1,0 +1,32 @@
+/* 
+    Created on : 26 ene. 2022, 9:42:40
+    Author     : Sasha
+*/
+
+main form{    
+}
+
+main form fieldset:first-of-type{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+main form fieldset:last-of-type{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+main form,
+main .palabra{
+    margin: 5px 0;
+}
+
+main .palabra span{
+    display: block;
+    text-align: center;
+}

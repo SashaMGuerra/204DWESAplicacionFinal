@@ -8,14 +8,6 @@
  * Requiere la vista del login.
  */
 
-// Si se cancela la operación de login, regresa al inicio público.
-if(isset($_REQUEST['cancelar'])){
-    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-    $_SESSION['paginaEnCurso'] = 'inicioPublico';
-    header('Location: index.php');
-    exit;
-}
-
 // Si se desea acceder a la página de registro, la indica y recarga el index.
 if(isset($_REQUEST['registrarse'])){
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];

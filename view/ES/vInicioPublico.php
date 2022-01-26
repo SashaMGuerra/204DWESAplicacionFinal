@@ -16,9 +16,6 @@
         <section>
             <form method="post">
                 <button type="submit" name="login" value="login">Iniciar sesión</button>
-                <button type="submit" name="tecnologias" value="tecnologias">Tecnologías</button>
-                <button type="submit" name="rss" value="rss">RSS</button>
-                <button type="submit" name="opiniones" value="opiniones">Ver opiniones</button>
             </form>
         </section>
     </div>

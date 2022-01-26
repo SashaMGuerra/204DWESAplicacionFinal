@@ -1,13 +1,12 @@
 <?php
 /**
+ * Clase que crea y utiliza errores generados en el uso de la aplicación
+ * (excepciones).
+ * 
  * @author Sasha
  * @since 12/01/2022
  * @version 2.1
- * 
- * Clase que crea y utiliza errores generados en el uso de la aplicación
- * (excepciones).
  */
-
 class AppError{
     private $codError;
     private $descError;

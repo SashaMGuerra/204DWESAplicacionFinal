@@ -20,7 +20,6 @@
             </fieldset>
             <fieldset class="submit">
                 <button type="submit" name="login" id="login" value="login">Iniciar sesión</button>
-                <button type="submit" name="cancelar" id="cancelar" value="cancelar">Cancelar</button>
                 <button type="submit" name="registrarse" id="registrarse" value="registrarse">Registrarse</button>
             </fieldset>
         </form>

@@ -1,0 +1,24 @@
+/* 
+    Created on : 26 ene. 2022, 8:29:42
+    Author     : Sasha
+*/
+
+
+main form{
+    margin-top: 3%;
+}
+
+main form fieldset:first-of-type{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+main form fieldset:last-of-type{
+    display: flex;
+    justify-content: space-around;
+    max-width: 400px;
+    margin: auto;
+}

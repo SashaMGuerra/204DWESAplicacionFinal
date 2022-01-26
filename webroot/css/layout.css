@@ -26,6 +26,10 @@
     font-family: "LibreBaskerville";
     src: url("fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf");
 }
+@font-face{
+    font-family: "LibreBaskerville Bold";
+    src: url("fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf");
+}
 
 *{
     margin: 0;
@@ -165,6 +169,8 @@ main button:hover{
 .movingImage {
     overflow: hidden;
     display: block;
+    min-height: 89px;
+    margin-top: 30px;
 }
 .slidingImage {
     background: url("../media/img/footer.png") repeat-x;
@@ -183,17 +189,21 @@ footer{
     background-color: var(--dark);
     color: white;
 }
+
+footer button,
 footer a{
     color: var(--pink);
     text-decoration: none;
+    background: none;
+    border: none;
 }
+footer button:hover,
 footer a:hover{
     font-weight: bold;
 }
 footer .container{
     text-align: center;
 }
-
 footer hr{
     border: 1px var(--pink) outset;
 }
@@ -203,18 +213,17 @@ footer .info{
     align-items: center;
     margin-top: 5px;
 }
-footer .info .author{
-    text-align: left;
-}
 footer .info .placedate{
     text-align: right;
 }
+footer button img,
 footer a img{
-    width: 50px;
+    height: 50px;
     transition: .2s ease-in-out;
 }
+footer button:hover img,
 footer a:hover img{
-    width: 60px;
+    height: 60px;
 }
 footer p{
     margin: 5px;
@@ -236,6 +245,35 @@ fieldset{
 fieldset ul{
     list-style: none;
     padding: none;
+}
+
+main form input{
+    font-size: medium;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px  var(--pink) ridge;
+    color: var(--dark);
+}
+main form input:focus{
+    background-color: var(--lightpink);
+    outline: 1px var(--blue) ridge;
+    border: 2px var(--blue) ridge;
+}
+main form input:disabled{
+    background-color: var(--lightestblue);
+    border: 2px var(--blue) ridge;
+}
+main form select{
+    padding: 3px;
+}
+
+input,
+select{
+    font-family: Ubuntu, sans-serif;
+}
+
+label{
+    font-family: 'LibreBaskerville Bold', sans-serif;
 }
 
 .error{

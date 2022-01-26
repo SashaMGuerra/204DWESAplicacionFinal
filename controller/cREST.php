@@ -43,18 +43,16 @@ else {
 /*
  * Si la entrada es válida, llama a la api con el idioma y palabra indicados.
  * Según si la devolución ha sido correcta (ha devuelto la palabra) o no (warning)
- * , mostrará al usuario la palabra o un mensaje de error.
+ * mostrará al usuario la palabra o un mensaje de error.
  */
 if ($bEntradaOK) {
-    // El @ suprime el warning que sale si la búsqueda no tiene contenido.
-    $sDevuelto = @file_get_contents("https://api.dictionaryapi.dev/api/v2/entries/{$_REQUEST['language']}/{$_REQUEST['word']}");
-    $sDevuelto = $sDevuelto?json_decode($sDevuelto)[0]:'No se han obtenido resultados.';
+    $devolucion = REST::buscarPalabra($_REQUEST['language'], $_REQUEST['word']);
 }
 
 $aVREST = [
     'word' => $_REQUEST['word'] ?? '',
     'language' => $_REQUEST['language'] ?? '',
-    'resultado' => !empty($sDevuelto)?$sDevuelto:'' // Si es la primera vez que se carga la página, no hay ningún resultado.
+    'resultado' => !empty($devolucion)?$devolucion:'' // Si es la primera vez que se carga la página, no hay ningún resultado.
 ];
 
 /*

@@ -9,8 +9,8 @@
 ?>
 <main>
     <div class="container">
-        <h1>Inicio</h1>
-        <div>
+        <div class="menuPrivado">
+            <h1>Inicio</h1>
             <button type="submit" form="formInicio" name="miCuenta" value="miCuenta">Ver perfil</button>
             <button type="submit" form="formInicio" name="logout" value="logout">Cerrar sesión</button>
         </div>
