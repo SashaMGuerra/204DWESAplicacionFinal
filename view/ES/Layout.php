@@ -19,6 +19,7 @@
         <link href="webroot/css/layout.css" rel="stylesheet" type="text/css"/>
         <link href="webroot/css/multiple.css" rel="stylesheet" type="text/css"/>
         <link href="webroot/css/v<?php echo ucfirst($_SESSION['paginaEnCurso']); ?>.css" rel="stylesheet" type="text/css"/>
+        <script src="webroot/js/vMiCuenta.js" type="text/javascript"></script>
     </head>
     <body>
         <header>

@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Isabel Martínez Guerra
+ * @author Sasha
  * @since 21/12/2021
  * @version 1.0
  * 

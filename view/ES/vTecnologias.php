@@ -2,7 +2,7 @@
 /*
  * @author Sasha
  * @since 26/01/2022
- * @version 2.1
+ * @version 1.0
  * 
  * Ventana con información sobre las tecnologías utilizadas.
  */

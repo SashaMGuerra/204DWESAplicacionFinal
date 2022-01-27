@@ -1,10 +1,11 @@
 <?php
 /**
+ * Interfaz para conexión con la base de datos y ejecución de consultas sobre la misma.
+ * 
+ * @package AppFinal
  * @author Sasha
  * @since 23/12/2021
  * @version 1.0
- * 
- * Interfaz para conexión con la base de datos y ejecución de consultas sobre la misma.
  */
 interface DB{
     /**

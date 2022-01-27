@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-    Autor: Isabel Martínez Guerra
+    Autor: Sasha
     Fecha: 29/11/2021
 -->
 <html lang="es">
@@ -12,7 +12,7 @@
         <h1>Script de eliminación de tablas</h1>
         <?php
         /**
-         * @author Isabel Martínez Guerra
+         * @author Sasha
          * @since 28/11/2021
          * 
          * Fichero de eliminación de las tablas del proyecto Login Logoff Tema 5.

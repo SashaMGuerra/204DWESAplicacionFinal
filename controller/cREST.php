@@ -52,7 +52,8 @@ if ($bEntradaOK) {
     $sPalabra = str_replace(['é', 'è', 'ê'], 'e', $sPalabra);
     $sPalabra = str_replace(['í', 'ì', 'î'], 'i', $sPalabra);
     $sPalabra = str_replace(['ó', 'ò', 'ô'], 'o', $sPalabra);
-    $sPalabra = str_replace(['ú', 'ù', 'û', 'ü'], 'u', $sPalabra);    
+    $sPalabra = str_replace(['ú', 'ù', 'û', 'ü'], 'u', $sPalabra);   
+    $sPalabra = str_replace(['ñ'], 'n', $sPalabra); 
     $_REQUEST['word'] = $sPalabra;
     
     $devolucion = REST::buscarPalabra($_REQUEST['language'], $_REQUEST['word']);

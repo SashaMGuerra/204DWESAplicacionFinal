@@ -3,6 +3,23 @@
     Author     : Sasha
 */
 
+footer *{
+    text-align: center;
+}
+
+main h3{
+    text-align: center;
+}
+main .container{
+    overflow-wrap: break-word;
+}
+
+table{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
 a:link{
     background-color: transparent;
 }

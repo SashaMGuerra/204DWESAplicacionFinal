@@ -2,19 +2,23 @@
 /*
  * @author Sasha
  * @since 12/01/2022
- * @version 2.1
+ * @version 1.0
  * 
  * Ventana de detalle.
  */
 ?>
 <main>
     <div class="container">
-        <h1>Ventana de detalle</h1>
-        <form method="post">
-            <fieldset class="submit">
-                <button type="submit" name="volver" value="volver">Volver</button>
-            </fieldset>
-        </form>
+        <div class="mainH1">
+            <h1>Ventana de detalle</h1>
+            <div>
+                <form method="post">
+                    <fieldset class="submit">
+                        <button type="submit" name="volver" value="volver">Volver</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
         <hr>
         <h3>$_SESSION</h3>
         <table>
@@ -87,5 +91,5 @@
         phpinfo();
         ?>
     </div>
-    
+
 </main>

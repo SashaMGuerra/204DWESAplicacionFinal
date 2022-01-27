@@ -2,7 +2,7 @@
 /**
  * @author Sasha
  * @since 17/01/2022
- * @version 3.0
+ * @version 1.0
  * 
  * Controlador de la ventana de miCuenta.
  * Permite ver y modificar información sobre el usuario, acceder al cambio de

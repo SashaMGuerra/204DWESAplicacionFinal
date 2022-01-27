@@ -22,3 +22,11 @@ main div.mainH1 > div{
     grid-row: 1;
     justify-self: right;
 }
+
+/* Botones de enviar/cancelar de formularios */
+fieldset.submit{
+    display: flex;
+    justify-content: space-around;
+    max-width: 400px;
+    margin: auto;
+}

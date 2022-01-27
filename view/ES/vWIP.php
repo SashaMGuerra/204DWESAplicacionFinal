@@ -2,7 +2,7 @@
 /* 
  * @author Sasha
  * @since 12/01/2022
- * @version 2.1
+ * @version 1.0
  * 
  * Vista para páginas en desarrollo.
  * Tiene un botón para regresar al inicio.

@@ -3,7 +3,45 @@
     Author     : Sasha
 */
 
-main img{
-    height: 175px;
+main .container{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    height: fit-content;
 }
+
+main .mainH1{
+    grid-row: 1;
+    grid-column: 1/-1;
+}
+
+main aside{
+    grid-column: 1;
+    grid-row: 1/-1;
+}
+main aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+main aside form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}
+
+main aside img{
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 15px;
+}
+
+main section{
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
 

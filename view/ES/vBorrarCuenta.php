@@ -2,7 +2,7 @@
 /*
  * @author Sasha
  * @since 20/01/2022
- * @version 3.0
+ * @version 1.0
  * 
  * Ventana de borrado de cuenta.
  */

@@ -2,7 +2,7 @@
 /**
  * @author Sasha
  * @since 12/01/2022
- * @version 2.1
+ * @version 1.0
  * 
  * Controlador de la ventana de detalle.
  * Muestra phpInfo y variables superglobales.

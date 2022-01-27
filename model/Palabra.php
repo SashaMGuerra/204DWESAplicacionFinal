@@ -11,10 +11,10 @@
  * @since 26/01/2022
  * @version 1.0
  */
-class RESTPalabra{
-    public $palabra;
-    public $origen;
-    public $significados;
+class Palabra{
+    public String $palabra;
+    public String $origen;
+    public Array $significados;
     
     /**
      * Constructor de objetos palabra.

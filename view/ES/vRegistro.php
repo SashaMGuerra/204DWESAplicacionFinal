@@ -2,7 +2,7 @@
 /*
  * @author Sasha
  * @since 04/01/2022
- * @version 2.0
+ * @version 1.0
  * 
  * Vista del registro.
  * Contiene un formulario para introducir los datos del nuevo usuario.
@@ -21,7 +21,7 @@
                 <input class="obligatorio" type='password' name='password' id='password'/>
                 <div class="error"><?php echo $sError; ?></div>
             </fieldset>
-            <fieldset>
+            <fieldset class="submit">
                 <button type="submit" name="anadirUsuario" value="anadirUsuario">Crear usuario</button>
                 <button type="submit" name="cancelar" value="cancelar">Cancelar</button>
             </fieldset>

@@ -21,8 +21,8 @@ class REST{
      * @param String $idioma Código de dos letras del idioma en que buscar la palabra.
      * No todos los idiomas funcionan.
      * @param String $palabra Palabra a buscar en el diccionario.
-     * @return Palabra|boolean Objeto con información sobre la palabra si la encuentra,
-     * o false si no lo hace.
+     * @return Palabra|String Objeto con información sobre la palabra si la encuentra,
+     * o un mensaje de error si no lo hace.
      */
     function buscarPalabra($idioma, $palabra){
         // El @ suprime el warning que sale si la búsqueda no tiene contenido.
@@ -30,7 +30,7 @@ class REST{
         
         $devuelto = $sDevolucion?json_decode($sDevolucion)[0]:'No se han obtenido resultados.';
         if(is_object($devuelto)){
-            return new RESTPalabra($devuelto->word, $devuelto->origin??'no indicado.' , $devuelto->meanings);
+            return new Palabra($devuelto->word, $devuelto->origin??'no indicado.' , $devuelto->meanings);
         }
         else{
             return 'No se han encontrado resultados.';

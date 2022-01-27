@@ -1,10 +1,11 @@
 <?php
 /* 
+ * Fichero de configuración de aplicación.
+ * 
+ * @package AppFinal
  * @author Sasha
  * @since 15/11/2021
  * @version 1.0
- * 
- * Fichero de configuración de aplicación.
  */
 
 // Librería de validación de formularios.
@@ -25,7 +26,7 @@ require_once 'model/DB.php';
 require_once 'model/DBPDO.php';
 require_once 'model/AppError.php';
 require_once 'model/REST.php';
-require_once 'model/RESTPalabra.php';
+require_once 'model/Palabra.php';
 
 // Directorios de los controladores.
 $aControladores = [

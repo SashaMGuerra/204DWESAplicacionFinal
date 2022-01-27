@@ -9,8 +9,13 @@
 ?>
 <main>
     <div class="container">
-        <h1>Mi cuenta</h1>
-        <form method="post" enctype="multipart/form-data">
+        <div class="mainH1">
+            <h1>Mi cuenta</h1>
+            <div>
+                <button type="submit" form="cuentaForm" name='eliminarCuenta' value='eliminarCuenta'>Eliminar cuenta</button>
+            </div>
+        </div>
+        <form id="cuentaForm" method="post" enctype="multipart/form-data">
             <fieldset class="main">
                 <div class="input">
                     <label for='usuario'>Nombre de usuario</label>
@@ -22,19 +27,19 @@
                     <div class="error"><?php echo $aErrores['descripcion'] ?></div>
                 </div>
                 <div class="input">
+                    <label for='perfil'>Perfil de usuario</label>
+                    <input type='text' name='perfil' id='perfil' value="<?php echo $aVMiCuenta['perfil'] ?>" disabled/>
+                </div>
+                <div class="input password">
+                    <button type="submit" name="cambiarPassword" value="cambiarPassword">Cambiar contraseña</button>
+                </div>
+                <div class="input">
                     <label for='numConexiones'>Número de conexiones</label>
                     <input type='text' name='numConexiones' id='numConexiones' value="<?php echo $aVMiCuenta['numConexiones'] ?>" disabled/>
                 </div>
                 <div class="input">
                     <label for='fechaHoraUltimaConexion'>Fecha-hora de última conexión</label>
                     <input type='text' name='fechaHoraUltimaConexion' id='fechaHoraUltimaConexion' value="<?php echo $aVMiCuenta['fechaHoraUltimaConexion'] ?>" disabled/>
-                </div>
-                <div class="input">
-                    <label for='perfil'>Perfil de usuario</label>
-                    <input type='text' name='perfil' id='perfil' value="<?php echo $aVMiCuenta['perfil'] ?>" disabled/>
-                </div>
-                <div class="input password">
-                    <button type="submit" name="cambiarPassword" value="cambiarPassword">Cambiar contraseña</button>
                 </div>
                 <div class="input imagen">
                     <label for='imagenUsuario'>Imagen de usuario</label>
@@ -51,16 +56,13 @@
                     </div>
                         <?php }
                     ?>
-                    <input type='file' name='imagenUsuario' id='imagenUsuario' accept=".jpg,.jpeg,.png"/>
+                    <input type='file' name='imagenUsuario' id='imagenUsuario' accept=".jpg,.jpeg,.png" onchange="inputFile(this)"/>
                     <div class="error"><?php echo $aErrores['imagenUsuario'] ?></div>
                 </div>
             </fieldset>
             <fieldset class="submit">
                 <button type="submit" name='aceptar' value='aceptar'>Efectuar cambios</button>
                 <button type="submit" name='cancelar' value='cancelar'>Cancelar</button>
-            </fieldset>
-            <fieldset class="eliminar">
-                <button class="peligro" type="submit" name='eliminarCuenta' value='eliminarCuenta'>Eliminar cuenta</button>
             </fieldset>
         </form>
     </div>

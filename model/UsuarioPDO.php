@@ -4,17 +4,7 @@
  * 
  * Funciones de conexión con la base de datos para modificación de usuarios.
  * 
- * @author Sasha
- * @since 23/12/2021
- * @version 1.0
- */
-
-/**
- * Conexión de usuarios con la base de datos mediante PDO.
- * 
- * Funciones de conexión con la base de datos para modificación de usuarios.
- * 
- * @package LoginLogout
+ * @package AppFinal
  * @author Sasha
  * @since 23/12/2021
  * @version 1.0

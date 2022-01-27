@@ -2,7 +2,7 @@
 /**
  * @author Sasha
  * @since 04/01/2022
- * @version 2.0
+ * @version 1.0
  * 
  * Controlador de la página de registro.
  * Requiere la vista del registro.
