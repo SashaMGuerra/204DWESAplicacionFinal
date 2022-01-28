@@ -1,53 +1,47 @@
 /* 
-    Created on : 23 dic. 2021, 14:24:07
+    Created on : 26 ene. 2022, 13:24:31
     Author     : Sasha
 */
 
-#vHeaderInicioPrivado #showmenu{
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+main .container{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    height: fit-content;
 }
 
-#vHeaderInicioPrivado #menu button{
-    font-size: medium;
+main .mainH1{
+    grid-row: 1;
+    grid-column: 1/-1;
 }
 
-/* Imagen de usuario*/
-#vInicioPrivado aside img{
-    max-height: 300px;
-    max-width: 300px;
+main aside{
+    grid-column: 1;
+    grid-row: 1/-1;
 }
-
-#vInicioPrivado{
-    margin: auto;
+main aside{
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
-@media (min-width: 720px){
-    #vInicioPrivado{
-        flex-direction: row;
-    }
-}
-@media (max-width: 720px){
-    #vInicioPrivado{
-        flex-direction: column;
-        align-items: center;
-    }
-    #vInicioPrivado aside{
-        order: -1;
-    }
-}
-#vInicioPrivado > *{
-    margin: 10px;
+main aside form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
 }
 
-#vInicioPrivado div.bienvenida{
+main aside img{
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 15px;
+}
+
+main section{
     text-align: center;
-}
-
-#vInicioPrivado span{
-    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 
 

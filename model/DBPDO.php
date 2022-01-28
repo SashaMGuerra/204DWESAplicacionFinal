@@ -1,10 +1,11 @@
 <?php
 /**
+ * Clase para conexión con la base de datos y ejecución de consultas mediante PDO.
+ * 
+ * @package AppFinal
  * @author Sasha
  * @since 23/12/2021
  * @version 1.0
- * 
- * Clase para conexión con la base de datos y ejecución de consultas mediante PDO.
  */
 class DBPDO implements DB{
     /**

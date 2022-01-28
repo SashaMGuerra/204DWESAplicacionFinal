@@ -2,7 +2,7 @@
 /**
  * @author Sasha
  * @since 18/01/2022
- * @version 3.0
+ * @version 1.0
  * 
  * Controlador de la ventana de cambio de contraseña.
  */

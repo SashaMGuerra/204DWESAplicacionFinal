@@ -1,10 +1,11 @@
 <?php
 /* 
+ * Fichero de configuración de aplicación.
+ * 
+ * @package AppFinal
  * @author Sasha
  * @since 15/11/2021
  * @version 1.0
- * 
- * Fichero de configuración de aplicación.
  */
 
 // Librería de validación de formularios.
@@ -24,6 +25,8 @@ require_once 'model/UsuarioPDO.php';
 require_once 'model/DB.php';
 require_once 'model/DBPDO.php';
 require_once 'model/AppError.php';
+require_once 'model/REST.php';
+require_once 'model/Palabra.php';
 
 // Directorios de los controladores.
 $aControladores = [
@@ -35,21 +38,25 @@ $aControladores = [
     'cambiarPassword' => 'controller/cCambiarPassword.php',
     'borrarCuenta' => 'controller/cBorrarCuenta.php',
     'detalle' => 'controller/cDetalle.php',
+    'tecnologias' => 'controller/cTecnologias.php',
+    'rest' => 'controller/cREST.php',
     'wip' => 'controller/cWIP.php',
     'error' => 'controller/cError.php'
 ];
 
 // Directorios de las vistas.
 $aVistas = [
-    'inicioPublico' => 'view/vInicioPublico.php',
-    'layout' => 'view/Layout.php',
-    'login' => 'view/vLogin.php',
-    'inicioPrivado' => 'view/vInicioPrivado.php',
-    'registro' => 'view/vRegistro.php',
-    'miCuenta' => 'view/vMiCuenta.php',
-    'cambiarPassword' => 'view/vCambiarPassword.php',
-    'borrarCuenta' => 'view/vBorrarCuenta.php',
-    'detalle' => 'view/vDetalle.php',
-    'wip' => 'view/vWIP.php',
-    'error' => 'view/vError.php'
+    'inicioPublico' => 'view/'.$_COOKIE['language'].'/vInicioPublico.php',
+    'layout' => 'view/'.$_COOKIE['language'].'/Layout.php',
+    'login' => 'view/'.$_COOKIE['language'].'/vLogin.php',
+    'inicioPrivado' => 'view/'.$_COOKIE['language'].'/vInicioPrivado.php',
+    'registro' => 'view/'.$_COOKIE['language'].'/vRegistro.php',
+    'miCuenta' => 'view/'.$_COOKIE['language'].'/vMiCuenta.php',
+    'cambiarPassword' => 'view/'.$_COOKIE['language'].'/vCambiarPassword.php',
+    'borrarCuenta' => 'view/'.$_COOKIE['language'].'/vBorrarCuenta.php',
+    'detalle' => 'view/'.$_COOKIE['language'].'/vDetalle.php',
+    'tecnologias' => 'view/'.$_COOKIE['language'].'/vTecnologias.php',
+    'rest' => 'view/'.$_COOKIE['language'].'/vREST.php',
+    'wip' => 'view/'.$_COOKIE['language'].'/vWIP.php',
+    'error' => 'view/'.$_COOKIE['language'].'/vError.php'
 ];

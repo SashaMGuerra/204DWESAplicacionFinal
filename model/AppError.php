@@ -1,13 +1,13 @@
 <?php
 /**
- * @author Sasha
- * @since 12/01/2022
- * @version 2.1
- * 
  * Clase que crea y utiliza errores generados en el uso de la aplicación
  * (excepciones).
+ * 
+ * @package AppFinal
+ * @author Sasha
+ * @since 12/01/2022
+ * @version 1.0
  */
-
 class AppError{
     private $codError;
     private $descError;
@@ -42,7 +42,5 @@ class AppError{
     function getPaginaSiguiente() {
         return $this->paginaSiguiente;
     }
-
-
 }
 

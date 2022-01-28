@@ -1,34 +1,17 @@
 /* 
-    Created on : 23 dic. 2021, 14:24:07
+    Created on : 26 ene. 2022, 8:29:42
     Author     : Sasha
 */
 
-#vHeaderLogin{
+
+main form{
+    margin-top: 3%;
+}
+
+main form fieldset:first-of-type{
     display: flex;
-    flex-flow: column;
-}
-#vHeaderLogin > *{
-    display: block;
-}
-
-#vLogin {
-    
-}
-
-#vLogin fieldset:first-of-type{
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 20px;
-    max-width: 150px;
-    margin: auto;
-    display: flex;
-    flex-flow: column;
-    gap: 10px;
-    text-align: center;
-}
-
-#vLogin fieldset:first-of-type input{
-    border: none;
-    border-bottom: 1px solid black;
-    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
 }

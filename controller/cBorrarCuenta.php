@@ -2,7 +2,7 @@
 /**
  * @author Sasha
  * @since 20/01/2022
- * @version 3.0
+ * @version 1.0
  * 
  * Controlador de la ventana de borrar cuenta..
  * Muestra una confirmación para borrar la cuenta.

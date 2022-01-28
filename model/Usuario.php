@@ -1,10 +1,11 @@
 <?php
 /**
+ * Clase que crea y utiliza usuarios en la aplicación.
+ * 
+ * @package AppFinal
  * @author Sasha
  * @since 23/12/2021
  * @version 1.0
- * 
- *  * Clase que crea y utiliza usuarios en la aplicación.
  */
 class Usuario{
     private $codUsuario;

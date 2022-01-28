@@ -1,45 +1,16 @@
 /* 
-    Created on : 04 ene. 2022
+    Created on : 26 ene. 2022, 13:15:37
     Author     : Sasha
 */
 
-#vHeaderRegistro{
+main form{
+    margin-top: 3%;
+}
+
+main form fieldset:first-of-type{
     display: flex;
-    flex-flow: column;
-}
-#vHeaderRegistro > *{
-    display: block;
-}
-
-#vRegistro form{
-    
-}
-
-#vRegistro form ul{
-    list-style: none;
-    padding: 0;
-}
-
-#vRegistro fieldset:first-of-type{
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 20px;
-    max-width: 150px;
-    margin: auto;
-    display: flex;
-    flex-flow: column;
-    gap: 10px;
-    text-align: center;
-}
-
-#vRegistro fieldset:first-of-type input{
-    border: none;
-    border-bottom: 1px solid black;
-    padding: 10px;
-}
-
-#vRegistro div.error{
-    text-align: justify;
-    font-size: small;
-    color: red;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
 }

@@ -7,26 +7,26 @@
  * Constantes para la conexión con la base de datos mediante PDO.
  */
 
+/*
 // Desarrollo - sauces.
-define('HOST', 'mysql:host=daw204.sauces.local;dbname=DB204DWESLoginLogout');
-define('USER', 'User204DWESLoginLogout');
+define('HOST', 'mysql:host=daw204.sauces.local;dbname=DB204DWESAplicacionFinal');
+define('USER', 'User204DWESAplicacionFinal');
 define('PASSWORD', 'paso');
+ * 
+ */
 
 // Desarrollo - Instituto, máquina virtual.
 /*
-define('HOST', 'mysql:host=192.168.3.104;dbname=DB204DWESLoginLogout');
-define('USER', 'User204DWESLoginLogout');
+define('HOST', 'mysql:host=192.168.3.104;dbname=DB204DWESAplicacionFinal');
+define('USER', 'User204DWESAplicacionFinal');
 define('PASSWORD', 'paso');
  * 
  */
 
-/*
 // Desarrollo - Casa.
-define('HOST', 'mysql:host=192.168.1.30;dbname=DB204DWESLoginLogout');
-define('USER', 'User204DWESLoginLogout');
+define('HOST', 'mysql:host=192.168.1.30;dbname=DB204DWESAplicacionFinal');
+define('USER', 'User204DWESAplicacionFinal');
 define('PASSWORD', 'paso');
- * 
- */
 
 /*
 // Explotación - 1 & 1;

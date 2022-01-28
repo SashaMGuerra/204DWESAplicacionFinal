@@ -6,9 +6,9 @@
  */
 
 /* Creación de la base de datos */
-CREATE DATABASE IF NOT EXISTS DB204DWESLoginLogout;
+CREATE DATABASE IF NOT EXISTS DB204DWESAplicacionFinal;
 
-USE DB204DWESLoginLogout;
+USE DB204DWESAplicacionFinal;
 
 /* Creación de las tablas */
 CREATE TABLE IF NOT EXISTS T01_Usuario(
@@ -30,5 +30,5 @@ CREATE TABLE IF NOT EXISTS T02_Departamento(
 ) ENGINE=INNODB;
 
 /* Creación del usuario */
-CREATE USER IF NOT EXISTS 'User204DWESLoginLogout'@'%' IDENTIFIED BY 'paso';
-GRANT ALL ON DB204DWESLoginLogout.* TO 'User204DWESLoginLogout'@'%';
+CREATE USER IF NOT EXISTS 'User204DWESAplicacionFinal'@'%' IDENTIFIED BY 'paso';
+GRANT ALL ON DB204DWESAplicacionFinal.* TO 'User204DWESAplicacionFinal'@'%';

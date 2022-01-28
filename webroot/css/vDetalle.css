@@ -1,15 +1,26 @@
 /* 
-    Created on : 12 ene. 2022, 12:18:48
-    Author     : daw2
+    Created on : 26 ene. 2022, 17:23:23
+    Author     : Sasha
 */
 
-#vDetalle table{
+footer *{
+    text-align: center;
+}
+
+main h3{
+    text-align: center;
+}
+main .container{
+    overflow-wrap: break-word;
+}
+
+table{
     width: 100%;
-    max-width: 1200px;
-    table-layout: fixed;
+    max-width: 1000px;
     margin: auto;
 }
-#vDetalle h3{
-    text-align: center;
-    margin: 15px 0 10px;
+
+a:link{
+    background-color: transparent;
 }
+
