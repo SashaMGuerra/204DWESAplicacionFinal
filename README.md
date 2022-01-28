@@ -5,9 +5,11 @@ Con autenticación de usuarios y control de acceso.
 ## Contenido.
 * Control de acceso.
 * Altas, modificaciones y bajas de usuarios.
+* Uso de API REST.
 
 ## Entornos.
 * Explotación.
+https://daw204.ieslossauces.es/AplicacionFinal/
 
 ## License.
 Este proyecto tiene licencia MIT.
