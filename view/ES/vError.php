@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  * @author Sasha
  * @since 12/01/2022
  * @version 1.0
@@ -9,7 +9,14 @@
 ?>
 <main>
     <div class="container">
-        <h1>Error</h1>
+        <div class="mainH1">
+            <h1>Error</h1>
+            <div>
+                <form method="post">
+                    <button type="submit" name="volver" value="volver">Cerrar y volver</button>
+                </form>
+            </div>
+        </div>
         <h3>Ha sucedido el siguiente error:</h3>
         <div>
             <table>
@@ -31,8 +38,5 @@
                 </tr>
             </table>
         </div>
-        <form method="post">
-            <button type="submit" name="volver" value="volver">Cerrar y volver</button>
-        </form>
     </div>
 </main>
