@@ -3,14 +3,23 @@
     Author     : Sasha
 */
 
+section:first-of-type{
+    text-align: center;
+    margin: 10px;
+}
+section:last-of-type{
+    background-image: linear-gradient(white, var(--lightpink), var(--lightblue));
+    height: 100%;
+}
+
+/*
 .background{
-    display: none;
     position: absolute;
     z-index: -10;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background-image: linear-gradient(var(--lightblue), var(--lightpink), white);   
-}
+    
+}*/
 
 main section h1{
     font-size: xx-large;
