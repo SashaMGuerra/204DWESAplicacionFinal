@@ -21,7 +21,6 @@ div.input div.img > div{
 div.input div.img{
     text-align: center;
 }
-
 @media (min-width: 820px){
     fieldset.main{
         grid-template-columns: repeat(3, 1fr);

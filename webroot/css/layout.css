@@ -278,6 +278,7 @@ main form input:focus{
 main form input:disabled{
     background-color: var(--lightestblue);
     border: 2px var(--blue) ridge;
+    text-align: center;
 }
 main form select{
     padding: 3px;
