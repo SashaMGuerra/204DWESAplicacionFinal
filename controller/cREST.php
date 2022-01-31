@@ -53,16 +53,23 @@ if ($bEntradaOK) {
     $sPalabra = str_replace(['í', 'ì', 'î'], 'i', $sPalabra);
     $sPalabra = str_replace(['ó', 'ò', 'ô'], 'o', $sPalabra);
     $sPalabra = str_replace(['ú', 'ù', 'û', 'ü'], 'u', $sPalabra);   
-    $sPalabra = str_replace(['ñ'], 'n', $sPalabra); 
-    $_REQUEST['word'] = $sPalabra;
+    $sPalabra = str_replace(['ñ'], 'n', $sPalabra);
     
-    $devolucion = REST::buscarPalabra($_REQUEST['language'], $_REQUEST['word']);
+    $devolucion = REST::buscarPalabra($_REQUEST['language'], $sPalabra);
+    if(!empty($devolucion)){
+        $aPalabra = [
+            'palabra' => $devolucion->palabra,
+            'origen' => $devolucion->origen,
+            'significados' => $devolucion->significados
+        ];
+    }
+    
 }
 
 $aVREST = [
     'word' => $_REQUEST['word'] ?? '',
     'language' => $_REQUEST['language'] ?? '',
-    'resultado' => !empty($devolucion)?$devolucion:'' // Si es la primera vez que se carga la página, no hay ningún resultado.
+    'resultado' => $aPalabra??'' // Si es la primera vez que se carga la página, no hay ningún resultado.
 ];
 
 /*

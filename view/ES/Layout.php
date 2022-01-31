@@ -20,6 +20,7 @@
         <link href="webroot/css/multiple.css" rel="stylesheet" type="text/css"/>
         <link href="webroot/css/v<?php echo ucfirst($_SESSION['paginaEnCurso']); ?>.css" rel="stylesheet" type="text/css"/>
         <script src="webroot/js/vMiCuenta.js" type="text/javascript"></script>
+        <script src="webroot/js/vRest.js" type="text/javascript"></script>
     </head>
     <body>
         <header>
@@ -49,7 +50,7 @@
                 </div>
                 <hr/>
                 <div class="info">
-                    <a href="https://github.com/SashaMGuerra/204DWESAplicacionLoginLogout" target="_blank">
+                    <a href="https://github.com/SashaMGuerra/204DWESAplicacionFinal" target="_blank">
                         <img src="webroot/media/img/footer/github_logo_white.png" alt="repositorio">
                         <p>SashaMGuerra</p>
                     </a>

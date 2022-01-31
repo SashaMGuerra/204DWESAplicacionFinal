@@ -36,5 +36,34 @@ class REST{
             return 'No se han encontrado resultados.';
         }
     }
+    
+    /**
+     * Conversión de monedas.
+     * 
+     * Dadas dos divisas, indica el valor de la segunda moneda respecto a una
+     * unidad de la primera moneda.
+     * 
+     * @param string $sDivisaPrincipal Moneda a convertir.
+     * @param string $sOtraDivisa Divisa a la que convertir.
+     * @return float|false Resultado de la conversión: el valor convertido si
+     * es correcto, o 0 si no ha sido correcto.
+     */
+    public static function conversorMoneda($sDivisaPrincipal, $sOtraDivisa) {
+        $iDevolucion = 0;
+        
+        $claveAPI = "2fb5f0e8f0ce47116b050ae0"; //La clave generada para poder usar la API
+        $resultadoAPI = @file_get_contents("https://v6.exchangerate-api.com/v6/{$claveAPI}/latest/{$sDivisaPrincipal}");
+        
+        $JSONDecodificado = json_decode($resultadoAPI, true); //Almacén de la informacion decodificada obtenida de la url como un array.
+        if($JSONDecodificado['result'] = "success"){
+            foreach($JSONDecodificado['conversion_rates'] as $campo => $valor){ //Recorrido del array de la respuesta.
+                if($campo == $sOtraDivisa){
+                    $iDevolucion = $valor; //Almacenamiento del valor correspondiente en la variable de devolucion
+                }
+            }
+        }
+        
+        return $iDevolucion; //Devolución el resultado
+    }
 }
 
