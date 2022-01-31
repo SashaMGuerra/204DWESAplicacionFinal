@@ -22,6 +22,8 @@ require_once 'config/configDB.php';
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioDB.php';
 require_once 'model/UsuarioPDO.php';
+require_once 'model/Departamento.php';
+require_once 'model/DepartamentoPDO.php';
 require_once 'model/DB.php';
 require_once 'model/DBPDO.php';
 require_once 'model/AppError.php';
@@ -37,6 +39,7 @@ $aControladores = [
     'miCuenta' => 'controller/cMiCuenta.php',
     'cambiarPassword' => 'controller/cCambiarPassword.php',
     'borrarCuenta' => 'controller/cBorrarCuenta.php',
+    'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
     'detalle' => 'controller/cDetalle.php',
     'tecnologias' => 'controller/cTecnologias.php',
     'rest' => 'controller/cREST.php',
@@ -55,6 +58,7 @@ $aVistas = [
     'cambiarPassword' => 'view/'.$_COOKIE['language'].'/vCambiarPassword.php',
     'borrarCuenta' => 'view/'.$_COOKIE['language'].'/vBorrarCuenta.php',
     'detalle' => 'view/'.$_COOKIE['language'].'/vDetalle.php',
+    'mtoDepartamentos' => 'view/'.$_COOKIE['language'].'/vMtoDepartamentos.php',
     'tecnologias' => 'view/'.$_COOKIE['language'].'/vTecnologias.php',
     'rest' => 'view/'.$_COOKIE['language'].'/vREST.php',
     'wip' => 'view/'.$_COOKIE['language'].'/vWIP.php',

@@ -12,7 +12,7 @@
         <div class="mainH1">
             <h1>Mi cuenta</h1>
             <div>
-                <button type="submit" form="cuentaForm" name='eliminarCuenta' value='eliminarCuenta'>Eliminar cuenta</button>
+                <button type="submit" form="layoutForm" name='eliminarCuenta' value='eliminarCuenta'>Eliminar cuenta</button>
             </div>
         </div>
         <form id="cuentaForm" method="post" enctype="multipart/form-data">

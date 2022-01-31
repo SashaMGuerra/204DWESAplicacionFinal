@@ -1,6 +1,6 @@
 /* 
  * @author Sasha
- * @version v1.1
+ * @version 2.0
  * @description Funciones de la vista del rest.
  */
 

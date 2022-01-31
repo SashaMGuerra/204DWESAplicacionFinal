@@ -13,9 +13,7 @@
             <h1>Ventana de detalle</h1>
             <div>
                 <form method="post">
-                    <fieldset class="submit">
-                        <button type="submit" name="volver" value="volver">Volver</button>
-                    </fieldset>
+                    <button type="submit" name="volver" value="volver">Volver</button>
                 </form>
             </div>
         </div>

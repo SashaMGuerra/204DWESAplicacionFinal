@@ -1,0 +1,13 @@
+/* 
+    Created on : 31 ene. 2022, 16:52:14
+    Author     : Sasha
+*/
+
+main form{
+    margin: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 10px;
+}
+

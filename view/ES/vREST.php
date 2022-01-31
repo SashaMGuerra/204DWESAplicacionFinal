@@ -12,7 +12,7 @@
         <div class="mainH1">
             <h1>Rest</h1>
             <div>
-                <button form="restForm" name="volver" value="volver">Volver</button>
+                <button form="layoutForm" name="volver" value="volver">Volver</button>
             </div>
         </div>
         <button class="forSection" onclick="showRest(this)">Diccionario</button>
