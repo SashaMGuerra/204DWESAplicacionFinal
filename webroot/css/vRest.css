@@ -71,3 +71,11 @@ sup a{
     margin-left: 15px;
 }
 
+.conversor table{
+    margin: auto;
+}
+.conversor input{
+    width: 75px;
+    border-radius: 15px;
+    text-align: center;
+}

@@ -11,3 +11,6 @@ main form{
     gap: 10px;
 }
 
+main img{
+    width: 75px;
+}

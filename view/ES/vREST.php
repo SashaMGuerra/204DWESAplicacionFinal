@@ -21,26 +21,26 @@
                 <h2>Diccionario de Google<sup><a href="https://dictionaryapi.dev/" target="_blank">ⓘ</a></sup></h2>
                 <form method="post" id="restForm">
                     <fieldset>
-                        <div class="error"><?php echo $aErrores['word'] ?></div>
+                        <div class="error"><?php echo $aErroresDiccionario['word'] ?></div>
                         <input type="text" name="word">
                         <select name="language">
-                            <option value="ES" <?php echo $aVREST['language'] == 'ES' ? 'selected' : '' ?>>Español</option>
-                            <option value="EN" <?php echo $aVREST['language'] == 'EN' ? 'selected' : '' ?>>Inglés</option>
+                            <option value="ES" <?php echo $aVRESTDiccionario['language'] == 'ES' ? 'selected' : '' ?>>Español</option>
+                            <option value="EN" <?php echo $aVRESTDiccionario['language'] == 'EN' ? 'selected' : '' ?>>Inglés</option>
                         </select>
-                        <div class="error"><?php echo $aErrores['language'] ?></div>
+                        <div class="error"><?php echo $aErroresDiccionario['language'] ?></div>
                     </fieldset>
                     <fieldset>
-                        <button name="enviar" value="enviar">Buscar</button>
+                        <button name="buscarPalabra" value="buscarPalabra">Buscar</button>
                     </fieldset>
                 </form>
-                <hr>
                 <div class="palabra">
-                    <?php if (is_array($aVREST['resultado'])) { ?>
-                        <h2><?php echo $aVREST['resultado']['palabra']; ?></h2>
-                        <div>Origen: <?php echo $aVREST['resultado']['origen']; ?></div>
+                    <?php if (is_array($aVRESTDiccionario['resultado'])) { ?>
+                        <hr>
+                        <h2><?php echo $aVRESTDiccionario['resultado']['palabra']; ?></h2>
+                        <div>Origen: <?php echo $aVRESTDiccionario['resultado']['origen']; ?></div>
                         <div>
                             <?php
-                            foreach ($aVREST['resultado']['significados'] as $num => $aMeaning) {
+                            foreach ($aVRESTDiccionario['resultado']['significados'] as $num => $aMeaning) {
                                 ?><article>
                                     <h3><?php echo '(' . ($num + 1) . ') ' . $aMeaning->partOfSpeech ?></h3>
                                     <ol>
@@ -73,7 +73,7 @@
                         </div>
                         <?php
                     } else {
-                        echo "<span>{$aVREST['resultado']}</span>";
+                        echo "<span>{$aVRESTDiccionario['resultado']}</span>";
                     }
                     ?>
                 </div>
@@ -87,27 +87,28 @@
                     <fieldset>
                         <table>
                             <tr>
-                                <th><label for="divisaOrigen">Divisa</label></th>
+                                <th><label for="divisaOrigen">Divisa</label><sup><a href="https://es.wikipedia.org/wiki/ISO_4217" target="_blank">ⓘ</a></sup></th>
                                 <th><label for="cantidad">Cantidad</label></th>
                             </tr>
                             <tr>
                                 <td>
-                                    <select name="divisaOrigen" id="divisaOrigen">
-                                        <option value="EUR">EUR - Euro</option>
-                                        <option value="USD">USD - Dólar estadounidense</option>
-                                        <option value="JPY">JPY - Yen</option>
-                                        <option value="GBP">GBP - Libra esterlina</option>
-                                        <option value="AUD">AUD - Dólar australiano</option>
-                                        <option value="CAD">CAD - Dólar canadiense</option>
-                                        <option value="CHF">CHF - Franco suizo</option>
-                                    </select>
+                                    <input type="text" name="divisaOrigen" id="divisaOrigen" value="<?php echo $aVRESTConversor['divisaOrigen']; ?>" placeholder="EUR">
                                 </td>
                                 <td>
-                                    <input type="text" name="cantidad" id="cantidad" value="1" disabled>
+                                    <input type="text" name="cantidad" id="cantidad" value="<?php echo $aVRESTConversor['cantidad']; ?>" placeholder="1.11">
                                 </td>
                             </tr>
                             <tr>
-                                <th></th>
+                                <th><label for="divisaResultado">Pasar a</label></th>
+                                <th><label for="resultado">Resultado</label></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="divisaResultado" id="divisaResultado" value="<?php echo $aVRESTConversor['divisaResultado']; ?>" placeholder="USD">
+                                </td>
+                                <td>
+                                    <input type="text" name="resultado" id="resultado" value="<?php echo $aVRESTConversor['resultadoConversion']; ?>" disabled>
+                                </td>
                             </tr>
                         </table>
                     </fieldset>

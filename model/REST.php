@@ -21,8 +21,8 @@ class REST{
      * @param String $idioma Código de dos letras del idioma en que buscar la palabra.
      * No todos los idiomas funcionan.
      * @param String $palabra Palabra a buscar en el diccionario.
-     * @return Palabra|String Objeto con información sobre la palabra si la encuentra,
-     * o un mensaje de error si no lo hace.
+     * @return Palabra|null Objeto con información sobre la palabra si la encuentra,
+     * o null si no lo hace.
      */
     function buscarPalabra($idioma, $palabra){
         // El @ suprime el warning que sale si la búsqueda no tiene contenido.
@@ -33,7 +33,7 @@ class REST{
             return new Palabra($devuelto->word, $devuelto->origin??'no indicado.' , $devuelto->meanings);
         }
         else{
-            return 'No se han encontrado resultados.';
+            return null;
         }
     }
     
@@ -43,27 +43,24 @@ class REST{
      * Dadas dos divisas, indica el valor de la segunda moneda respecto a una
      * unidad de la primera moneda.
      * 
-     * @param string $sDivisaPrincipal Moneda a convertir.
+     * @param float $fCantidad Cantidad a convertir.
+     * @param string $sDivisaPrincipal Moneda a partir de la que convertir.
      * @param string $sOtraDivisa Divisa a la que convertir.
-     * @return float|false Resultado de la conversión: el valor convertido si
-     * es correcto, o 0 si no ha sido correcto.
+     * @return float|null Resultado de la conversión: el valor convertido si
+     * es correcto, o null si no ha sido correcto.
      */
-    public static function conversorMoneda($sDivisaPrincipal, $sOtraDivisa) {
-        $iDevolucion = 0;
-        
+    public static function conversorMoneda($fCantidad, $sDivisaPrincipal, $sOtraDivisa) {
         $claveAPI = "2fb5f0e8f0ce47116b050ae0"; //La clave generada para poder usar la API
         $resultadoAPI = @file_get_contents("https://v6.exchangerate-api.com/v6/{$claveAPI}/latest/{$sDivisaPrincipal}");
         
         $JSONDecodificado = json_decode($resultadoAPI, true); //Almacén de la informacion decodificada obtenida de la url como un array.
-        if($JSONDecodificado['result'] = "success"){
-            foreach($JSONDecodificado['conversion_rates'] as $campo => $valor){ //Recorrido del array de la respuesta.
-                if($campo == $sOtraDivisa){
-                    $iDevolucion = $valor; //Almacenamiento del valor correspondiente en la variable de devolucion
-                }
-            }
+        if($JSONDecodificado['result'] === "success"){
+            $fConversion = $JSONDecodificado['conversion_rates'][$sOtraDivisa];
+            return $fConversion*$fCantidad;
         }
-        
-        return $iDevolucion; //Devolución el resultado
+        else{
+            return null;
+        }
     }
 }
 
