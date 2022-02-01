@@ -10,7 +10,44 @@ main form{
     align-items: center;
     gap: 10px;
 }
+main form .submit{
+    margin: 0;
+}
 
-main img{
-    width: 75px;
+main table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: OpenSans, sans-serif;
+}
+main table tr > *{
+    text-align: center;
+}
+main table tr:first-child > *{
+    background-color: var(--blue);
+    color: white;
+    font-weight: normal;
+    padding: 10px 0;
+}
+main table tr:nth-child(odd){
+    background-color: var(--lightpink);
+}
+main table tr td:nth-of-type(2){
+    text-align: left;
+}
+main table tr td:last-of-type{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+main table button{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+main table button:hover{
+    border: none;
+    background-color: transparent;
+}
+main table button img{
+    width: 35px;
 }

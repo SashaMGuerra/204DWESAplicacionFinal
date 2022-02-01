@@ -15,7 +15,6 @@ if (isset($_REQUEST['volver'])) {
     exit;
 }
 
-// REST Diccionario.
 $aErroresDiccionario = [
     'word' => '',
     'language' => ''
@@ -40,6 +39,12 @@ else {
     $bEntradaOKPalabra = false;
 }
 
+// REST Diccionario.
+$aVRESTDiccionario = [
+    'language' => $_REQUEST['language'] ?? '',
+    'resultado' => '' // Si es la primera vez que se carga la página, no hay ningún resultado.
+];
+
 /*
  * Si la entrada es válida, llama a la api con el idioma y palabra indicados.
  * Según si la devolución ha sido correcta (ha devuelto la palabra) o no (warning)
@@ -57,19 +62,16 @@ if ($bEntradaOKPalabra) {
     
     $devolucion = REST::buscarPalabra($_REQUEST['language'], $sPalabra);
     if(!empty($devolucion)){
-        $aPalabra = [
+        $aVRESTDiccionario['resultado'] = [
             'palabra' => $devolucion->palabra,
             'origen' => $devolucion->origen,
             'significados' => $devolucion->significados
         ];
     }
+    else{
+        $aVRESTDiccionario['resultado'] = 'No se han encontrado resultados.';
+    }
 }
-
-$aVRESTDiccionario = [
-    'language' => $_REQUEST['language'] ?? '',
-    'resultado' => $aPalabra??'No se han encontrado resultados' // Si es la primera vez que se carga la página, no hay ningún resultado.
-];
-
 
 // REST Conversor.
 $aErroresConversor = [

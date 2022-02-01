@@ -15,7 +15,7 @@
         <div class="mainH1">
             <h1>Mantenimiento de departamentos</h1>
             <div>
-                <button type="submit" form="departamentosForm" name="volver" value="volver">Volver</button>
+                <button type="submit" form="layoutForm" name="volver" value="volver">Volver</button>
             </div>
         </div>
         <div>
@@ -37,22 +37,22 @@
                 </tr>
                 <?php
                 if($aVMtoDepartamentos){
-                    foreach ($aVMtoDepartamentos as $oDepartamento) {?>
+                    foreach ($aVMtoDepartamentos as $aDepartamento) {?>
                 <tr>
-                    <td><?php echo $oDepartamento->getCodDepartamento(); ?></td>
-                    <td><?php echo $oDepartamento->getDescDepartamento(); ?></td>
-                    <td><?php echo date('d/m/Y H:i:s T', $oDepartamento->getFechaCreacionDepartamento()); ?></td>
-                    <td><?php echo $oDepartamento->getVolumenDeNegocio(); ?></td>
-                    <td><?php echo $oDepartamento->getFechaBajaDepartamento(); ?></td>
+                    <td><?php echo $aDepartamento['codDepartamento']; ?></td>
+                    <td><?php echo $aDepartamento['descDepartamento']; ?></td>
+                    <td><?php echo $aDepartamento['fechaCreacionDepartamento']; ?></td>
+                    <td><?php echo $aDepartamento['volumenDeNegocio']; ?></td>
+                    <td><?php echo $aDepartamento['fechaBajaDepartamento']; ?></td>
                     <td>
-                        <button form="departamentosForm" type="submit" name="modificar" value="modificar">
+                        <button form="departamentosForm" type="submit" name="ver" value="<?php echo $aDepartamento['codDepartamento']; ?>">
+                            <img src="webroot/media/img/mtoDepartamentos/view.png" alt="ver"/>
+                        </button>
+                        <button form="departamentosForm" type="submit" name="modificar" value="<?php echo $aDepartamento['codDepartamento']; ?>">
                             <img src="webroot/media/img/mtoDepartamentos/modify.png" alt="modificar"/>
                         </button>
-                        <button form="departamentosForm" type="submit" name="eliminar" value="eliminar">
+                        <button form="departamentosForm" type="submit" name="eliminar" value="<?php echo $aDepartamento['codDepartamento']; ?>">
                             <img src="webroot/media/img/mtoDepartamentos/delete.png" alt="eliminar"/>
-                        </button>
-                        <button form="departamentosForm" type="submit" name="ver" value="ver">
-                            <img src="webroot/media/img/mtoDepartamentos/view.png" alt="ver"/>
                         </button>
                     </td>
                 </tr>

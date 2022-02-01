@@ -21,14 +21,13 @@
                 <h2>Diccionario de Google<sup><a href="https://dictionaryapi.dev/" target="_blank">ⓘ</a></sup></h2>
                 <form method="post" id="restForm">
                     <fieldset>
-                        <div class="error"><?php echo $aErroresDiccionario['word'] ?></div>
-                        <input type="text" name="word">
+                        <input type="text" name="word" placeholder="Palabra a buscar">
                         <select name="language">
                             <option value="ES" <?php echo $aVRESTDiccionario['language'] == 'ES' ? 'selected' : '' ?>>Español</option>
                             <option value="EN" <?php echo $aVRESTDiccionario['language'] == 'EN' ? 'selected' : '' ?>>Inglés</option>
                         </select>
-                        <div class="error"><?php echo $aErroresDiccionario['language'] ?></div>
                     </fieldset>
+                        <div class="error"><?php echo $aErroresDiccionario['word'] ?></div>
                     <fieldset>
                         <button name="buscarPalabra" value="buscarPalabra">Buscar</button>
                     </fieldset>
@@ -84,19 +83,20 @@
             <div class="conversor">
                 <h2>Conversor de divisas<sup><a href="" target="_blank">ⓘ</a></sup></h2>
                 <form method="post">
-                    <fieldset>
+                    <fieldset>                      
+                        
                         <table>
                             <tr>
-                                <th><label for="divisaOrigen">Divisa</label><sup><a href="https://es.wikipedia.org/wiki/ISO_4217" target="_blank">ⓘ</a></sup></th>
+                                <th><label for="divisaOrigen">Divisa</label><sup><a href="https://es.wikipedia.org/wiki/ISO_4217" target="_blank"><abbr title="Lista de códigos de divisas">ⓘ</abbr></a></sup></th>
                                 <th><label for="cantidad">Cantidad</label></th>
                             </tr>
                             <tr>
-                                <td>
-                                    <input type="text" name="divisaOrigen" id="divisaOrigen" value="<?php echo $aVRESTConversor['divisaOrigen']; ?>" placeholder="EUR">
-                                </td>
-                                <td>
-                                    <input type="text" name="cantidad" id="cantidad" value="<?php echo $aVRESTConversor['cantidad']; ?>" placeholder="1.11">
-                                </td>
+                                <td><input type="text" name="divisaOrigen" id="divisaOrigen" value="<?php echo $aVRESTConversor['divisaOrigen']; ?>" placeholder="EUR"></td>
+                                <td><input type="text" name="cantidad" id="cantidad" value="<?php echo $aVRESTConversor['cantidad']; ?>" placeholder="1.00"></td>
+                            </tr>
+                            <tr>
+                                <td><div class="error"><?php echo $aErroresConversor['divisaOrigen'] ?></div></td>
+                                <td><div class="error"><?php echo $aErroresConversor['cantidad'] ?></div></td>
                             </tr>
                             <tr>
                                 <th><label for="divisaResultado">Pasar a</label></th>

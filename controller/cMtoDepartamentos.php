@@ -19,6 +19,19 @@ if (isset($_REQUEST['volver'])) {
     exit;
 }
 
+/*
+ * Si se selecciona modificar un departamento, guarda en la sesión el código
+ * del departamento a modificar, y va a la página.
+ */
+if (isset($_REQUEST['modificar'])) {
+    $_SESSION['codDepartamentoEnCurso'] = $_REQUEST['modificar'];
+    
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'consultarModificarDepartamento';
+    header('Location: index.php');
+    exit;
+}
+
 // Búsqueda deseada por el usuario.
 $aFormulario = [
     'descDepartamento' => ''
@@ -64,7 +77,22 @@ if ($bEntradaOK) {
  * Se haya enviado o no el formulario, realiza la búsqueda de departamentos para
  * mostrarlos.
  */
-$aVMtoDepartamentos = DepartamentoPDO::buscaDepartamentosPorDesc($aFormulario['descDepartamento']);
+$aVMtoDepartamentos = [];
+$aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDesc($aFormulario['descDepartamento']);
+if ($aDepartamentos) {
+    foreach ($aDepartamentos as $oDepartamento) {
+        array_push($aVMtoDepartamentos, [
+            'codDepartamento' => $oDepartamento->getCodDepartamento(),
+            'descDepartamento' => $oDepartamento->getDescDepartamento(),
+            'fechaCreacionDepartamento' => date('d/m/Y H:i:s T', $oDepartamento->getFechaCreacionDepartamento()),
+            'volumenDeNegocio' => $oDepartamento->getVolumenDeNegocio(),
+            'fechaBajaDepartamento' => $oDepartamento->getFechaBajaDepartamento()
+        ]);
+    }
+}
+
+
+
 
 // Mostrado de la vista.
 require_once $aVistas['layout'];

@@ -46,6 +46,10 @@ sup a{
     align-items: center;
     gap: 10px;
 }
+.diccionario form .error{
+    text-align: center;
+    margin: 0;
+}
 .diccionario form fieldset:last-of-type{
     width: 50%;
     margin: auto;
@@ -71,11 +75,17 @@ sup a{
     margin-left: 15px;
 }
 
+.conversor tr *{
+    text-align: center;
+}
 .conversor table{
     margin: auto;
+    width: 100%;
+    max-width: 450px;
+    table-layout: fixed;
 }
 .conversor input{
     width: 75px;
-    border-radius: 15px;
+    padding: 5px 0;
     text-align: center;
 }
