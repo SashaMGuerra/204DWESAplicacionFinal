@@ -24,14 +24,6 @@ $aErrores = [
     'volumenDeNegocio' => ''
 ];
 
-$aVAltaDepartamento = [
-    'codDepartamento' => '',
-    'descDepartamento' => '',
-    'fechaCreacionDepartamento' => '',
-    'volumenDeNegocio' => '',
-    'fechaBajaDepartamento' => ''
-];
-
 // Si se aceptan los cambios, valida la entrada.
 if (isset($_REQUEST['aceptar'])) {
     $bEntradaOK = true;
@@ -43,13 +35,13 @@ if (isset($_REQUEST['aceptar'])) {
      * (es correcto), comprobación de si el código ya existe en la base de datos.
      */
     if($_REQUEST['codDepartamento'] !== strtoupper($_REQUEST['codDepartamento'])){
-        $aErrores['codDepartamento'] = 'El código debe estar en mayúsculas';
+        $aErrores['codDepartamento'] = 'El código debe estar en mayúsculas.';
     }
     else if(DepartamentoPDO::buscaDepartamentoPorCod($_REQUEST['codDepartamento'])){
         $aErrores['codDepartamento'] = 'Ya existe un departamento con ese código.';
     }
     $aErrores['descDepartamento'] = validacionFormularios::comprobarAlfanumerico($_REQUEST['descDepartamento'], 255, 5, OBLIGATORIO);
-    $aErrores['volumenNegocio'] = validacionFormularios::comprobarFloat($_REQUEST['volumenDeNegocio'], 5000, 0, OBLIGATORIO);
+    $aErrores['volumenDeNegocio'] = validacionFormularios::comprobarFloat($_REQUEST['volumenDeNegocio'], 5000, 0, OBLIGATORIO);
     
     /*
      * Recorrido del array de errores.
@@ -73,7 +65,7 @@ else{
  * regresa a la vista del mantenimiento de departamentos.
  */
 if($bEntradaOK){
-    DepartamentoPDO::altaDepartamento($_REQUEST['codDepartametno'], $_REQUEST['descDepartamento'], $_REQUEST['volumenDeNegocio']);
+    DepartamentoPDO::altaDepartamento($_REQUEST['codDepartamento'], $_REQUEST['descDepartamento'], $_REQUEST['volumenDeNegocio']);
     
     $_SESSION['paginaEnCurso'] = $_SESSION['paginaAnterior'];
     $_SESSION['paginaAnterior'] = '';

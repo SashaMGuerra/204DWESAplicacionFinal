@@ -29,12 +29,13 @@ if(isset($_REQUEST['miCuenta'])){
 }
 
 /*
- * Si se selecciona ir a la aplicación MtoDepartamentos, indica la página y
- * recarga el index.
+ * Los usuarios administradores pueden elegir ir a mantenimiento de usuarios;
+ * los demás usuarios, a mantenimiento de departamentos.
+ * Según su tipo de usuario, los lleva a uno u otro.
  */
-if(isset($_REQUEST['mtoDepartamentos'])){
+if(isset($_REQUEST['mantenimiento'])){
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-    $_SESSION['paginaEnCurso'] = 'mtoDepartamentos';
+    $_SESSION['paginaEnCurso'] = $_SESSION['usuarioDAW204AppLoginLogout']->getPerfil()==='administrador'?'wip':'mtoDepartamentos';
     header('Location: index.php');
     exit;
 }

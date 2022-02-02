@@ -86,7 +86,8 @@ QUERY;
      * @param String $sCodDepartamento Código del departamento a ser creado.
      * @param String $sDescDepartamento Descripción del departamento.
      * @param float $fVolumenDeNegocio Volumen de negocio del departamento.
-     * @return Departamento|false 
+     * @return Departamento|false Devuelve un nuevo objeto Departamento si ha creado
+     * el departamento, o false en caso contrario.
      */
     public static function altaDepartamento($sCodDepartamento, $sDescDepartamento, $fVolumenDeNegocio) {
         $iFechaCreacionDepartamento = time();
@@ -96,7 +97,6 @@ QUERY;
         QUERY;
             
         $oResultado = DBPDO::ejecutarConsulta($sInsert);
-        $oResultado = $oResultado->fetchObject();
         if ($oResultado) {
             return new Departamento(
                     $sCodDepartamento,

@@ -17,17 +17,17 @@
                 <fieldset class="main">
                     <div class="input">
                         <label for='codDepartamento'>Código</label>
-                        <input type='text' name='codDepartamento' id='codDepartamento' value="<?php echo $aVAltaDepartamento['codDepartamento']; ?>" placeholder="AAA"/>
+                        <input type='text' name='codDepartamento' id='codDepartamento' value="<?php echo $_REQUEST['codDepartamento']??''; ?>" placeholder="AAA"/>
                         <div class="error"><?php echo $aErrores['codDepartamento']; ?></div>
                     </div>
                     <div class="input">
                         <label for='descDepartamento'>Descripción</label>
-                        <input type='text' name='descDepartamento' id='descDepartamento' value="<?php echo $aVAltaDepartamento['descDepartamento']; ?>"/>
+                        <input type='text' name='descDepartamento' id='descDepartamento' value="<?php echo $_REQUEST['descDepartamento']??''; ?>"/>
                         <div class="error"><?php echo $aErrores['descDepartamento']; ?></div>
                     </div>
                     <div class="input">
                         <label for='volumenDeNegocio'>Volumen de negocio</label>
-                        <input type='text' name='volumenDeNegocio' id='volumenDeNegocio' value="<?php echo $aVAltaDepartamento['volumenDeNegocio']; ?>" placeholder="1.0"/>
+                        <input type='text' name='volumenDeNegocio' id='volumenDeNegocio' value="<?php echo $_REQUEST['volumenDeNegocio']??''; ?>" placeholder="1.0"/>
                         <div class="error"><?php echo $aErrores['volumenDeNegocio']; ?></div>
                     </div>
                 </fieldset>
