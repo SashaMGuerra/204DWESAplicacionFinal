@@ -4,6 +4,17 @@
 */
 
 main form{
+    display: flex;
+    align-items: center;
+}
+main form fieldset{
+    margin: 0;
+    padding: 0;
+}
+
+main form fieldset:first-of-type{
+    flex-grow: 1;
+    
     margin: 10px;
     display: flex;
     flex-flow: column;
@@ -13,6 +24,10 @@ main form{
 main form .submit{
     margin: 0;
 }
+main form fieldset:last-of-type{
+    order: -1;
+}
+
 
 main table{
     width: 100%;

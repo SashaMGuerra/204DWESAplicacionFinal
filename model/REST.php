@@ -1,9 +1,9 @@
 <?php
 /**
- * Funciones para uso de información de los REST utilizados.
+ * Funciones para uso de los REST utilizados.
  * 
  * Por cada rest, la clase tiene una función que, dados los parámetros para afinar
- * la devolución de la búsqueda, devuelve un objeto o un mensaje de error.
+ * la devolución de la búsqueda, devuelve un objeto o un elemento vacío.
  * 
  * @package AppFinal
  * @author Sasha

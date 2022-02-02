@@ -19,6 +19,29 @@ if (isset($_REQUEST['volver'])) {
     exit;
 }
 
+// Si se selecciona añadir un departamento, va a la página.
+if (isset($_REQUEST['anadir'])) {
+    $_SESSION['codDepartamentoEnCurso'] = $_REQUEST['anadir'];
+    
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'altaDepartamento';
+    header('Location: index.php');
+    exit;
+}
+
+/*
+ * Si se selecciona ver un departamento, guarda en la sesión el código
+ * del departamento a ver, y va a la página.
+ */
+if (isset($_REQUEST['ver'])) {
+    $_SESSION['codDepartamentoEnCurso'] = $_REQUEST['ver'];
+    
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'consultarModificarDepartamento';
+    header('Location: index.php');
+    exit;
+}
+
 /*
  * Si se selecciona modificar un departamento, guarda en la sesión el código
  * del departamento a modificar, y va a la página.
@@ -28,6 +51,19 @@ if (isset($_REQUEST['modificar'])) {
     
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'consultarModificarDepartamento';
+    header('Location: index.php');
+    exit;
+}
+
+/*
+ * Si se selecciona eliminar un departamento, guarda en la sesión el código
+ * del departamento a modificar, y va a la página.
+ */
+if (isset($_REQUEST['eliminar'])) {
+    $_SESSION['codDepartamentoEnCurso'] = $_REQUEST['eliminar'];
+    
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'eliminarDepartamento';
     header('Location: index.php');
     exit;
 }

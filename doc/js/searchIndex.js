@@ -383,7 +383,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\REST",
             "name": "REST",
-            "summary": "Funciones\u0020para\u0020uso\u0020de\u0020informaci\u00F3n\u0020de\u0020los\u0020REST\u0020utilizados.",
+            "summary": "Funciones\u0020para\u0020uso\u0020de\u0020los\u0020REST\u0020utilizados.",
             "url": "classes/REST.html"
         },                {
             "fqsen": "\\REST\u003A\u003AbuscarPalabra\u0028\u0029",
@@ -503,7 +503,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentoPorCod\u0028\u0029",
             "name": "buscaDepartamentoPorCod",
-            "summary": "",
+            "summary": "B\u00FAsqueda\u0020de\u0020departamento\u0020por\u0020c\u00F3digo.",
             "url": "classes/DepartamentoPDO.html#method_buscaDepartamentoPorCod"
         },                {
             "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentosPorDesc\u0028\u0029",
@@ -540,66 +540,6 @@ Search.appendIndex(
             "name": "validaCodNoExiste",
             "summary": "",
             "url": "classes/DepartamentoPDO.html#method_validaCodNoExiste"
-        },                {
-            "fqsen": "\\Universidad",
-            "name": "Universidad",
-            "summary": "Clase\u0020que\u0020crea\u0020y\u0020utiliza\u0020usuarios\u0020en\u0020la\u0020aplicaci\u00F3n.",
-            "url": "classes/Universidad.html"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Universidad.html#method___construct"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003AgetName\u0028\u0029",
-            "name": "getName",
-            "summary": "",
-            "url": "classes/Universidad.html#method_getName"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003AgetCountry\u0028\u0029",
-            "name": "getCountry",
-            "summary": "",
-            "url": "classes/Universidad.html#method_getCountry"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003AgetWebsite\u0028\u0029",
-            "name": "getWebsite",
-            "summary": "",
-            "url": "classes/Universidad.html#method_getWebsite"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003AgetCode\u0028\u0029",
-            "name": "getCode",
-            "summary": "",
-            "url": "classes/Universidad.html#method_getCode"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003AgetState_province\u0028\u0029",
-            "name": "getState_province",
-            "summary": "",
-            "url": "classes/Universidad.html#method_getState_province"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003A\u0024name",
-            "name": "name",
-            "summary": "",
-            "url": "classes/Universidad.html#property_name"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003A\u0024country",
-            "name": "country",
-            "summary": "",
-            "url": "classes/Universidad.html#property_country"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003A\u0024website",
-            "name": "website",
-            "summary": "",
-            "url": "classes/Universidad.html#property_website"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003A\u0024code",
-            "name": "code",
-            "summary": "",
-            "url": "classes/Universidad.html#property_code"
-        },                {
-            "fqsen": "\\Universidad\u003A\u003A\u0024state_province",
-            "name": "state_province",
-            "summary": "",
-            "url": "classes/Universidad.html#property_state_province"
         },                {
             "fqsen": "\\",
             "name": "\\",

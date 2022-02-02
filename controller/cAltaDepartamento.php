@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Controlador de la ventana de consulta o modificación de un departamento.
+ * Controlador de la ventana de creación de un departamento.
  * 
- * Muestra la información del departamento, y realiza cambios si el usuario lo
- * ha indicado.
+ * Muestra los campos para ser creado, y lo hace si el usuario acepta.
  * 
  * @author Sasha
- * @since 01/02/2022
+ * @since 02/02/2022
  * @version 2.0
  */
+
 // Si se selecciona cancelar, vuelve a la página anterior sin realizar cambios.
 if (isset($_REQUEST['cancelar'])) {
     $_SESSION['paginaEnCurso'] = $_SESSION['paginaAnterior'];
@@ -19,26 +19,35 @@ if (isset($_REQUEST['cancelar'])) {
 }
 
 $aErrores = [
+    'codDepartamento' => '',
     'descDepartamento' => '',
     'volumenDeNegocio' => ''
 ];
 
-// En cualquier caso, muestra la información sobre el departamento.
-$oDepartamento = DepartamentoPDO::buscaDepartamentoPorCod($_SESSION['codDepartamentoEnCurso']);
-
-$aVConsultarModificarDepartamento = [
-    'codDepartamento' => $oDepartamento->getCodDepartamento(),
-    'descDepartamento' => $oDepartamento->getDescDepartamento(),
-    'fechaCreacionDepartamento' => date('d/m/Y H:i:s T', $oDepartamento->getFechaCreacionDepartamento()),
-    'volumenDeNegocio' => $oDepartamento->getVolumenDeNegocio(),
-    'fechaBajaDepartamento' => $oDepartamento->getFechaBajaDepartamento()
+$aVAltaDepartamento = [
+    'codDepartamento' => '',
+    'descDepartamento' => '',
+    'fechaCreacionDepartamento' => '',
+    'volumenDeNegocio' => '',
+    'fechaBajaDepartamento' => ''
 ];
 
-// Si se aceptan los cambios, valida la entrada y modifica el departamento.
+// Si se aceptan los cambios, valida la entrada.
 if (isset($_REQUEST['aceptar'])) {
     $bEntradaOK = true;
     
     // Validación de campos.
+    $aErrores['codDepartamento'] = validacionFormularios::comprobarAlfabetico($_REQUEST['codDepartamento'], 3, 3, OBLIGATORIO);
+    /*
+     * Comprobación si el código de departamento está en mayúsculas, y si no lo está
+     * (es correcto), comprobación de si el código ya existe en la base de datos.
+     */
+    if($_REQUEST['codDepartamento'] !== strtoupper($_REQUEST['codDepartamento'])){
+        $aErrores['codDepartamento'] = 'El código debe estar en mayúsculas';
+    }
+    else if(DepartamentoPDO::buscaDepartamentoPorCod($_REQUEST['codDepartamento'])){
+        $aErrores['codDepartamento'] = 'Ya existe un departamento con ese código.';
+    }
     $aErrores['descDepartamento'] = validacionFormularios::comprobarAlfanumerico($_REQUEST['descDepartamento'], 255, 5, OBLIGATORIO);
     $aErrores['volumenNegocio'] = validacionFormularios::comprobarFloat($_REQUEST['volumenDeNegocio'], 5000, 0, OBLIGATORIO);
     
@@ -60,11 +69,11 @@ else{
 }
 
 /*
- * Si la entrada es correcta, modifica el departamento en la base de datos y
+ * Si la entrada es correcta, crea el departamento en la base de datos y
  * regresa a la vista del mantenimiento de departamentos.
  */
 if($bEntradaOK){
-    DepartamentoPDO::modificaDepartamento($_SESSION['codDepartamentoEnCurso'], $_REQUEST['descDepartamento'], $_REQUEST['volumenDeNegocio']);
+    DepartamentoPDO::altaDepartamento($_REQUEST['codDepartametno'], $_REQUEST['descDepartamento'], $_REQUEST['volumenDeNegocio']);
     
     $_SESSION['paginaEnCurso'] = $_SESSION['paginaAnterior'];
     $_SESSION['paginaAnterior'] = '';

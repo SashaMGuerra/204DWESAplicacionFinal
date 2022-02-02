@@ -12,29 +12,31 @@
 ?>
 <main>
     <div class="container">
-        <h1>Mantenimiento de departamentos</h1>
+        <h1>Consulta o modificación de departamento</h1>
         <div>
             <form method="post" id="consultarModificarForm">
-                <fieldset>
+                <fieldset class="main">
                     <div class="input">
                         <label for='codDepartamento'>Código</label>
-                        <input type='text' name='codDepartamento' id='codDepartamento' value="<?php echo $_SESSION['codDepartamentoEnCurso']; ?>" disabled/>
+                        <input type='text' name='codDepartamento' id='codDepartamento' value="<?php echo $aVConsultarModificarDepartamento['codDepartamento']; ?>" disabled/>
                     </div>
                     <div class="input">
                         <label for='descDepartamento'>Descripción</label>
-                        <input type='text' name='descDepartamento' id='descDepartamento' value="<?php echo ''; ?>" disabled/>
+                        <input type='text' name='descDepartamento' id='descDepartamento' value="<?php echo $aVConsultarModificarDepartamento['descDepartamento']; ?>"/>
+                        <div class="error"><?php echo $aErrores['descDepartamento']; ?></div>
                     </div>
                     <div class="input">
                         <label for='fechaCreacionDepartamento'>Fecha de creación</label>
-                        <input type='text' name='fechaCreacionDepartamento' id='fechaCreacionDepartamento' value="<?php echo ''; ?>" disabled/>
+                        <input type='text' name='fechaCreacionDepartamento' id='fechaCreacionDepartamento' value="<?php echo $aVConsultarModificarDepartamento['fechaCreacionDepartamento']; ?>" disabled/>
                     </div>
                     <div class="input">
                         <label for='volumenDeNegocio'>Volumen de negocio</label>
-                        <input type='text' name='volumenDeNegocio' id='volumenDeNegocio' value="<?php echo ''; ?>" disabled/>
+                        <input type='text' name='volumenDeNegocio' id='volumenDeNegocio' value="<?php echo $aVConsultarModificarDepartamento['volumenDeNegocio']; ?>"/>
+                        <div class="error"><?php echo $aErrores['volumenDeNegocio']; ?></div>
                     </div>
                     <div class="input">
                         <label for='fechaBajaDepartamento'>Fecha de baja</label>
-                        <input type='text' name='fechaBajaDepartamento' id='fechaBajaDepartamento' value="<?php echo ''; ?>" disabled/>
+                        <input type='text' name='fechaBajaDepartamento' id='fechaBajaDepartamento' value="<?php echo $aVConsultarModificarDepartamento['fechaBajaDepartamento']; ?>" disabled/>
                     </div>
                 </fieldset>
                 <fieldset class="submit">
