@@ -63,9 +63,9 @@ if ($bEntradaOKPalabra) {
     $devolucion = REST::buscarPalabra($_REQUEST['language'], $sPalabra);
     if(!empty($devolucion)){
         $aVRESTDiccionario['resultado'] = [
-            'palabra' => $devolucion->palabra,
-            'origen' => $devolucion->origen,
-            'significados' => $devolucion->significados
+            'palabra' => $devolucion->getPalabra(),
+            'origen' => $devolucion->getOrigen(),
+            'significados' => $devolucion->getSignificados()
         ];
     }
     else{
@@ -77,7 +77,8 @@ if ($bEntradaOKPalabra) {
 $aErroresConversor = [
     'divisaOrigen' => '',
     'cantidad' => '',
-    'divisaResultado' => ''
+    'divisaResultado' => '',
+    'resultado' => ''
 ];
 
 // Si se ha enviado el formulario, valida la entrada.
@@ -85,8 +86,10 @@ if (isset($_REQUEST['convertir'])) {
     $bEntradaOKConversor = true;
 
     $aErroresConversor['divisaOrigen'] = validacionFormularios::comprobarAlfabetico($_REQUEST['divisaOrigen'], 3, 3, OBLIGATORIO);
+    $aErroresConversor['divisaOrigen'] .= $_REQUEST['divisaOrigen']!==strtoupper($_REQUEST['divisaOrigen'])?' Debe estar en mayúscula.':'';
     $aErroresConversor['cantidad'] = validacionFormularios::comprobarFloat($_REQUEST['cantidad'], PHP_INT_MAX, 0, OBLIGATORIO);
     $aErroresConversor['divisaResultado'] = validacionFormularios::comprobarAlfabetico($_REQUEST['divisaResultado'], 3, 3, OBLIGATORIO);
+    $aErroresConversor['divisaResultado'] .= $_REQUEST['divisaResultado']!==strtoupper($_REQUEST['divisaResultado'])?' Debe estar en mayúscula.':'';
 
     foreach ($aErroresConversor as $sKey => $sError) {
         if (!empty($sError)) {
@@ -107,13 +110,14 @@ else {
  */
 if ($bEntradaOKConversor) {
     $iDivisaResultado = REST::conversorMoneda($_REQUEST['cantidad'], $_REQUEST['divisaOrigen'], $_REQUEST['divisaResultado']);
+    $aErroresConversor['resultado'] = is_null($iDivisaResultado)?'Alguno de los códigos de divisa no existe.':'';
 }
 
 $aVRESTConversor = [
     'divisaOrigen' => $_REQUEST['divisaOrigen'] ?? '',
     'cantidad' => $_REQUEST['cantidad'] ?? '',
     'divisaResultado' => $_REQUEST['divisaResultado']??'',
-    'resultadoConversion' => $iDivisaResultado??'' // Si es la primera vez que se carga la página, no hay ningún resultado.
+    'resultadoConversion' => $iDivisaResultado??0 // Si es la primera vez que se carga la página, no hay ningún resultado.
 ];
 
 

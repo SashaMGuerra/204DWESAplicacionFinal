@@ -15,7 +15,7 @@
                 <button form="layoutForm" name="volver" value="volver">Volver</button>
             </div>
         </div>
-        <button class="forSection" onclick="showRest(this)">Diccionario</button>
+        <button class="forSection" onclick="showRest(this)" id="sectionDiccionario">Diccionario</button>
         <section class="accordion">
             <div class="diccionario">
                 <h2>Diccionario de Google<sup><a href="https://dictionaryapi.dev/" target="_blank">ⓘ</a></sup></h2>
@@ -41,7 +41,10 @@
                             <?php
                             foreach ($aVRESTDiccionario['resultado']['significados'] as $num => $aMeaning) {
                                 ?><article>
-                                    <h3><?php echo '(' . ($num + 1) . ') ' . $aMeaning->partOfSpeech ?></h3>
+                                    <h3><?php
+                                        $sSignificado = ($aMeaning->partOfSpeech)??'';
+                                        echo '(' . ($num + 1) . ') ' . $sSignificado;
+                                    ?></h3>
                                     <ol>
                                         <?php
                                         foreach ($aMeaning->definitions as $aDefinition) {
@@ -78,7 +81,7 @@
                 </div>
             </div>
         </section>
-        <button class="forSection" onclick="showRest(this)">Conversor de monedas</button>
+        <button class="forSection" onclick="showRest(this)" id="sectionConversor">Conversor de monedas</button>
         <section class="accordion">
             <div class="conversor">
                 <h2>Conversor de divisas<sup><a href="" target="_blank">ⓘ</a></sup></h2>
@@ -107,8 +110,15 @@
                                     <input type="text" name="divisaResultado" id="divisaResultado" value="<?php echo $aVRESTConversor['divisaResultado']; ?>" placeholder="USD">
                                 </td>
                                 <td>
-                                    <input type="text" name="resultado" id="resultado" value="<?php echo $aVRESTConversor['resultadoConversion']; ?>" disabled>
+                                    <input type="text" name="resultado" id="resultado" value="<?php echo number_format($aVRESTConversor['resultadoConversion'], 2); ?>" disabled>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td><div class="error"><?php echo $aErroresConversor['divisaResultado']; ?></div></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><div class="error"><?php echo $aErroresConversor['resultado']; ?></div></td>
                             </tr>
                         </table>
                     </fieldset>
