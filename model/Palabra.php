@@ -12,9 +12,9 @@
  * @version 1.0
  */
 class Palabra{
-    public String $palabra;
-    public String $origen;
-    public Array $significados;
+    private String $palabra;
+    private String $origen;
+    private Array $significados;
     
     /**
      * Constructor de objetos palabra.
@@ -31,4 +31,18 @@ class Palabra{
         $this->origen = $origen;
         $this->significados = $significados;
     }
+    
+    function getPalabra(): String {
+        return $this->palabra;
+    }
+
+    function getOrigen(): String {
+        return $this->origen;
+    }
+
+    function getSignificados(): array {
+        return $this->significados;
+    }
+
+
 }

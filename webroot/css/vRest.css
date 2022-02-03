@@ -3,6 +3,28 @@
     Author     : Sasha
 */
 
+/* Estilo del menú acordeón */
+h1{
+    margin-bottom: 10px;
+}
+.forSection {
+    background-color: var(--lightpink);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-top: 1px solid var(--blue);
+    border-bottom: 1px solid var(--blue);
+    outline: none;
+    border-radius: 0;
+}
+section {
+    /* display: none; */
+    margin: 10px 0;
+}
+
+/* Estilos comunes a las API */
 h2{
     text-align: center;
 }
@@ -11,32 +33,22 @@ h2 sup{
     position: relative;
     cursor: help;
 }
-sup + span{
-    position: absolute;
-    background-color: var(--lightpink);
-    font-size: small;
-    font-weight: normal;
-    padding: 5px;
-    max-width: 150px;
-    border-radius: 5px;
-    cursor: help;
-    text-align: justify;
-    
-    display: none;
-}
-sup + span:hover{
-    display: initial;
-}
-sup:hover + span{
-    display: initial;
+sup a{
+    text-decoration: none;
+    color: var(--blue);
 }
 
+/* API de diccionario */
 .diccionario form fieldset:first-of-type{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+.diccionario form .error{
+    text-align: center;
+    margin: 0;
 }
 .diccionario form fieldset:last-of-type{
     width: 50%;
@@ -61,4 +73,19 @@ sup:hover + span{
 .diccionario .palabra .sinant{
     font-size: smaller;
     margin-left: 15px;
+}
+
+.conversor tr *{
+    text-align: center;
+}
+.conversor table{
+    margin: auto;
+    width: 100%;
+    max-width: 450px;
+    table-layout: fixed;
+}
+.conversor input{
+    width: 75px;
+    padding: 5px 0;
+    text-align: center;
 }

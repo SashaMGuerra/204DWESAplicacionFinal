@@ -1,0 +1,68 @@
+/* 
+    Created on : 31 ene. 2022, 16:52:14
+    Author     : Sasha
+*/
+
+main form{
+    display: flex;
+    align-items: center;
+}
+main form fieldset{
+    margin: 0;
+    padding: 0;
+}
+
+main form fieldset:first-of-type{
+    flex-grow: 1;
+    
+    margin: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 10px;
+}
+main form .submit{
+    margin: 0;
+}
+main form fieldset:last-of-type{
+    order: -1;
+}
+
+
+main table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: OpenSans, sans-serif;
+}
+main table tr > *{
+    text-align: center;
+}
+main table tr:first-child > *{
+    background-color: var(--blue);
+    color: white;
+    font-weight: normal;
+    padding: 10px 0;
+}
+main table tr:nth-child(odd){
+    background-color: var(--lightpink);
+}
+main table tr td:nth-of-type(2){
+    text-align: left;
+}
+main table tr td:last-of-type{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+main table button{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+main table button:hover{
+    border: none;
+    background-color: transparent;
+}
+main table button img{
+    width: 35px;
+}

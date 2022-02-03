@@ -109,10 +109,10 @@
 
     </aside>
 
-            <p class="phpdocumentor-summary">Funciones para uso de información de los REST utilizados.</p>
+            <p class="phpdocumentor-summary">Funciones para uso de los REST utilizados.</p>
 
     <section class="phpdocumentor-description"><p>Por cada rest, la clase tiene una función que, dados los parámetros para afinar
-la devolución de la búsqueda, devuelve un objeto o un mensaje de error.</p>
+la devolución de la búsqueda, devuelve un objeto o un elemento vacío.</p>
 </section>
 
 
@@ -162,9 +162,16 @@ la devolución de la búsqueda, devuelve un objeto o un mensaje de error.</p>
                         <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/REST.html#method_buscarPalabra">buscarPalabra()</a>
     <span>
-                                &nbsp;: <a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|string    </span>
+                                &nbsp;: <a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|null    </span>
 </dt>
 <dd>Búsqueda de palabra en la api del diccionario de Google.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/REST.html#method_conversorMoneda">conversorMoneda()</a>
+    <span>
+                                &nbsp;: float|null    </span>
+</dt>
+<dd>Conversión de monedas.</dd>
 
         </dl>
 
@@ -200,7 +207,7 @@ la devolución de la búsqueda, devuelve un objeto o un mensaje de error.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">buscarPalabra</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idioma</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$palabra</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|string</span></code>
+                <span class="phpdocumentor-signature__name">buscarPalabra</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idioma</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$palabra</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|null</span></code>
 
         <section class="phpdocumentor-description"><p>Indica el idioma y palabra a buscar en la api del diccionario de Google,
 que devolverá o no la palabra según si la encuentra o no.</p>
@@ -232,10 +239,79 @@ No todos los idiomas funcionan.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|string</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|null</span>
             &mdash;
             <section class="phpdocumentor-description"><p>Objeto con información sobre la palabra si la encuentra,
-o un mensaje de error si no lo hace.</p>
+o null si no lo hace.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_conversorMoneda">
+        conversorMoneda()
+        <a href="classes/REST.html#method_conversorMoneda" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="model/REST.php"><a href="files/model-rest.html"><abbr title="model/REST.php">REST.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Conversión de monedas.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">conversorMoneda</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">float&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fCantidad</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sDivisaPrincipal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sOtraDivisa</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">float|null</span></code>
+
+        <section class="phpdocumentor-description"><p>Dadas dos divisas, indica el valor de la segunda moneda respecto a una
+unidad de la primera moneda.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fCantidad</span>
+                : <span class="phpdocumentor-signature__argument__return-type">float</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Cantidad a convertir.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sDivisaPrincipal</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Moneda a partir de la que convertir.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sOtraDivisa</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Divisa a la que convertir.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">float|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Resultado de la conversión: el valor convertido si
+es correcto, o null si no ha sido correcto.</p>
 </section>
 
     

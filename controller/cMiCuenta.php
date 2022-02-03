@@ -37,7 +37,7 @@ $aVMiCuenta = [
     'usuario' => $_SESSION['usuarioDAW204AppLoginLogout']->getCodUsuario(),
     'descripcion' => $_SESSION['usuarioDAW204AppLoginLogout']->getDescUsuario(),
     'numConexiones' => $_SESSION['usuarioDAW204AppLoginLogout']->getNumAccesos(),
-    'fechaHoraUltimaConexion' => date('d/m/Y H:i:s e', $_SESSION['usuarioDAW204AppLoginLogout']->getFechaHoraUltimaConexion()),
+    'fechaHoraUltimaConexion' => date('d/m/Y H:i:s T', $_SESSION['usuarioDAW204AppLoginLogout']->getFechaHoraUltimaConexion()),
     'perfil' => $_SESSION['usuarioDAW204AppLoginLogout']->getPerfil(),
     'imagenUsuario' => $_SESSION['usuarioDAW204AppLoginLogout']->getImagenUsuario()
 ];
