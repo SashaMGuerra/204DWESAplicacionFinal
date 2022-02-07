@@ -89,3 +89,27 @@ sup a{
     padding: 5px 0;
     text-align: center;
 }
+
+
+.RESTpropio form fieldset:first-of-type{
+    text-align: center;
+}
+.RESTpropio form input[type='text']{
+    width: 45px;
+    text-align: center;
+}
+.RESTpropio .error{
+    text-align: center;
+}
+.RESTpropio .propioDepartamento{
+    text-align: center;
+}
+.RESTpropio table{
+    margin: auto;
+    border-collapse: collapse;
+}
+.RESTpropio table td,
+.RESTpropio table th{
+    border: 1px solid var(--blue);
+    padding: 10px;
+}

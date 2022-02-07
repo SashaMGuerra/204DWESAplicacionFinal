@@ -69,7 +69,61 @@ QUERY;
                         $oDepartamento['T02_CodDepartamento'],
                         $oDepartamento['T02_DescDepartamento'],
                         $oDepartamento['T02_FechaCreacionDepartamento'],
-                        $oDepartamento['T02_VolumenDeNegocio']);
+                        $oDepartamento['T02_VolumenDeNegocio'],
+                        $oDepartamento['T02_FechaBajaDepartamento']);
+            }
+            return $aDevolucion;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Búsqueda de departamentos por descripción y estado.
+     * 
+     * Dado un patrón de búsqueda y un estado de departamentos, busca en la base
+     * de datos los departamentos que cumplan con esos criterios.
+     * 
+     * @param String $sBusqueda Contenido que deben tener los departamentos a devolver.
+     * @param int $iEstado Estado de los departamentos a devolver (0 = de baja,
+     * 1 = de alta, 2 = todos). Por defecto los busca todos.
+     * @return Departamento[]|false Devuelve un array con los departamentos si
+     * ha devuelto alguno, o false en caso contrario.
+     */
+    public static function buscaDepartamentosPorDescEstado($sBusqueda = '', $iEstado = 2) {
+        switch ($iEstado){
+            case 0:
+                $estado = 'AND T02_FechaBajaDepartamento IS NOT NULL';
+                break;
+            case 1:
+                $estado = 'AND T02_FechaBajaDepartamento IS NULL';
+                break;
+            case 2:
+                $estado = '';
+                break;
+        }
+        
+        $sSelect = <<<QUERY
+            SELECT * FROM T02_Departamento
+            WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%'
+            {$estado};
+QUERY;
+        $oResultado = DBPDO::ejecutarConsulta($sSelect);
+        $aDepartamentos = $oResultado->fetchAll();
+        if ($aDepartamentos) {
+            $aDevolucion = [];
+            /*
+             * Creación de cada departamento en objeto y añadido al array de
+             * devolución de departamentos con el código de departamento como
+             * key en el array.
+             */
+            foreach ($aDepartamentos as $oDepartamento) {
+                $aDevolucion[$oDepartamento['T02_CodDepartamento']] = new Departamento(
+                        $oDepartamento['T02_CodDepartamento'],
+                        $oDepartamento['T02_DescDepartamento'],
+                        $oDepartamento['T02_FechaCreacionDepartamento'],
+                        $oDepartamento['T02_VolumenDeNegocio'],
+                        $oDepartamento['T02_FechaBajaDepartamento']);
             }
             return $aDevolucion;
         } else {
@@ -95,7 +149,7 @@ QUERY;
             INSERT INTO T02_Departamento(T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenDeNegocio) VALUES
             ('{$sCodDepartamento}', '{$sDescDepartamento}', {$iFechaCreacionDepartamento} ,{$fVolumenDeNegocio});
         QUERY;
-            
+
         $oResultado = DBPDO::ejecutarConsulta($sInsert);
         if ($oResultado) {
             return new Departamento(
@@ -125,8 +179,21 @@ QUERY;
         return $oResultado;
     }
 
-    public static function bajaLogicaDepartamento() {
-        
+    /**
+     * Baja lógica de un departamento.
+     * 
+     * Dado su código, da de baja un departamento de la base de datos, indicándole
+     * como timestamp de fecha de baja el momento actual.
+     * 
+     * @param String $sCodDepartamento Código del departamento que dar de baja.
+     * @return PDOStatement Devuelve el resultado del update.
+     */
+    public static function bajaLogicaDepartamento($sCodDepartamento) {
+        $sUpdate = <<<QUERY
+            UPDATE T02_Departamento SET T02_FechaBajaDepartamento = UNIX_TIMESTAMP()
+            WHERE T02_CodDepartamento= '{$sCodDepartamento}';
+QUERY;
+        return DBPDO::ejecutarConsulta($sUpdate);
     }
 
     /**
@@ -150,8 +217,12 @@ QUERY;
         return DBPDO::ejecutarConsulta($sUpdate);
     }
 
-    public static function rehabilitaDepartamento() {
-        
+    public static function rehabilitaDepartamento($sCodDepartamento) {
+        $sUpdate = <<<QUERY
+            UPDATE T02_Departamento SET T02_FechaBajaDepartamento = null
+            WHERE T02_CodDepartamento= '{$sCodDepartamento}';
+QUERY;
+        return DBPDO::ejecutarConsulta($sUpdate);
     }
 
     public static function validaCodNoExiste() {

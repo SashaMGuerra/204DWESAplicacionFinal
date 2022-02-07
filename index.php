@@ -47,7 +47,7 @@ if (isset($_REQUEST['cookieLanguage']) && !validacionFormularios::validarElement
  */
 if(isset($_REQUEST['menuInicio'])){
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-    $_SESSION['paginaEnCurso'] = isset($_SESSION['usuarioDAW204AppLoginLogout'])?'inicioPrivado':'inicioPublico';
+    $_SESSION['paginaEnCurso'] = isset($_SESSION['usuarioDAW204AplicacionFinal'])?'inicioPrivado':'inicioPublico';
 }
 
 // Si desde el footer el usuario quiere ir a la página de tecnologías, va.

@@ -74,7 +74,7 @@ if($bEntradaOK){
     $oUsuario = UsuarioPDO::altaUsuario($_REQUEST['usuario'], $_REQUEST['password'], $_REQUEST['descripcion']);
             
     // Almacenamiento del usuario y la fecha-hora de última conexión.
-    $_SESSION['usuarioDAW204AppLoginLogout'] = $oUsuario;
+    $_SESSION['usuarioDAW204AplicacionFinal'] = $oUsuario;
 
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';

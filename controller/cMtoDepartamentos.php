@@ -22,22 +22,9 @@ if (isset($_REQUEST['volver'])) {
 // Si se selecciona añadir un departamento, va a la página.
 if (isset($_REQUEST['anadir'])) {
     $_SESSION['codDepartamentoEnCurso'] = $_REQUEST['anadir'];
-    
+
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'altaDepartamento';
-    header('Location: index.php');
-    exit;
-}
-
-/*
- * Si se selecciona ver un departamento, guarda en la sesión el código
- * del departamento a ver, y va a la página.
- */
-if (isset($_REQUEST['ver'])) {
-    $_SESSION['codDepartamentoEnCurso'] = $_REQUEST['ver'];
-    
-    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-    $_SESSION['paginaEnCurso'] = 'consultarModificarDepartamento';
     header('Location: index.php');
     exit;
 }
@@ -48,7 +35,7 @@ if (isset($_REQUEST['ver'])) {
  */
 if (isset($_REQUEST['modificar'])) {
     $_SESSION['codDepartamentoEnCurso'] = $_REQUEST['modificar'];
-    
+
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'consultarModificarDepartamento';
     header('Location: index.php');
@@ -61,20 +48,35 @@ if (isset($_REQUEST['modificar'])) {
  */
 if (isset($_REQUEST['eliminar'])) {
     $_SESSION['codDepartamentoEnCurso'] = $_REQUEST['eliminar'];
-    
+
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'eliminarDepartamento';
     header('Location: index.php');
     exit;
 }
 
-// Búsqueda deseada por el usuario.
-$aFormulario = [
-    'descDepartamento' => ''
-];
+// Si se selecciona dar de baja lógica un departamento, lo hace.
+if (isset($_REQUEST['bajaLogica'])) {
+    DepartamentoPDO::bajaLogicaDepartamento($_REQUEST['bajaLogica']);
+
+    // Recarga la página.
+    header('Location: index.php');
+    exit;
+}
+
+// Si se selecciona rehabilitar de una baja lógica un departamento, lo hace.
+if (isset($_REQUEST['rehabilitar'])) {
+    DepartamentoPDO::rehabilitaDepartamento($_REQUEST['rehabilitar']);
+
+    // Recarga la página.
+    header('Location: index.php');
+    exit;
+}
+
 // Array de errores.
 $aErrores = [
-    'descDepartamento' => ''
+    'descDepartamento' => '',
+    'estado' => ''
 ];
 
 // Si el formulario ha sido enviado, valida el campo y registra los errores.
@@ -83,6 +85,7 @@ if (isset($_REQUEST['buscar'])) {
 
     // Validación del campo.
     $aErrores['descDepartamento'] = validacionFormularios::comprobarAlfanumerico($_REQUEST['descDepartamento'], 255, 1, OPCIONAL);
+    $aErrores['estado'] = validacionFormularios::validarElementoEnLista($_REQUEST['estado'], ['alta', 'baja', 'todos']);
 
     /*
      * Recorrido del array de errores.
@@ -106,7 +109,19 @@ if (isset($_REQUEST['buscar'])) {
  * a buscar.
  */
 if ($bEntradaOK) {
-    $aFormulario['descDepartamento'] = $_REQUEST['descDepartamento'];
+    $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] = $_REQUEST['descDepartamento'];
+    switch ($_REQUEST['estado']) {
+        case 'baja':
+            $iEstado = DEPARTAMENTOS_BAJA;
+            break;
+        case 'alta':
+            $iEstado = DEPARTAMENTOS_ALTA;
+            break;
+        case 'todos':
+            $iEstado = DEPARTAMENTOS_TODOS;
+            break;
+    }
+    $_SESSION['criterioBusquedaDepartamentos']['estado'] = $iEstado;
 }
 
 /**
@@ -114,7 +129,7 @@ if ($bEntradaOK) {
  * mostrarlos.
  */
 $aVMtoDepartamentos = [];
-$aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDesc($aFormulario['descDepartamento']);
+$aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda']??'', $_SESSION['criterioBusquedaDepartamentos']['estado']??DEPARTAMENTOS_TODOS);
 if ($aDepartamentos) {
     foreach ($aDepartamentos as $oDepartamento) {
         array_push($aVMtoDepartamentos, [
@@ -122,13 +137,10 @@ if ($aDepartamentos) {
             'descDepartamento' => $oDepartamento->getDescDepartamento(),
             'fechaCreacionDepartamento' => date('d/m/Y H:i:s T', $oDepartamento->getFechaCreacionDepartamento()),
             'volumenDeNegocio' => $oDepartamento->getVolumenDeNegocio(),
-            'fechaBajaDepartamento' => $oDepartamento->getFechaBajaDepartamento()
+            'fechaBajaDepartamento' => !empty($oDepartamento->getFechaBajaDepartamento()) ? date('d/m/Y H:i:s T', $oDepartamento->getFechaBajaDepartamento()) : ''
         ]);
     }
 }
-
-
-
 
 // Mostrado de la vista.
 require_once $aVistas['layout'];

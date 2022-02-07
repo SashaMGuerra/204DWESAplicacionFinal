@@ -15,6 +15,10 @@ require_once 'core/libreriaValidacion.php';
 define("OBLIGATORIO", 1);
 define("OPCIONAL", 0);
 
+define("DEPARTAMENTOS_BAJA", 0);
+define("DEPARTAMENTOS_ALTA", 1);
+define("DEPARTAMENTOS_TODOS", 2);
+
 // Constantes para la conexión a la base de datos.
 require_once 'config/configDB.php';
 

@@ -34,12 +34,12 @@ if (isset($_REQUEST['eliminarCuenta'])) {
 }
 
 $aVMiCuenta = [
-    'usuario' => $_SESSION['usuarioDAW204AppLoginLogout']->getCodUsuario(),
-    'descripcion' => $_SESSION['usuarioDAW204AppLoginLogout']->getDescUsuario(),
-    'numConexiones' => $_SESSION['usuarioDAW204AppLoginLogout']->getNumAccesos(),
-    'fechaHoraUltimaConexion' => date('d/m/Y H:i:s T', $_SESSION['usuarioDAW204AppLoginLogout']->getFechaHoraUltimaConexion()),
-    'perfil' => $_SESSION['usuarioDAW204AppLoginLogout']->getPerfil(),
-    'imagenUsuario' => $_SESSION['usuarioDAW204AppLoginLogout']->getImagenUsuario()
+    'usuario' => $_SESSION['usuarioDAW204AplicacionFinal']->getCodUsuario(),
+    'descripcion' => $_SESSION['usuarioDAW204AplicacionFinal']->getDescUsuario(),
+    'numConexiones' => $_SESSION['usuarioDAW204AplicacionFinal']->getNumAccesos(),
+    'fechaHoraUltimaConexion' => date('d/m/Y H:i:s T', $_SESSION['usuarioDAW204AplicacionFinal']->getFechaHoraUltimaConexion()),
+    'perfil' => $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil(),
+    'imagenUsuario' => $_SESSION['usuarioDAW204AplicacionFinal']->getImagenUsuario()
 ];
 
 $aErrores = [
@@ -93,7 +93,7 @@ if($bEntradaOK){
     }
     
     // Actualización en la base de datos.
-    $_SESSION['usuarioDAW204AppLoginLogout'] = UsuarioPDO::modificarUsuario($_SESSION['usuarioDAW204AppLoginLogout'], $aVMiCuenta['descripcion'], $aVMiCuenta['imagenUsuario']);
+    $_SESSION['usuarioDAW204AplicacionFinal'] = UsuarioPDO::modificarUsuario($_SESSION['usuarioDAW204AplicacionFinal'], $aVMiCuenta['descripcion'], $aVMiCuenta['imagenUsuario']);
 
     // Regreso al índice público.
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];

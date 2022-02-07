@@ -50,9 +50,13 @@
                 </div>
                 <hr/>
                 <div class="info">
+                    <a href="https://daw204.ieslossauces.es/" target="_blank">
+                        <img src="webroot/media/img/footer/homepage.png" alt="web del autor">
+                        <p>Web del autor</p>
+                    </a>
                     <a href="https://github.com/SashaMGuerra/204DWESAplicacionFinal" target="_blank">
                         <img src="webroot/media/img/footer/github_logo_white.png" alt="repositorio">
-                        <p>SashaMGuerra</p>
+                        <p>Repositorio</p>
                     </a>
                     <button type="submit" form="layoutForm" name="tecnologias" value="tecnologias">
                         <img src="webroot/media/img/footer/php.png" alt="repositorio">
