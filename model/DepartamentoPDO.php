@@ -225,8 +225,23 @@ QUERY;
         return DBPDO::ejecutarConsulta($sUpdate);
     }
 
-    public static function validaCodNoExiste() {
-        
+    /**
+     * Validación de existencia de código de departamento.
+     * 
+     * Comprueba si ya existe un departamento con el código dado. Distingue entre
+     * mayúsculas y minúsculas.
+     * 
+     * @param String $sCodDepartamento Código de departamento a comprobar si
+     * ya existe.
+     * @return boolean Devuelve true si no existe, y false si sí está.
+     */
+    public static function validaCodNoExiste($sCodDepartamento) {
+        if(self::buscaDepartamentoPorCod($sCodDepartamento)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

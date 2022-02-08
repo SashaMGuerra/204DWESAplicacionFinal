@@ -7,21 +7,40 @@
 h1{
     margin-bottom: 10px;
 }
-.forSection {
-    background-color: var(--lightpink);
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    border-top: 1px solid var(--blue);
-    border-bottom: 1px solid var(--blue);
-    outline: none;
-    border-radius: 0;
+nav ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: wrap;
 }
+nav ul li{
+    flex-grow: 1;
+}
+nav ul li button{
+    /* Limpieza de estilos de botones */
+    border: none;
+    padding: 0;
+    text-transform: initial;
+    font-weight: normal;
+    color: var(--blue);
+    border-radius: 0;
+    
+    background-color: var(--lightpink);
+    width: 100%;
+    padding: 5px 0;
+}
+nav li button:hover{
+    border: none;
+    color: var(--blue);
+    background-color: var(--pink);
+}
+
 section {
-    /* display: none; */
-    margin: 10px 0;
+    display: none;
+}
+
+section > div{
+    margin-top: 10px;
 }
 
 /* Estilos comunes a las API */

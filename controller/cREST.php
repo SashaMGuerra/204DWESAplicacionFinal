@@ -15,6 +15,15 @@ if (isset($_REQUEST['volver'])) {
     exit;
 }
 
+// Para mostrar un REST u otro del menú.
+if(isset($_REQUEST['RESTEnCurso'])){
+    $_SESSION['RESTEnCurso'] = $_REQUEST['RESTEnCurso'];
+    
+    // Recarga de la página para mostrar la sección.
+    header('Location: index.php');
+    exit;
+}
+
 $aErroresDiccionario = [
     'word' => '',
     'language' => ''

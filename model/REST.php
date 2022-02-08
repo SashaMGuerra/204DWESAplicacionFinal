@@ -74,7 +74,7 @@ class REST {
      * llamar a la API.
      */
     public function buscarDepartamentoPorCodigo($sCodDepartamento) {
-        $resultadoAPI = file_get_contents("http://192.168.1.30/AplicacionFinal/api/buscarDepartamentoPorCodigo.php?codDepartamento=$sCodDepartamento");
+        $resultadoAPI = file_get_contents("https://daw204.ieslossauces.es/AplicacionFinal/api/buscarDepartamentoPorCodigo.php?codDepartamento=$sCodDepartamento");
         if ($resultadoAPI) {
             $JSONDecodificado = json_decode($resultadoAPI, true); //Almacén de la informacion decodificada obtenida de la url como un array.
 

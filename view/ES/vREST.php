@@ -8,6 +8,23 @@
  */
 ?>
 <main>
+    <style>
+        <?php
+            switch($_SESSION['RESTEnCurso']){
+                case 'diccionario': ?>
+        section#diccionario{
+                    <?php break;
+                case 'conversor': ?>  
+        section#conversor{
+                    <?php break;
+                case 'buscarDPTO': ?>  
+        section#buscarDPTO{
+                    <?php break;
+            }
+        ?>
+            display: initial;
+        }
+    </style>
     <div class="container">
         <div class="mainH1">
             <h1>Rest</h1>
@@ -15,8 +32,16 @@
                 <button form="layoutForm" name="volver" value="volver">Volver</button>
             </div>
         </div>
-        <button class="forSection" onclick="showRest(this)" id="sectionDiccionario">Diccionario</button>
-        <section class="accordion">
+        <form id="menuRESTForm" method="post">
+            <nav>
+                <ul>
+                    <li><button type="submit" name="RESTEnCurso" value="diccionario">Diccionario</button></li>
+                    <li><button type="submit" name="RESTEnCurso" value="conversor">Conversor</button></li>
+                    <li><button type="submit" name="RESTEnCurso" value="buscarDPTO">Buscar DPTO</button></li>
+                </ul>
+            </nav>
+        </form>
+        <section id="diccionario">
             <div class="diccionario">
                 <h2>Diccionario de Google<sup><a href="https://dictionaryapi.dev/" target="_blank">ⓘ</a></sup></h2>
                 <form method="post" id="restForm">
@@ -81,8 +106,7 @@
                 </div>
             </div>
         </section>
-        <button class="forSection" onclick="showRest(this)" id="sectionConversor">Conversor de monedas</button>
-        <section class="accordion">
+        <section id="conversor">
             <div class="conversor">
                 <h2>Conversor de divisas<sup><a href="" target="_blank">ⓘ</a></sup></h2>
                 <form method="post">
@@ -128,8 +152,7 @@
                 </form>
             </div>
         </section>
-        <button class="forSection" onclick="showRest(this)" id="sectionPropio">REST Propio: buscar departamento</button>
-        <section class="accordion">
+        <section id="buscarDPTO">
             <div class="RESTpropio">
                 <h2>Búsqueda de departamentos por código<sup><a href="" target="_blank">ⓘ</a></sup></h2>
                 <form method="post">

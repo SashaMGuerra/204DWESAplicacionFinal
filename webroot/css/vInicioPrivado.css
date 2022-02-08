@@ -3,44 +3,64 @@
     Author     : Sasha
 */
 
-main .container{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    height: fit-content;
-}
-
-main .mainH1{
-    grid-row: 1;
-    grid-column: 1/-1;
-}
-
-main aside{
-    grid-column: 1;
-    grid-row: 1/-1;
-}
-main aside{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-main aside form{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-around;
-}
-
-main aside img{
-    max-width: 250px;
-    max-height: 250px;
+aside img{
     border-radius: 15px;
 }
 
-main section{
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 5px;
+@media (min-width: 740px){
+    main .container{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: min-content auto auto;
+        height: fit-content;
+    }
+    div.mainH1{
+        grid-column: 1/-1;
+    }
+    main section:last-of-type{
+        grid-column: 1/-1;
+    }
+
+    main aside img{
+        max-width: 400px;
+        max-height: 400px;
+    }
+
+    main section form{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+    main section form button{
+        min-width: fit-content;
+    }
+
+    main section.contenido{
+        text-align: center;
+        margin: 10px;
+    }
 }
+@media (max-width: 740px){
+    main .container{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    main section.contenido{
+        margin: 5px 0;
+    }
+    
+    main aside{
+        order: 100;
+    }
+    main aside img{
+        width: 100%;
+    }
+    
+    main section form{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 

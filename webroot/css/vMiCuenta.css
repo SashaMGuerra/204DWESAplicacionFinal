@@ -33,7 +33,12 @@ div.input div.img{
     }
 }
 @media (max-width: 820px){
-
+    fieldset.main img{
+        width: 100%;
+    }
+    fieldset.main input[type="file"]{
+        width: 100%;
+    }
 }
 
 
