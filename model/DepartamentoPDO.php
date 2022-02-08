@@ -148,7 +148,7 @@ QUERY;
         $sInsert = <<<QUERY
             INSERT INTO T02_Departamento(T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenDeNegocio) VALUES
             ('{$sCodDepartamento}', '{$sDescDepartamento}', {$iFechaCreacionDepartamento} ,{$fVolumenDeNegocio});
-        QUERY;
+QUERY;
 
         $oResultado = DBPDO::ejecutarConsulta($sInsert);
         if ($oResultado) {
@@ -173,7 +173,7 @@ QUERY;
     public static function bajaFisicaDepartamento($sCodDepartamento) {
         $sDelete = <<<QUERY
             DELETE FROM T02_Departamento WHERE T02_CodDepartamento = '{$sCodDepartamento}';
-        QUERY;
+QUERY;
 
         $oResultado = DBPDO::ejecutarConsulta($sDelete);
         return $oResultado;
@@ -197,6 +197,23 @@ QUERY;
     }
 
     /**
+     * Rehabilitación de departamento.
+     * 
+     * Dado el código de un departamento en baja lógica, lo rehabilita eliminando
+     * su fecha de baja.
+     * 
+     * @param String $sCodDepartamento Código del departamento a rehabilitar.
+     * @return PDOStatement Devuelve el resultado del update.
+     */
+    public static function rehabilitaDepartamento($sCodDepartamento) {
+        $sUpdate = <<<QUERY
+            UPDATE T02_Departamento SET T02_FechaBajaDepartamento = null
+            WHERE T02_CodDepartamento= '{$sCodDepartamento}';
+QUERY;
+        return DBPDO::ejecutarConsulta($sUpdate);
+    }
+
+    /**
      * Modificación de un departamento.
      * 
      * Dado el código de un departamento, modifica su descripción y volumen
@@ -212,14 +229,6 @@ QUERY;
         $sUpdate = <<<QUERY
             UPDATE T02_Departamento SET T02_DescDepartamento = '{$sDescDepartamento}',
             T02_VolumenDeNegocio = {$fVolumenDeNegocio}
-            WHERE T02_CodDepartamento= '{$sCodDepartamento}';
-QUERY;
-        return DBPDO::ejecutarConsulta($sUpdate);
-    }
-
-    public static function rehabilitaDepartamento($sCodDepartamento) {
-        $sUpdate = <<<QUERY
-            UPDATE T02_Departamento SET T02_FechaBajaDepartamento = null
             WHERE T02_CodDepartamento= '{$sCodDepartamento}';
 QUERY;
         return DBPDO::ejecutarConsulta($sUpdate);

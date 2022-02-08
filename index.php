@@ -61,5 +61,13 @@ if (!isset($_SESSION['paginaEnCurso'])) {
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
 }
 
+
+/* Si la página que se pide es privada y el usuario no ha hecho login, le manda
+ * al inicio público.
+ */
+if(array_key_exists($_SESSION['paginaEnCurso'], $aVistas['privada']) && !isset($_SESSION['usuarioDAW204AplicacionFinal'])){
+    $_SESSION['paginaEnCurso'] = 'inicioPublico';
+}
+
 // Cargado de la página indicada.
 require_once $aControladores[$_SESSION['paginaEnCurso']];

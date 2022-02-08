@@ -1,5 +1,6 @@
 <?php
-/* 
+
+/*
  * Fichero de configuración de aplicación.
  * 
  * @package AppFinal
@@ -55,22 +56,53 @@ $aControladores = [
 ];
 
 // Directorios de las vistas.
+/*
 $aVistas = [
-    'inicioPublico' => 'view/'.$_COOKIE['language'].'/vInicioPublico.php',
-    'layout' => 'view/'.$_COOKIE['language'].'/Layout.php',
-    'login' => 'view/'.$_COOKIE['language'].'/vLogin.php',
-    'inicioPrivado' => 'view/'.$_COOKIE['language'].'/vInicioPrivado.php',
-    'registro' => 'view/'.$_COOKIE['language'].'/vRegistro.php',
-    'miCuenta' => 'view/'.$_COOKIE['language'].'/vMiCuenta.php',
-    'cambiarPassword' => 'view/'.$_COOKIE['language'].'/vCambiarPassword.php',
-    'borrarCuenta' => 'view/'.$_COOKIE['language'].'/vBorrarCuenta.php',
-    'detalle' => 'view/'.$_COOKIE['language'].'/vDetalle.php',
-    'mtoDepartamentos' => 'view/'.$_COOKIE['language'].'/vMtoDepartamentos.php',
-    'consultarModificarDepartamento' => 'view/'.$_COOKIE['language'].'/vConsultarModificarDepartamento.php',
-    'eliminarDepartamento' => 'view/'.$_COOKIE['language'].'/vEliminarDepartamento.php',
-    'altaDepartamento' => 'view/'.$_COOKIE['language'].'/vAltaDepartamento.php',
-    'tecnologias' => 'view/'.$_COOKIE['language'].'/vTecnologias.php',
-    'rest' => 'view/'.$_COOKIE['language'].'/vREST.php',
-    'wip' => 'view/'.$_COOKIE['language'].'/vWIP.php',
-    'error' => 'view/'.$_COOKIE['language'].'/vError.php'
+    'layout' => 'view/' . $_COOKIE['language'] . '/Layout.php',
+    'inicioPublico' => 'view/' . $_COOKIE['language'] . '/vInicioPublico.php',
+    'login' => 'view/' . $_COOKIE['language'] . '/vLogin.php',
+    'registro' => 'view/' . $_COOKIE['language'] . '/vRegistro.php',
+    'tecnologias' => 'view/' . $_COOKIE['language'] . '/vTecnologias.php',
+    'wip' => 'view/' . $_COOKIE['language'] . '/vWIP.php',
+    'error' => 'view/' . $_COOKIE['language'] . '/vError.php',
+    'inicioPrivado' => 'view/' . $_COOKIE['language'] . '/vInicioPrivado.php',
+    'miCuenta' => 'view/' . $_COOKIE['language'] . '/vMiCuenta.php',
+    'cambiarPassword' => 'view/' . $_COOKIE['language'] . '/vCambiarPassword.php',
+    'borrarCuenta' => 'view/' . $_COOKIE['language'] . '/vBorrarCuenta.php',
+    'detalle' => 'view/' . $_COOKIE['language'] . '/vDetalle.php',
+    'rest' => 'view/' . $_COOKIE['language'] . '/vREST.php',
+    'mtoDepartamentos' => 'view/' . $_COOKIE['language'] . '/vMtoDepartamentos.php',
+    'consultarModificarDepartamento' => 'view/' . $_COOKIE['language'] . '/vConsultarModificarDepartamento.php',
+    'eliminarDepartamento' => 'view/' . $_COOKIE['language'] . '/vEliminarDepartamento.php',
+    'altaDepartamento' => 'view/' . $_COOKIE['language'] . '/vAltaDepartamento.php',
+];
+ * 
+ */
+
+$aVistas = [
+    'layout' => 'view/' . $_COOKIE['language'] . '/Layout.php',
+    'publica' => [
+        'inicioPublico' => 'view/' . $_COOKIE['language'] . '/vInicioPublico.php',
+        'login' => 'view/' . $_COOKIE['language'] . '/vLogin.php',
+        'registro' => 'view/' . $_COOKIE['language'] . '/vRegistro.php',
+        'tecnologias' => 'view/' . $_COOKIE['language'] . '/vTecnologias.php',
+        'wip' => 'view/' . $_COOKIE['language'] . '/vWIP.php',
+        'error' => 'view/' . $_COOKIE['language'] . '/vError.php'
+    ],
+    'privada' => [
+        'inicioPrivado' => 'view/' . $_COOKIE['language'] . '/vInicioPrivado.php',
+        'miCuenta' => 'view/' . $_COOKIE['language'] . '/vMiCuenta.php',
+        'cambiarPassword' => 'view/' . $_COOKIE['language'] . '/vCambiarPassword.php',
+        'borrarCuenta' => 'view/' . $_COOKIE['language'] . '/vBorrarCuenta.php',
+        'detalle' => 'view/' . $_COOKIE['language'] . '/vDetalle.php',
+        'rest' => 'view/' . $_COOKIE['language'] . '/vREST.php',
+    ],
+    'usuario' => [
+        'mtoDepartamentos' => 'view/' . $_COOKIE['language'] . '/vMtoDepartamentos.php',
+        'consultarModificarDepartamento' => 'view/' . $_COOKIE['language'] . '/vConsultarModificarDepartamento.php',
+        'eliminarDepartamento' => 'view/' . $_COOKIE['language'] . '/vEliminarDepartamento.php',
+        'altaDepartamento' => 'view/' . $_COOKIE['language'] . '/vAltaDepartamento.php',
+    ],
+    'administrador' => [
+    ]
 ];

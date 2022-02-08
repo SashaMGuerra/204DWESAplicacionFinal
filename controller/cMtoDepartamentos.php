@@ -13,6 +13,8 @@
  */
 // Si se selecciona volver, vuelve a la página anterior..
 if (isset($_REQUEST['volver'])) {
+    unset($_SESSION['criterioBusquedaDepartamentos']);
+    
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
     header('Location: index.php');
