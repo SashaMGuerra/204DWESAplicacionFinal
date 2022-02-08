@@ -1,11 +1,12 @@
 <?php
 /**
+ * Controlador de la ventana de borrar cuenta.
+ * 
+ * Muestra una confirmación para borrar la cuenta.
+ * 
  * @author Sasha
  * @since 20/01/2022
  * @version 1.0
- * 
- * Controlador de la ventana de borrar cuenta..
- * Muestra una confirmación para borrar la cuenta.
  */
 
 // Si se selecciona cancelar, vuelve a miCuenta sin hacer cambios.
@@ -18,7 +19,7 @@ if(isset($_REQUEST['cancelar'])){
 
 // Si se desea eliminar cuenta, lo hace, destruye la sesión y recarga el index.
 if (isset($_REQUEST['aceptar'])) {
-    UsuarioPDO::borrarUsuario($_SESSION['usuarioDAW204AppLoginLogout']);
+    UsuarioPDO::borrarUsuario($_SESSION['usuarioDAW204AplicacionFinal']);
     
     session_unset();
     session_destroy();

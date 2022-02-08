@@ -10,12 +10,12 @@
  */
 ?>
 <!DOCTYPE html>
-<html lang="ES">
+<html lang="EN">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <title>Aplicación Final</title>
+        <title>Final Application</title>
         <link href="webroot/css/layout.css" rel="stylesheet" type="text/css"/>
         <link href="webroot/css/multiple.css" rel="stylesheet" type="text/css"/>
         <link href="webroot/css/v<?php echo ucfirst($_SESSION['paginaEnCurso']); ?>.css" rel="stylesheet" type="text/css"/>
@@ -26,15 +26,15 @@
         <header>
             <div class="container">
                 <div class="logo">
-                    <h1>Aplicación de Sasha</h1>
-                    <h2>• Versión 2.1</h2>
+                    <h1>Sasha's Application</h1>
+                    <h2>• 2.1 Version</h2>
                 </div>
                 <nav>
                     <form id="layoutForm" method="post">
                         <button class="language" name="cookieLanguage" value="<?php echo $_COOKIE['language'] == 'EN' ? 'ES' : 'EN'; ?>">
                             <img src="webroot/media/img/lang/<?php echo $_COOKIE['language'] == 'EN' ? 'ES' : 'EN'; ?>.png" alt="language">
                         </button>
-                        <button name="menuInicio" value="menuInicio">Inicio</button>
+                        <button name="menuInicio" value="menuInicio">Home</button>
                     </form>
                 </nav>
             </div>
@@ -52,19 +52,19 @@
                 <div class="info">
                     <a href="https://daw204.ieslossauces.es/" target="_blank">
                         <img src="webroot/media/img/footer/homepage.png" alt="web del autor">
-                        <p>Web del autor</p>
+                        <p>Author's website</p>
                     </a>
                     <a href="https://github.com/SashaMGuerra/204DWESAplicacionFinal" target="_blank">
                         <img src="webroot/media/img/footer/github_logo_white.png" alt="repositorio">
-                        <p>Repositorio</p>
+                        <p>Repository</p>
                     </a>
                     <button type="submit" form="layoutForm" name="tecnologias" value="tecnologias">
                         <img src="webroot/media/img/footer/php.png" alt="repositorio">
-                        <p>Tecnologías</p>
+                        <p>Technologies</p>
                     </button>
                     <a href="doc/index.html" target="_blank">
                         <img src="webroot/media/img/footer/doc.png" alt="phpdoc">
-                        <p>Documentación</p>
+                        <p>Documentation</p>
                     </a>
                     <a href="webroot/files/rss.xml" target="_blank">
                         <img src="webroot/media/img/footer/rss_white.png" alt="rss">
@@ -72,10 +72,10 @@
                     </a>
                     <div class="placedate">
                         <p>© IES Los Sauces (Benavente, Zamora) 2021-2022</p>
-                        <p>Modificado el 08/02/2022</p>
+                        <p>Last modified 08/02/2022</p>
                     </div>
                 </div>
-                <div>Diseño inspirado por <a href="https://www.timetochoose.com/" target="_blank">timetochoose.com</a> y <a href="https://www.thelonelypixel.co.uk/" target="_blank">thelonelypixel.co.uk</a>.</div>
+                <div>Design inspired by <a href="https://www.timetochoose.com/" target="_blank">timetochoose.com</a> and <a href="https://www.thelonelypixel.co.uk/" target="_blank">thelonelypixel.co.uk</a>.</div>
             </div>
         </footer>
     </body>

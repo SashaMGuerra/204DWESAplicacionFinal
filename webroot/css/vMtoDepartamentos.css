@@ -26,7 +26,14 @@ main form .submit{
 }
 main form fieldset:last-of-type{
     order: -1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
+main form fieldset:last-of-type button{
+    font-size: medium;
+}
+
 
 
 main table{
@@ -42,9 +49,6 @@ main table tr:first-child > *{
     color: white;
     font-weight: normal;
     padding: 10px 0;
-}
-main table tr:nth-child(odd){
-    background-color: var(--lightpink);
 }
 main table tr td:nth-of-type(2){
     text-align: left;
@@ -65,4 +69,35 @@ main table button:hover{
 }
 main table button img{
     width: 35px;
+}
+
+tr.alta{
+    background-color: palegreen;
+}
+tr.baja{
+    background-color: lightcoral;
+}
+table tr td:last-of-type{
+    background-color: white;
+}
+
+.paginacion{
+    margin-top: 15px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.paginacion button{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+.paginacion button:hover{
+    border: none;
+    background-color: transparent;
+}
+.paginacion img{
+    width: 20px;
 }

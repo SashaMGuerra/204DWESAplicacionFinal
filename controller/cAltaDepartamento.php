@@ -37,7 +37,7 @@ if (isset($_REQUEST['aceptar'])) {
     if($_REQUEST['codDepartamento'] !== strtoupper($_REQUEST['codDepartamento'])){
         $aErrores['codDepartamento'] = 'El código debe estar en mayúsculas.';
     }
-    else if(DepartamentoPDO::buscaDepartamentoPorCod($_REQUEST['codDepartamento'])){
+    else if(DepartamentoPDO::validaCodNoExiste($_REQUEST['codDepartamento'])){
         $aErrores['codDepartamento'] = 'Ya existe un departamento con ese código.';
     }
     $aErrores['descDepartamento'] = validacionFormularios::comprobarAlfanumerico($_REQUEST['descDepartamento'], 255, 5, OBLIGATORIO);

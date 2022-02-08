@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <language>es-ES</language>
+        <title>Aplicación Final - IMG</title>
+        <link>https://daw204.ieslossauces.es/AplicacionFinal/</link>
+        <description>FP Superior Desarrollo de Aplicaciones Web - Aplicación Final 2021/2022</description>
+        <category>Web development</category>
+        <copyright>SashaMGuerra</copyright>
+        <item>
+            <title>v1.0</title>
+            <link>https://daw204.ieslossauces.es/AplicacionFinal/</link>
+            <description>Primera versión de la aplicación. Con control de acceso, registro y borrado de usuarios, y uso de API REST.</description>
+            <category>Version</category>
+            <pubDate>Fri, 28 Jan 2022 16:15:00 +0200</pubDate>
+        </item>
+        <item>
+            <title>v2.0</title>
+            <link>https://daw204.ieslossauces.es/AplicacionFinal/</link>
+            <description>Segunda versión de la aplicación. Se ha añadido la funcionalidad de mantenimiento de departamentos (alta, modificación y elimincación), y otro API REST.</description>
+            <category>Version</category>
+            <pubDate>Thu, 03 Feb 2022 13:47:00 +0200</pubDate>
+        </item>
+    </channel>
+</rss>

@@ -35,7 +35,7 @@ if(isset($_REQUEST['miCuenta'])){
  */
 if(isset($_REQUEST['mantenimiento'])){
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-    $_SESSION['paginaEnCurso'] = $_SESSION['usuarioDAW204AppLoginLogout']->getPerfil()==='administrador'?'wip':'mtoDepartamentos';
+    $_SESSION['paginaEnCurso'] = $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()==='administrador'?'wip':'mtoDepartamentos';
     header('Location: index.php');
     exit;
 }
@@ -64,10 +64,10 @@ if(isset($_REQUEST['fallar'])){
 
 // Array con la información de la vista.
 $aVInicioPrivado = [
-    'descUsuario' => $_SESSION['usuarioDAW204AppLoginLogout']->getDescUsuario(),
-    'numAccesos' => $_SESSION['usuarioDAW204AppLoginLogout']->getNumAccesos(),
-    'fechaHoraUltimaConexionAnterior' => $_SESSION['usuarioDAW204AppLoginLogout']->getFechaHoraUltimaConexionAnterior(),
-    'imagenUsuario' => $_SESSION['usuarioDAW204AppLoginLogout']->getImagenUsuario()
+    'descUsuario' => $_SESSION['usuarioDAW204AplicacionFinal']->getDescUsuario(),
+    'numAccesos' => $_SESSION['usuarioDAW204AplicacionFinal']->getNumAccesos(),
+    'fechaHoraUltimaConexionAnterior' => $_SESSION['usuarioDAW204AplicacionFinal']->getFechaHoraUltimaConexionAnterior(),
+    'imagenUsuario' => $_SESSION['usuarioDAW204AplicacionFinal']->getImagenUsuario()
 ];
 
 // Carga de la página de inicio.

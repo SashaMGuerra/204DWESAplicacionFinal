@@ -15,6 +15,15 @@ if (isset($_REQUEST['volver'])) {
     exit;
 }
 
+// Para mostrar un REST u otro del menú.
+if(isset($_REQUEST['RESTEnCurso'])){
+    $_SESSION['RESTEnCurso'] = $_REQUEST['RESTEnCurso'];
+    
+    // Recarga de la página para mostrar la sección.
+    header('Location: index.php');
+    exit;
+}
+
 $aErroresDiccionario = [
     'word' => '',
     'language' => ''
@@ -120,6 +129,57 @@ $aVRESTConversor = [
     'resultadoConversion' => $iDivisaResultado??0 // Si es la primera vez que se carga la página, no hay ningún resultado.
 ];
 
+// REST propio.
+
+$aErroresPropio = [
+    'codDepartamento' => ''
+];
+
+// Si se ha enviado el formulario, valida la entrada.
+if (isset($_REQUEST['buscarDepartamento'])) {
+    $bEntradaOKPropio = true;
+
+    $aErroresPropio['codDepartamento'] = validacionFormularios::comprobarAlfabetico($_REQUEST['codDepartamento'], 3, 3, OBLIGATORIO);
+
+    foreach ($aErroresPropio as $sKey => $sError) {
+        if (!empty($sError)) {
+            $bEntradaOKPropio = false;
+            $_REQUEST[$sKey] = '';
+        }
+    }
+}
+// Si no se ha enviado el formulario, pone el manejador de errores a false.
+else {
+    $bEntradaOKPropio = false;
+}
+
+$aVRESTPropio = [
+    'codDepartamento' => $_REQUEST['codDepartamento'] ?? '',
+    'resultado' => '' // Si es la primera vez que se carga la página, no hay ningún resultado.
+];
+
+/*
+ * Si la entrada es válida, llama a la api con el código de departamento indicado.
+ * Según si la devolución ha sido correcta (ha devuelto el departamento) o no (texto)
+ * mostrará al usuario la palabra o el mensaje de error.
+ */
+if ($bEntradaOKPropio) {
+    $devolucion = REST::buscarDepartamentoPorCodigo($_REQUEST['codDepartamento']);
+    // Si es un objeto, extrae su información en un array.
+    if(is_object($devolucion)){
+        $aVRESTPropio['resultado'] = [
+            'codDepartamento' => $devolucion->getCodDepartamento(),
+            'descDepartamento' => $devolucion->getDescDepartamento(),
+            'fechaCreacionDepartamento' => date('d/m/Y H:i:s T', $devolucion->getFechaCreacionDepartamento()),
+            'volumenDeNegocio' => $devolucion->getVolumenDeNegocio(),
+            'fechaBajaDepartamento' => !empty($devolucion->getFechaBajaDepartamento()) ? date('d/m/Y H:i:s T', $devolucion->getFechaBajaDepartamento()) : ''
+        ];
+    }
+    // Si no es un objeto, será un string que devuelva un mensaje de error.
+    else{
+        $aVRESTPropio['resultado'] = $devolucion;
+    }
+}
 
 /*
  * Si no se ha enviado el formulario, o si se ha enviado pero estaba incorrecto,

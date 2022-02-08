@@ -10,10 +10,10 @@
 <main>
     <div class="container">
         <div class="mainH1">
-            <h1>Inicio</h1>
+            <h1>Home</h1>
             <div>
-                <button type="submit" form="formInicio" name="miCuenta" value="miCuenta">Ver perfil</button>
-                <button type="submit" form="formInicio" name="logout" value="logout">Cerrar sesión</button>
+                <button type="submit" form="formInicio" name="miCuenta" value="miCuenta">Profile</button>
+                <button type="submit" form="formInicio" name="logout" value="logout">Logout</button>
             </div>
         </div>
         <aside>
@@ -37,9 +37,9 @@
         <section>
             <form method="post" id="formInicio">
                 <button type="submit" id="rest" name="rest" value="rest">REST</button>
-                <button type="submit" name="detalle" value="detalle">Detalle</button>
-                <button type="submit" name="fallar" value="fallar">Hacer un select fallido</button>
-                <button type="submit" name="mantenimiento" value="mantenimiento">Ir a <?php echo $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()==='administrador'?'mtoUsuarios':'mtoDepartamentos'; ?></button>
+                <button type="submit" name="detalle" value="detalle">Detail</button>
+                <button type="submit" name="fallar" value="fallar">Execute a fail select</button>
+                <button type="submit" name="mantenimiento" value="mantenimiento">Go to <?php echo $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()==='administrador'?'mtoUsuarios':'mtoDepartamentos'; ?></button>
             </form>
         </section>
     </div>

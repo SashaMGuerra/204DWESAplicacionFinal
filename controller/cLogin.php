@@ -67,7 +67,7 @@ else{
  */
 if ($bEntradaOK) {
     $oUsuarioValido = UsuarioPDO::registrarUltimaConexion($oUsuarioValido);
-    $_SESSION['usuarioDAW204AppLoginLogout'] = $oUsuarioValido;
+    $_SESSION['usuarioDAW204AplicacionFinal'] = $oUsuarioValido;
 
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';

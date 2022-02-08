@@ -12,7 +12,7 @@ class Departamento{
     private $descDepartamento;
     private $fechaCreacionDepartamento;
     private $volumenDeNegocio;
-    private $fechaBajaDepartamento = null;
+    private $fechaBajaDepartamento;
     
     function __construct($codDepartamento, $descDepartamento, $fechaCreacionDepartamento, $volumenDeNegocio, $fechaBajaDepartamento = null) {
         $this->codDepartamento = $codDepartamento;
