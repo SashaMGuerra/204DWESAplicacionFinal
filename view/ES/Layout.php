@@ -39,7 +39,7 @@
                 </nav>
             </div>
         </header>
-        <?php require_once $aVistas['publica'][$_SESSION['paginaEnCurso']]; // Requiere la vista indicada en la variable de página. ?>
+        <?php require_once $aVistas[$_SESSION['paginaEnCurso']]; ?>
         <div class="movingImage">
             <div class="slidingImage"></div>
         </div>

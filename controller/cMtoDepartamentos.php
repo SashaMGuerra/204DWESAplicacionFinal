@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Controlador del mantenimiento de departamentos.
  * 
@@ -11,15 +10,31 @@
  * @since 31/01/2022
  * @version 2.0
  */
+
 // Si se selecciona volver, vuelve a la página anterior..
 if (isset($_REQUEST['volver'])) {
     unset($_SESSION['criterioBusquedaDepartamentos']);
-    
+
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
     header('Location: index.php');
     exit;
 }
+
+/**
+ * Si se selecciona exportar departamentos (xml), crea el documento para ser
+ * exportado, y acude al controlador de exportar departamentos para ser descargado
+ * por el usuario.
+ */
+if (isset($_REQUEST['exportar'])) {
+    $_SESSION['URLArchivoEnCurso'] = DepartamentoPDO::exportarDepartamentosXML();
+    
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'exportarDepartamentos';
+    header('Location: index.php');
+    exit;
+}
+
 
 // Si se selecciona añadir un departamento, va a la página.
 if (isset($_REQUEST['anadir'])) {
@@ -131,7 +146,7 @@ if ($bEntradaOK) {
  * mostrarlos.
  */
 $aVMtoDepartamentos = [];
-$aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda']??'', $_SESSION['criterioBusquedaDepartamentos']['estado']??DEPARTAMENTOS_TODOS);
+$aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? '', $_SESSION['criterioBusquedaDepartamentos']['estado'] ?? DEPARTAMENTOS_TODOS);
 if ($aDepartamentos) {
     foreach ($aDepartamentos as $oDepartamento) {
         array_push($aVMtoDepartamentos, [

@@ -1,11 +1,12 @@
 <?php
 /**
+ * Controlador de la ventana de detalle.
+ * 
+ * Muestra phpInfo y variables superglobales.
+ * 
  * @author Sasha
  * @since 12/01/2022
  * @version 1.0
- * 
- * Controlador de la ventana de detalle.
- * Muestra phpInfo y variables superglobales.
  */
 
 // Si se selecciona volver, vuelve a la página anterior..

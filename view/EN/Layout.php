@@ -39,7 +39,17 @@
                 </nav>
             </div>
         </header>
-        <?php require_once $aVistas[$_SESSION['paginaEnCurso']]; // Requiere la vista indicada en la variable de página. ?>
+        <?php 
+            /**
+             * Requiere la vista indicada en la variable de página en curso.
+             * 
+             * Como el array tiene dos dimensiones ([tipo][página]), busca keys
+             * con el nombre dado en todas las dimensiones mediante array_column.
+             * En realidad, esta función devuelve un array con todas las veces
+             * que aparece ese key. Se asume que no hay ninguno repetido.
+             */
+            require_once array_column($aVistas, $_SESSION['paginaEnCurso'])[0];
+        ?>
         <div class="movingImage">
             <div class="slidingImage"></div>
         </div>

@@ -28,7 +28,7 @@ class UsuarioPDO implements UsuarioDB{
             SELECT * FROM T01_Usuario
             WHERE T01_CodUsuario='{$codigoUsuario}' AND
             T01_Password=SHA2("{$codigoUsuario}{$password}", 256);
-        QUERY;
+QUERY;
         
         $oResultado = DBPDO::ejecutarConsulta($sSelect);
         $usuario = $oResultado->fetchObject();
@@ -57,7 +57,7 @@ class UsuarioPDO implements UsuarioDB{
         $sInsert = <<<QUERY
             INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_FechaHoraUltimaConexion) VALUES
             ("{$codigoUsuario}", SHA2("{$codigoUsuario}{$password}", 256), "{$descUsuario}", UNIX_TIMESTAMP());
-        QUERY;
+QUERY;
         
         if(DBPDO::ejecutarConsulta($sInsert)){
             return new Usuario($_REQUEST['usuario'], $_REQUEST['password'], $_REQUEST['descripcion'], 1, time(), null, 'usuario', null);
@@ -84,7 +84,7 @@ class UsuarioPDO implements UsuarioDB{
             UPDATE T01_Usuario SET T01_DescUsuario = "{$descUsuario}",
             T01_ImagenUsuario = '{$imagenUsuario}'
             WHERE T01_CodUsuario = "{$usuario->getCodUsuario()}";
-        QUERY;
+QUERY;
             
         $usuario->setDescUsuario($descUsuario);
         $usuario->setImagenUsuario($imagenUsuario);
@@ -112,7 +112,7 @@ class UsuarioPDO implements UsuarioDB{
         $sUpdate = <<<QUERY
             UPDATE T01_Usuario SET T01_Password = SHA2("{$usuario->getCodUsuario()}{$password}", 256)
             WHERE T01_CodUsuario = "{$usuario->getCodUsuario()}";
-        QUERY;
+QUERY;
         
         $usuario->setPassword($descUsuario);
         
@@ -136,7 +136,7 @@ class UsuarioPDO implements UsuarioDB{
         $sDelete = <<<QUERY
             DELETE FROM T01_Usuario
             WHERE T01_CodUsuario='{$usuario->getCodUsuario()}';
-        QUERY;
+QUERY;
             
         return DBPDO::ejecutarConsulta($sDelete);
     }
@@ -155,24 +155,59 @@ class UsuarioPDO implements UsuarioDB{
     public static function registrarUltimaConexion($usuario){
         $usuario->setFechaHoraUltimaConexionAnterior($usuario->getFechaHoraUltimaConexion());
         $usuario->setFechaHoraUltimaConexion(time());
-        $usuario->setNumAccesos($usuario->getNumAccesos()+1);
+        $usuario->setNumConexiones($usuario->getNumConexiones()+1);
         
         $sUpdate = <<<QUERY
-            UPDATE T01_Usuario SET T01_NumConexiones={$usuario->getNumAccesos()},
+            UPDATE T01_Usuario SET T01_NumConexiones={$usuario->getNumConexiones()},
             T01_FechaHoraUltimaConexion = {$usuario->getFechaHoraUltimaConexion()}
             WHERE T01_CodUsuario='{$usuario->getCodUsuario()}';
-        QUERY;
+QUERY;
 
         DBPDO::ejecutarConsulta($sUpdate);
             
         return $usuario;
     }
     
-    /*
+    /**
+     * Búsqueda de usuarios por descripción.
      * 
+     * Dado un patrón de búsqueda o no, busca en la base de datos usuarios
+     * que cumplan con ello. Si no se da un patrón, devuelve todos los usuarios.
+     * 
+     * @param String $sBusqueda Información que debe contener en la descripción
+     * los usuarios a devolver.
+     * @return Usuario[]|false Devuelve un array con los objetos usuario encontrados
+     * si los encuentra, o false si no lo hace.
      */
-    public static function buscaUsuariosporDesc(){
+    public static function buscaUsuariosporDesc($sBusqueda){
+        $sSelect = <<<QUERY
+            SELECT * FROM T01_Usuario
+            WHERE T01_DescUsuario LIKE '%{$sBusqueda}%';
+QUERY;
         
+        $oResultado = DBPDO::ejecutarConsulta($sSelect);
+        $aUsuarios = $oResultado->fetchAll();
+        if ($aUsuarios) {
+            $aDevolucion = [];
+            /*
+             * Creación de cada usuario en objeto y añadido al array de devolución
+             * de usuarios con el código de usuario como key en el array.
+             */
+            foreach ($aUsuarios as $oUsuario) {
+                $aDevolucion[$oUsuario['T01_CodUsuario']] = new Usuario(
+                        $oUsuario['T01_CodUsuario'],
+                        $oUsuario['T01_Password'],
+                        $oUsuario['T01_DescUsuario'],
+                        $oUsuario['T01_NumConexiones'],
+                        $oUsuario['T01_FechaHoraUltimaConexion'],
+                        $oUsuario['T01_FechaHoraUltimaConexion'],
+                        $oUsuario['T01_Perfil'],
+                        $oUsuario['T01_ImagenUsuario']);
+            }
+            return $aDevolucion;
+        } else {
+            return false;
+        }
     }
     
     /**
@@ -188,7 +223,7 @@ class UsuarioPDO implements UsuarioDB{
         $sSelect = <<<QUERY
             SELECT T01_CodUsuario FROM T01_Usuario
             WHERE T01_CodUsuario='{$codigoUsuario}';
-        QUERY;
+QUERY;
             
         return DBPDO::ejecutarConsulta($sSelect)->fetchObject();
     }

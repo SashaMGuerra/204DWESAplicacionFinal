@@ -56,18 +56,28 @@ if (isset($_REQUEST['tecnologias'])) {
     $_SESSION['paginaEnCurso'] = 'tecnologias';
 }
 
+
+// Comprobaciones previas a cargado de página.
+
 // Si no hay una página a cargar indicada, carga el login.
 if (!isset($_SESSION['paginaEnCurso'])) {
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
 }
 
-
-/* Si la página que se pide es privada y el usuario no ha hecho login, le manda
- * al inicio público.
+/* Si la página que se pide es privada (no está en el array público) y el usuario
+ * no ha hecho login, le manda al inicio público.
  */
-if(array_key_exists($_SESSION['paginaEnCurso'], $aVistas['privada']) && !isset($_SESSION['usuarioDAW204AplicacionFinal'])){
+if (!array_key_exists($_SESSION['paginaEnCurso'], $aControladores['publico'])
+        && !isset($_SESSION['usuarioDAW204AplicacionFinal'])) {
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
 }
 
-// Cargado de la página indicada.
-require_once $aControladores[$_SESSION['paginaEnCurso']];
+
+/*
+ * Cargado de la página indicada.
+ * 
+ * Como puede estar en cualquiera de la primera dimensión del array, busca en todas
+ * mediante array_column, que devuelve todos los values de un array multidimensional
+ * con el key indicado como parámetro. Se asume que no hay ninguna página repetida.
+ */
+require_once array_column($aControladores, $_SESSION['paginaEnCurso'])[0];

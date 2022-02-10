@@ -1,11 +1,12 @@
 <?php
 /**
+ * Controlador para la página de desarrrollo.
+ * 
+ * Tiene un botón para regresar a la página anterior.
+ * 
  * @author Sasha
  * @since 12/01/2022
  * @version 1.0
- * 
- * Controlador para la página de desarrrollo.
- * Tiene un botón para regresar al inicio privado.
  */
 
 // Si se selecciona volver a la página en que estaba, lo hace.

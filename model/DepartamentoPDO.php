@@ -91,7 +91,7 @@ QUERY;
      * ha devuelto alguno, o false en caso contrario.
      */
     public static function buscaDepartamentosPorDescEstado($sBusqueda = '', $iEstado = 2) {
-        switch ($iEstado){
+        switch ($iEstado) {
             case 0:
                 $estado = 'AND T02_FechaBajaDepartamento IS NOT NULL';
                 break;
@@ -102,7 +102,7 @@ QUERY;
                 $estado = '';
                 break;
         }
-        
+
         $sSelect = <<<QUERY
             SELECT * FROM T02_Departamento
             WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%'
@@ -245,12 +245,61 @@ QUERY;
      * @return boolean Devuelve true si no existe, y false si sí está.
      */
     public static function validaCodNoExiste($sCodDepartamento) {
-        if(self::buscaDepartamentoPorCod($sCodDepartamento)){
+        if (self::buscaDepartamentoPorCod($sCodDepartamento)) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
+    }
+
+    /**
+     * Exportación de departamentos a formato XML.
+     * 
+     * Recoge todos los departamentos de la base de datos y crea un archivo xml
+     * con la información que contienen.
+     * 
+     * @return string|boolean Devuelve un string con la localización del archivo
+     * si se ha guardado en temporal correctamente, o false en caso contrario.
+     */
+    public static function exportarDepartamentosXML() {
+        $aDepartamentos = self::buscaDepartamentosPorDesc();
+
+        if ($aDepartamentos) {
+
+            // Creación del archivo XML, con formato para mejorar su legibilidad.
+            $oDoc = new DOMDocument();
+            $oDoc->formatOutput = true;
+
+            $nodoDepartamentos = $oDoc->appendChild($oDoc->createElement('departamentos')); // Elemento raíz.
+
+            foreach ($aDepartamentos as $oDepartamento) {
+                // Creación del elemento departamento.
+                $oElemDepartamento = $oDoc->createElement("departamento"); // Cada departamento.
+                $nodoDepartamentos->appendChild($oElemDepartamento);
+
+                // Creación y añadido de la información sobre el departamento.
+                $oElemCodigo = $oDoc->createElement('codDepartamento', $oDepartamento->getCodDepartamento());
+                $oElemDepartamento->appendChild($oElemCodigo);
+
+                $oElemCodigo = $oDoc->createElement('descDepartamento', $oDepartamento->getDescDepartamento());
+                $oElemDepartamento->appendChild($oElemCodigo);
+
+                $oElemCodigo = $oDoc->createElement('fechaCreacionDepartamento', $oDepartamento->getFechaCreacionDepartamento());
+                $oElemDepartamento->appendChild($oElemCodigo);
+
+                $oElemCodigo = $oDoc->createElement('volumenDeNegocio', $oDepartamento->getVolumenDeNegocio());
+                $oElemDepartamento->appendChild($oElemCodigo);
+
+                $oElemCodigo = $oDoc->createElement('fechaBajaDepartamento', $oDepartamento->getFechaBajaDepartamento());
+                $oElemDepartamento->appendChild($oElemCodigo);
+            }
+
+            $sNombreArchivo = "tmp/departamentos" . time() . ".xml";
+            if ($oDoc->save($sNombreArchivo)) {
+                return $sNombreArchivo;
+            }
+        }
+        return false;
     }
 
 }

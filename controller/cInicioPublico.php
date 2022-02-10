@@ -1,11 +1,12 @@
 <?php
 /**
+ * Controlador de la página de inicio público.
+ * 
+ * Primera página de la aplicación. Permite ir a la página de login.
+ * 
  * @author Sasha
  * @since 12/01/2022
  * @version 1.0
- * 
- * Controlador de la página de inicio público: primera página de la aplicación.
- * Se puede ir a la página de login.
  */
 
 // Si decide hacer login, va a la página.

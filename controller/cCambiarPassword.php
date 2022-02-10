@@ -1,10 +1,13 @@
 <?php
 /**
+ * Controlador de cambio de contraseña.
+ * 
+ * Valida la entrada de la antigua y nueva contraseña y su repetición, y la
+ * modifica si es válido.
+ * 
  * @author Sasha
  * @since 18/01/2022
  * @version 1.0
- * 
- * Controlador de la ventana de cambio de contraseña.
  */
 
 // Si se selecciona cancelar, vuelve al índice privado sin hacer cambios.

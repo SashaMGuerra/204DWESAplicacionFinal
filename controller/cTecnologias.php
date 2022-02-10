@@ -1,11 +1,12 @@
 <?php
 /**
+ * Controlador de la ventana de tecnologías.
+ * 
+ * Muestra una infografía sobre las tecnologías utilizadas.
+ * 
  * @author Sasha
  * @since 26/01/2022
  * @version 1.0
- * 
- * Controlador de la ventana de tecnologías.
- * Muestra una infografía sobre las tecnologías utilizadas.
  */
 
 // Si se selecciona volver, vuelve a la página anterior..

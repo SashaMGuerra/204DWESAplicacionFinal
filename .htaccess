@@ -7,6 +7,5 @@ ErrorDocument 403 /AplicacionFinal/error/403.html
 ErrorDocument 404 /AplicacionFinal/error/404.html
 
 #RewriteEngine on
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteBase /
 #RewriteRule . index.php [L]

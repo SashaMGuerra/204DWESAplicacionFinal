@@ -37,26 +37,34 @@ require_once 'model/Palabra.php';
 
 // Directorios de los controladores.
 $aControladores = [
-    'inicioPublico' => 'controller/cInicioPublico.php',
-    'login' => 'controller/cLogin.php',
-    'inicioPrivado' => 'controller/cInicioPrivado.php',
-    'registro' => 'controller/cRegistro.php',
-    'miCuenta' => 'controller/cMiCuenta.php',
-    'cambiarPassword' => 'controller/cCambiarPassword.php',
-    'borrarCuenta' => 'controller/cBorrarCuenta.php',
-    'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
-    'consultarModificarDepartamento' => 'controller/cConsultarModificarDepartamento.php',
-    'eliminarDepartamento' => 'controller/cEliminarDepartamento.php',
-    'altaDepartamento' => 'controller/cAltaDepartamento.php',
-    'detalle' => 'controller/cDetalle.php',
-    'tecnologias' => 'controller/cTecnologias.php',
-    'rest' => 'controller/cREST.php',
-    'wip' => 'controller/cWIP.php',
-    'error' => 'controller/cError.php'
+    'publico' => [
+        'inicioPublico' => 'controller/cInicioPublico.php',
+        'login' => 'controller/cLogin.php',
+        'registro' => 'controller/cRegistro.php',
+        'wip' => 'controller/cWIP.php',
+        'error' => 'controller/cError.php'
+    ],
+    'privado' => [
+        'inicioPrivado' => 'controller/cInicioPrivado.php',
+        'miCuenta' => 'controller/cMiCuenta.php',
+        'cambiarPassword' => 'controller/cCambiarPassword.php',
+        'borrarCuenta' => 'controller/cBorrarCuenta.php',
+        'detalle' => 'controller/cDetalle.php',
+        'tecnologias' => 'controller/cTecnologias.php',
+        'rest' => 'controller/cREST.php',
+    ],
+    'usuario' => [
+        'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
+        'consultarModificarDepartamento' => 'controller/cConsultarModificarDepartamento.php',
+        'eliminarDepartamento' => 'controller/cEliminarDepartamento.php',
+        'altaDepartamento' => 'controller/cAltaDepartamento.php',
+        'exportarDepartamentos' => 'controller/cExportarDepartamentos.php',
+    ],
+    'administrador' => [
+    ]
 ];
 
 // Directorios de las vistas.
-/*
 $aVistas = [
     'layout' => 'view/' . $_COOKIE['language'] . '/Layout.php',
     'inicioPublico' => 'view/' . $_COOKIE['language'] . '/vInicioPublico.php',
@@ -75,34 +83,4 @@ $aVistas = [
     'consultarModificarDepartamento' => 'view/' . $_COOKIE['language'] . '/vConsultarModificarDepartamento.php',
     'eliminarDepartamento' => 'view/' . $_COOKIE['language'] . '/vEliminarDepartamento.php',
     'altaDepartamento' => 'view/' . $_COOKIE['language'] . '/vAltaDepartamento.php',
-];
- * 
- */
-
-$aVistas = [
-    'layout' => 'view/' . $_COOKIE['language'] . '/Layout.php',
-    'publica' => [
-        'inicioPublico' => 'view/' . $_COOKIE['language'] . '/vInicioPublico.php',
-        'login' => 'view/' . $_COOKIE['language'] . '/vLogin.php',
-        'registro' => 'view/' . $_COOKIE['language'] . '/vRegistro.php',
-        'tecnologias' => 'view/' . $_COOKIE['language'] . '/vTecnologias.php',
-        'wip' => 'view/' . $_COOKIE['language'] . '/vWIP.php',
-        'error' => 'view/' . $_COOKIE['language'] . '/vError.php'
-    ],
-    'privada' => [
-        'inicioPrivado' => 'view/' . $_COOKIE['language'] . '/vInicioPrivado.php',
-        'miCuenta' => 'view/' . $_COOKIE['language'] . '/vMiCuenta.php',
-        'cambiarPassword' => 'view/' . $_COOKIE['language'] . '/vCambiarPassword.php',
-        'borrarCuenta' => 'view/' . $_COOKIE['language'] . '/vBorrarCuenta.php',
-        'detalle' => 'view/' . $_COOKIE['language'] . '/vDetalle.php',
-        'rest' => 'view/' . $_COOKIE['language'] . '/vREST.php',
-    ],
-    'usuario' => [
-        'mtoDepartamentos' => 'view/' . $_COOKIE['language'] . '/vMtoDepartamentos.php',
-        'consultarModificarDepartamento' => 'view/' . $_COOKIE['language'] . '/vConsultarModificarDepartamento.php',
-        'eliminarDepartamento' => 'view/' . $_COOKIE['language'] . '/vEliminarDepartamento.php',
-        'altaDepartamento' => 'view/' . $_COOKIE['language'] . '/vAltaDepartamento.php',
-    ],
-    'administrador' => [
-    ]
 ];

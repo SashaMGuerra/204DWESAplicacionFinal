@@ -1,9 +1,9 @@
 <?php
 /**
- * REST propio.
+ * REST de búsqueda de departametno por código.
  * 
  * Dado el código de un departamento por parámetro por la url, devuelve los
- * datos del departamento en formato json al usuario si lo encuentra.
+ * datos del departamento en formato JSON al usuario si lo encuentra.
  * 
  * @author Sasha
  * @since 07/02/2022

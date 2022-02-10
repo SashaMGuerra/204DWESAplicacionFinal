@@ -2,13 +2,19 @@
 /**
  * Controlador del REST.
  * 
+ * Muestra y permite utilizar API REST externos en la aplicación.
+ * 
  * @author Sasha
  * @since 25/12/2021
  * @version 1.0
  */
 
-// Si se selecciona volver, vuelve a la página anterior..
+/* Si se selecciona volver, elimina la variable de sesión de RESTEnCurso
+ * y vuelve a la página anterior.
+ */
 if (isset($_REQUEST['volver'])) {
+    unset($_SESSION['RESTEnCurso']);
+    
     $_SESSION['paginaEnCurso'] = $_SESSION['paginaAnterior'];
     $_SESSION['paginaAnterior'] = '';
     header('Location: index.php');
