@@ -1,11 +1,13 @@
 <?php
 /**
+ * Controlador de la página de registro.
+ * 
+ * Valida la entrada para creación de nuevos usuarios, y si es correcto, lo hace
+ * y va a la página de inicio privado.
+ * 
  * @author Sasha
  * @since 04/01/2022
  * @version 1.0
- * 
- * Controlador de la página de registro.
- * Requiere la vista del registro.
  */
 
 // Si se cancela, devuelve a la página de inicio público.

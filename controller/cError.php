@@ -1,10 +1,13 @@
 <?php
 /**
+ * Controlador para la página de mostrado de errores.
+ * 
+ * Muestra información sobre el error sucedido, y permite al usuario regresar a
+ * una página indicada por el error.
+ * 
  * @author Sasha
  * @since 12/01/2022
  * @version 1.0
- * 
- * Controlador para la página de mostrado de errores.
  */
 
 /*

@@ -1,12 +1,13 @@
 <?php
 /**
+ * Controlador de la ventana de miCuenta.
+ * 
+ * Permite ver y modificar información sobre el usuario, acceder al cambio de
+ * contraseña y borrar la cuenta.
+ * 
  * @author Sasha
  * @since 17/01/2022
  * @version 1.0
- * 
- * Controlador de la ventana de miCuenta.
- * Permite ver y modificar información sobre el usuario, acceder al cambio de
- * contraseña y borrar la cuenta.
  */
 
 // Si se selecciona cancelar, vuelve al índice privado sin hacer cambios.
@@ -36,7 +37,7 @@ if (isset($_REQUEST['eliminarCuenta'])) {
 $aVMiCuenta = [
     'usuario' => $_SESSION['usuarioDAW204AplicacionFinal']->getCodUsuario(),
     'descripcion' => $_SESSION['usuarioDAW204AplicacionFinal']->getDescUsuario(),
-    'numConexiones' => $_SESSION['usuarioDAW204AplicacionFinal']->getNumAccesos(),
+    'numConexiones' => $_SESSION['usuarioDAW204AplicacionFinal']->getNumConexiones(),
     'fechaHoraUltimaConexion' => date('d/m/Y H:i:s T', $_SESSION['usuarioDAW204AplicacionFinal']->getFechaHoraUltimaConexion()),
     'perfil' => $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil(),
     'imagenUsuario' => $_SESSION['usuarioDAW204AplicacionFinal']->getImagenUsuario()

@@ -9,6 +9,9 @@
 ?>
 <main>
     <style>
+        button[value="<?php echo $_SESSION['RESTEnCurso']; ?>"]{
+            background-color: var(--pink);
+        }
         <?php
             switch($_SESSION['RESTEnCurso']){
                 case 'diccionario': ?>
@@ -17,8 +20,11 @@
                 case 'conversor': ?>  
         section#conversor{
                     <?php break;
-                case 'buscarDPTO': ?>  
-        section#buscarDPTO{
+                case 'buscarDPTOpropio': ?>  
+        section#buscarDPTOpropio{
+                    <?php break;
+                case 'buscarDPTOajeno': ?>  
+        section#buscarDPTOajeno{
                     <?php break;
             }
         ?>
@@ -37,13 +43,15 @@
                 <ul>
                     <li><button type="submit" name="RESTEnCurso" value="diccionario">Diccionario</button></li>
                     <li><button type="submit" name="RESTEnCurso" value="conversor">Conversor</button></li>
-                    <li><button type="submit" name="RESTEnCurso" value="buscarDPTO">Buscar DPTO</button></li>
+                    <li><button type="submit" name="RESTEnCurso" value="buscarDPTOpropio">Buscar DPTO (propio)</button></li>
+                    <li><button type="submit" name="RESTEnCurso" value="buscarDPTOajeno">Buscar DPTO (Óscar)</button></li>
                 </ul>
             </nav>
         </form>
         <section id="diccionario">
             <div class="diccionario">
                 <h2>Diccionario de Google<sup><a href="https://dictionaryapi.dev/" target="_blank">ⓘ</a></sup></h2>
+                <div class="restDescripcion">Servicio web de búsqueda de palabras en el diccionario de Google. Funciona en inglés y en español. Devuelve los significados de la palabra, a veces con su tipo y origen.</div>
                 <form method="post" id="restForm">
                     <fieldset>
                         <input type="text" name="word" placeholder="Palabra a buscar">
@@ -109,6 +117,7 @@
         <section id="conversor">
             <div class="conversor">
                 <h2>Conversor de divisas<sup><a href="" target="_blank">ⓘ</a></sup></h2>
+                <div class="restDescripcion">Servicio web de conversión de divisas. Introducidos dos códigos de divisa (hágase clic en el enlace de información junto a "Divisa" para un listado completo), devuelve el valor convertido.</div>
                 <form method="post">
                     <fieldset>                      
 
@@ -152,9 +161,10 @@
                 </form>
             </div>
         </section>
-        <section id="buscarDPTO">
-            <div class="RESTpropio">
-                <h2>Búsqueda de departamentos por código<sup><a href="" target="_blank">ⓘ</a></sup></h2>
+        <section id="buscarDPTOpropio">
+            <div class="REST">
+                <h2>Búsqueda de departamentos por código (propio)<sup><a href="" target="_blank">ⓘ</a></sup></h2>
+                <div class="restDescripcion">Servicio web de búsqueda de departamentos por código. Devuelve una tabla con el código, descripción, fecha de creación, volumen de negocio y fecha de baja —si tiene— del departamento.</div>
                 <form method="post">
                     <fieldset>
                         <label for="codDepartamento">Código del departamento</label>
@@ -165,7 +175,7 @@
                         <button name="buscarDepartamento" value="buscarDepartamento">Buscar</button>
                     </fieldset>
                 </form>
-                <div class="propioDepartamento">
+                <div class="mostradoDepartamento">
                     <?php if (is_array($aVRESTPropio['resultado'])) { ?>
                         <table>
                             <tr>
@@ -192,6 +202,52 @@
                         <?php
                     } else {
                         echo "<span>{$aVRESTPropio['resultado']}</span>";
+                    }
+                    ?>
+                </div>
+            </div>
+        </section>
+        <section id="buscarDPTOajeno">
+            <div class="REST">
+                <h2>Búsqueda de departamentos por código (Óscar)<sup><a href="" target="_blank">ⓘ</a></sup></h2>
+                <div class="restDescripcion">Servicio web de búsqueda de departamentos por código. Devuelve una tabla con el código, descripción, fecha de creación, volumen de negocio y fecha de baja —si tiene— del departamento.</div>
+                <form method="post">
+                    <fieldset>
+                        <label for="codDepartamento">Código del departamento</label>
+                        <input type='text' name='codDepartamento' id='codDepartamento' value="<?php echo $aVRESTAjeno['codDepartamento']; ?>" placeholder="AAA"/>
+                        <div class='error'><?php echo $aErroresAjeno['codDepartamento']; ?></div>
+                    </fieldset>
+                    <fieldset class="submit">
+                        <button name="buscarDepartamento" value="buscarDepartamento">Buscar</button>
+                    </fieldset>
+                </form>
+                <div class="mostradoDepartamento">
+                    <?php if (is_array($aVRESTAjeno['resultado'])) { ?>
+                        <table>
+                            <tr>
+                                <th>Código</th>
+                                <td><?php echo $aVRESTAjeno['resultado']['codDepartamento']; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Descripción</th>
+                                <td><?php echo $aVRESTAjeno['resultado']['descDepartamento']; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Fecha de creación</th>
+                                <td><?php echo $aVRESTAjeno['resultado']['fechaCreacionDepartamento']; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Volumen de negocio</th>
+                                <td><?php echo $aVRESTAjeno['resultado']['volumenDeNegocio']; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Fecha de baja</th>
+                                <td><?php echo $aVRESTAjeno['resultado']['fechaBajaDepartamento']; ?></td>
+                            </tr>
+                        </table>
+                        <?php
+                    } else {
+                        echo "<span>{$aVRESTAjeno['resultado']}</span>";
                     }
                     ?>
                 </div>

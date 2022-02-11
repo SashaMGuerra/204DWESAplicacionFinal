@@ -64,7 +64,7 @@ class REST {
     }
 
     /**
-     * Búsqueda de departamentos por código.
+     * Búsqueda de departamentos por código mediante API propia.
      * 
      * Dado un código de departamento, llama a la API para buscarlo.
      * 
@@ -73,7 +73,7 @@ class REST {
      * encuentra, un error si no lo hace, o null si ha sucedido algún error al
      * llamar a la API.
      */
-    public function buscarDepartamentoPorCodigo($sCodDepartamento) {
+    public function buscarDepartamentoPorCodigoPropio($sCodDepartamento) {
         $resultadoAPI = file_get_contents("https://daw204.ieslossauces.es/AplicacionFinal/api/buscarDepartamentoPorCodigo.php?codDepartamento=$sCodDepartamento");
         if ($resultadoAPI) {
             $JSONDecodificado = json_decode($resultadoAPI, true); //Almacén de la informacion decodificada obtenida de la url como un array.
@@ -92,6 +92,33 @@ class REST {
             }
             else{
                 return $JSONDecodificado['error'];
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Búsqueda de departamentos por código mediante API de Óscar.
+     * 
+     * Dado un código de departamento, llama a la API para buscarlo.
+     * 
+     * @param String $sCodDepartamento Código del departamento a buscar.
+     * @return \Departamento|null Devuelve el objeto Departamento si lo
+     * encuentra o null si ha sucedido algún error.
+     */
+    public function buscarDepartamentoPorCodigoOscar($sCodDepartamento) {
+        $resultadoAPI = file_get_contents("https://daw214.ieslossauces.es/214DWESAplicacionFinal2122/api/consultaDepartamentoPorCodigo.php?codDepartamento=$sCodDepartamento");
+        if ($resultadoAPI) {
+            $JSONDecodificado = json_decode($resultadoAPI, true); //Almacén de la informacion decodificada obtenida de la url como un array.
+
+            if (isset($JSONDecodificado['departamento']['codDepartamento'])) {
+                return new Departamento(
+                    $JSONDecodificado['departamento']['codDepartamento'],
+                    $JSONDecodificado['departamento']['descDepartamento'],
+                    $JSONDecodificado['departamento']['fechaCreacionDepartamento'],
+                    $JSONDecodificado['departamento']['volumenDeNegocio'],
+                    $JSONDecodificado['departamento']['fechaBajaDepartamento']
+                );
             }
         }
         return null;

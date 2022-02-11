@@ -2,13 +2,19 @@
 /**
  * Controlador del REST.
  * 
+ * Muestra y permite utilizar API REST externos en la aplicación.
+ * 
  * @author Sasha
  * @since 25/12/2021
  * @version 1.0
  */
 
-// Si se selecciona volver, vuelve a la página anterior..
+/* Si se selecciona volver, elimina la variable de sesión de RESTEnCurso
+ * y vuelve a la página anterior.
+ */
 if (isset($_REQUEST['volver'])) {
+    unset($_SESSION['RESTEnCurso']);
+    
     $_SESSION['paginaEnCurso'] = $_SESSION['paginaAnterior'];
     $_SESSION['paginaAnterior'] = '';
     header('Location: index.php');
@@ -164,7 +170,7 @@ $aVRESTPropio = [
  * mostrará al usuario la palabra o el mensaje de error.
  */
 if ($bEntradaOKPropio) {
-    $devolucion = REST::buscarDepartamentoPorCodigo($_REQUEST['codDepartamento']);
+    $devolucion = REST::buscarDepartamentoPorCodigoPropio($_REQUEST['codDepartamento']);
     // Si es un objeto, extrae su información en un array.
     if(is_object($devolucion)){
         $aVRESTPropio['resultado'] = [
@@ -178,6 +184,58 @@ if ($bEntradaOKPropio) {
     // Si no es un objeto, será un string que devuelva un mensaje de error.
     else{
         $aVRESTPropio['resultado'] = $devolucion;
+    }
+}
+
+// REST ajeno.
+
+$aErroresAjeno = [
+    'codDepartamento' => ''
+];
+
+// Si se ha enviado el formulario, valida la entrada.
+if (isset($_REQUEST['buscarDepartamento'])) {
+    $bEntradaOKAjeno = true;
+
+    $aErroresAjeno['codDepartamento'] = validacionFormularios::comprobarAlfabetico($_REQUEST['codDepartamento'], 3, 3, OBLIGATORIO);
+
+    foreach ($aErroresAjeno as $sKey => $sError) {
+        if (!empty($sError)) {
+            $bEntradaOKAjeno = false;
+            $_REQUEST[$sKey] = '';
+        }
+    }
+}
+// Si no se ha enviado el formulario, pone el manejador de errores a false.
+else {
+    $bEntradaOKAjeno = false;
+}
+
+$aVRESTAjeno = [
+    'codDepartamento' => $_REQUEST['codDepartamento'] ?? '',
+    'resultado' => '' // Si es la primera vez que se carga la página, no hay ningún resultado.
+];
+
+/*
+ * Si la entrada es válida, llama a la api con el código de departamento indicado.
+ * Según si la devolución ha sido correcta (ha devuelto el departamento) o no (texto)
+ * mostrará al usuario la palabra o el mensaje de error.
+ */
+if ($bEntradaOKAjeno) {
+    $devolucion = REST::buscarDepartamentoPorCodigoOscar($_REQUEST['codDepartamento']);
+    // Si es un objeto, extrae su información en un array.
+    if(is_object($devolucion)){
+        $aVRESTAjeno['resultado'] = [
+            'codDepartamento' => $devolucion->getCodDepartamento(),
+            'descDepartamento' => $devolucion->getDescDepartamento(),
+            'fechaCreacionDepartamento' => $devolucion->getFechaCreacionDepartamento(),
+            'volumenDeNegocio' => $devolucion->getVolumenDeNegocio(),
+            'fechaBajaDepartamento' => !empty($devolucion->getFechaBajaDepartamento()) ? date('d/m/Y H:i:s T', $devolucion->getFechaBajaDepartamento()) : ''
+        ];
+    }
+    // Si no es un objeto, será un string que devuelva un mensaje de error.
+    else{
+        $aVRESTAjeno['resultado'] = $devolucion;
     }
 }
 

@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="logo">
                     <h1>Sasha's Application</h1>
-                    <h2>• 2.1 Version</h2>
+                    <h2>• 2.2 Version</h2>
                 </div>
                 <nav>
                     <form id="layoutForm" method="post">
@@ -39,7 +39,7 @@
                 </nav>
             </div>
         </header>
-        <?php require_once $aVistas[$_SESSION['paginaEnCurso']]; // Requiere la vista indicada en la variable de página. ?>
+        <?php require_once $aVistas[$_SESSION['paginaEnCurso']]; ?>
         <div class="movingImage">
             <div class="slidingImage"></div>
         </div>

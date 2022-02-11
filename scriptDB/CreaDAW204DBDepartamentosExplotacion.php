@@ -43,7 +43,7 @@
                 T02_DescDepartamento VARCHAR(255) NOT NULL,
                 T02_FechaCreacionDepartamento INT NOT NULL,
                 T02_VolumenDeNegocio FLOAT NOT NULL,
-                T02_FechaBajaDepartamento DATETIME NULL
+                T02_FechaBajaDepartamento INT NULL
             ) ENGINE=INNODB;
         QUERY;
 

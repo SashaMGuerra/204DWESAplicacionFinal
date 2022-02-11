@@ -27,7 +27,7 @@
             <?php } ?>            
         </aside>
         <section class="contenido">
-            <div class="bienvenida">Bienvenid@ <span class="user"><?php echo $aVInicioPrivado['descUsuario']; ?></span>, esta es la <?php echo $aVInicioPrivado['numAccesos']; ?>ª vez que se conecta<?php
+            <div class="bienvenida">Bienvenid@ <span class="user"><?php echo $aVInicioPrivado['descUsuario']; ?></span>, esta es la <?php echo $aVInicioPrivado['numConexiones']; ?>ª vez que se conecta<?php
                 if (!empty($aVInicioPrivado['fechaHoraUltimaConexionAnterior'])) {
                     ?> y su última conexión fue <?php
                     echo date('d/m/Y H:i:s', $aVInicioPrivado['fechaHoraUltimaConexionAnterior']);

@@ -1,11 +1,13 @@
 <?php
 /**
+ * Controlador del login.
+ * 
+ * Valida los intentos de inicio de sesión del usuario, y si es correcto lo hace.
+ * Puede ir a la página de registro..
+ * 
  * @author Sasha
  * @since 22/12/2021
  * @version 1.0
- * 
- * Controlador del login.
- * Requiere la vista del login.
  */
 
 // Si se desea acceder a la página de registro, la indica y recarga el index.

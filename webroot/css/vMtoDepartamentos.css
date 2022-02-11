@@ -4,6 +4,24 @@
 */
 
 main form{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    
+    justify-items: center;
+    align-items: center;
+}
+
+main form fieldset:last-of-type{
+    grid-column: 1/-1;
+    order: -1;
+}
+main form fieldset:last-of-type button{
+    font-size: medium;
+    padding: 5px 10px;
+}
+
+/*
+main form{
     display: flex;
     align-items: center;
 }
@@ -25,7 +43,6 @@ main form .submit{
     margin: 0;
 }
 main form fieldset:last-of-type{
-    order: -1;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -33,7 +50,7 @@ main form fieldset:last-of-type{
 main form fieldset:last-of-type button{
     font-size: medium;
 }
-
+*/
 
 
 main table{

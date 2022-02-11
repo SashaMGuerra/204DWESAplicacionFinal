@@ -1,11 +1,14 @@
 <?php
 /**
+ * Controlador de la página de inicio privado.
+ * 
+ * Destruye la sesión cuando le es requerido.
+ * Muestra un mensaje de bienvenida y envía al usuario a las páginas que pida.
+ * 
  * @author Sasha
  * @since 22/12/2021
  * @version 1.0
  * 
- * Controlador de la página de inicio privado.
- * Destruye la sesión cuando le es requerido. Requiere la vista del inicio privado.
  */
 
 /*
@@ -65,7 +68,7 @@ if(isset($_REQUEST['fallar'])){
 // Array con la información de la vista.
 $aVInicioPrivado = [
     'descUsuario' => $_SESSION['usuarioDAW204AplicacionFinal']->getDescUsuario(),
-    'numAccesos' => $_SESSION['usuarioDAW204AplicacionFinal']->getNumAccesos(),
+    'numConexiones' => $_SESSION['usuarioDAW204AplicacionFinal']->getNumConexiones(),
     'fechaHoraUltimaConexionAnterior' => $_SESSION['usuarioDAW204AplicacionFinal']->getFechaHoraUltimaConexionAnterior(),
     'imagenUsuario' => $_SESSION['usuarioDAW204AplicacionFinal']->getImagenUsuario()
 ];

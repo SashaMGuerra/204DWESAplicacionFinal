@@ -60,11 +60,11 @@
 </h4>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Validacion.html" class="">Validacion</a>
+    <a href="packages/AppFinal.html" class="">AppFinal</a>
 </h4>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/AppFinal.html" class="">AppFinal</a>
+    <a href="packages/Validacion.html" class="">Validacion</a>
 </h4>
 
                         </section>
@@ -105,7 +105,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/REST.php"><a href="files/model-rest.html"><abbr title="model/REST.php">REST.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">14</span>
 
     </aside>
 
@@ -160,6 +160,20 @@ la devolución de la búsqueda, devuelve un objeto o un elemento vacío.</p>
 
 <dl class="phpdocumentor-table-of-contents">
                         <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/REST.html#method_buscarDepartamentoPorCodigoOscar">buscarDepartamentoPorCodigoOscar()</a>
+    <span>
+                                &nbsp;: <a href="classes/Departamento.html"><abbr title="\Departamento">Departamento</abbr></a>|null    </span>
+</dt>
+<dd>Búsqueda de departamentos por código mediante API de Óscar.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/REST.html#method_buscarDepartamentoPorCodigoPropio">buscarDepartamentoPorCodigoPropio()</a>
+    <span>
+                                &nbsp;: <a href="classes/Departamento.html"><abbr title="\Departamento">Departamento</abbr></a>|string|null    </span>
+</dt>
+<dd>Búsqueda de departamentos por código mediante API propia.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/REST.html#method_buscarPalabra">buscarPalabra()</a>
     <span>
                                 &nbsp;: <a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|null    </span>
@@ -192,6 +206,107 @@ la devolución de la búsqueda, devuelve un objeto o un elemento vacío.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_buscarDepartamentoPorCodigoOscar">
+        buscarDepartamentoPorCodigoOscar()
+        <a href="classes/REST.html#method_buscarDepartamentoPorCodigoOscar" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="model/REST.php"><a href="files/model-rest.html"><abbr title="model/REST.php">REST.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">109</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Búsqueda de departamentos por código mediante API de Óscar.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">buscarDepartamentoPorCodigoOscar</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sCodDepartamento</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Departamento.html"><abbr title="\Departamento">Departamento</abbr></a>|null</span></code>
+
+        <section class="phpdocumentor-description"><p>Dado un código de departamento, llama a la API para buscarlo.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sCodDepartamento</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Código del departamento a buscar.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Departamento.html"><abbr title="\Departamento">Departamento</abbr></a>|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Devuelve el objeto Departamento si lo
+encuentra o null si ha sucedido algún error.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_buscarDepartamentoPorCodigoPropio">
+        buscarDepartamentoPorCodigoPropio()
+        <a href="classes/REST.html#method_buscarDepartamentoPorCodigoPropio" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="model/REST.php"><a href="files/model-rest.html"><abbr title="model/REST.php">REST.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Búsqueda de departamentos por código mediante API propia.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">buscarDepartamentoPorCodigoPropio</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sCodDepartamento</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Departamento.html"><abbr title="\Departamento">Departamento</abbr></a>|string|null</span></code>
+
+        <section class="phpdocumentor-description"><p>Dado un código de departamento, llama a la API para buscarlo.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sCodDepartamento</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Código del departamento a buscar.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Departamento.html"><abbr title="\Departamento">Departamento</abbr></a>|string|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Devuelve el objeto Departamento si lo
+encuentra, un error si no lo hace, o null si ha sucedido algún error al
+llamar a la API.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_buscarPalabra">
         buscarPalabra()
         <a href="classes/REST.html#method_buscarPalabra" class="headerlink"><i class="fas fa-link"></i></a>
@@ -199,7 +314,7 @@ la devolución de la búsqueda, devuelve un objeto o un elemento vacío.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/REST.php"><a href="files/model-rest.html"><abbr title="model/REST.php">REST.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -207,7 +322,7 @@ la devolución de la búsqueda, devuelve un objeto o un elemento vacío.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">buscarPalabra</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idioma</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$palabra</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">buscarPalabra</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idioma</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$palabra</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a>|null</span></code>
 
         <section class="phpdocumentor-description"><p>Indica el idioma y palabra a buscar en la api del diccionario de Google,
 que devolverá o no la palabra según si la encuentra o no.</p>
