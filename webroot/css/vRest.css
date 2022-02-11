@@ -56,6 +56,10 @@ sup a{
     text-decoration: none;
     color: var(--blue);
 }
+.restDescripcion{
+    margin: 10px auto;
+    max-width: 700px;
+}
 
 /* API de diccionario */
 .diccionario form fieldset:first-of-type{
@@ -110,25 +114,25 @@ sup a{
 }
 
 
-.RESTpropio form fieldset:first-of-type{
+.REST form fieldset:first-of-type{
     text-align: center;
 }
-.RESTpropio form input[type='text']{
+.REST form input[type='text']{
     width: 45px;
     text-align: center;
 }
-.RESTpropio .error{
+.REST .error{
     text-align: center;
 }
-.RESTpropio .propioDepartamento{
+.REST .mostradoDepartamento{
     text-align: center;
 }
-.RESTpropio table{
+.REST table{
     margin: auto;
     border-collapse: collapse;
 }
-.RESTpropio table td,
-.RESTpropio table th{
+.REST table td,
+.REST table th{
     border: 1px solid var(--blue);
     padding: 10px;
 }

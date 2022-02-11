@@ -248,7 +248,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\UsuarioPDO\u003A\u003AbuscaUsuariosporDesc\u0028\u0029",
             "name": "buscaUsuariosporDesc",
-            "summary": "",
+            "summary": "B\u00FAsqueda\u0020de\u0020usuarios\u0020por\u0020descripci\u00F3n.",
             "url": "classes/UsuarioPDO.html#method_buscaUsuariosporDesc"
         },                {
             "fqsen": "\\UsuarioPDO\u003A\u003AvalidarCodNoExiste\u0028\u0029",
@@ -286,14 +286,19 @@ Search.appendIndex(
             "summary": "Conversi\u00F3n\u0020de\u0020monedas.",
             "url": "classes/REST.html#method_conversorMoneda"
         },                {
-            "fqsen": "\\REST\u003A\u003AbuscarDepartamentoPorCodigo\u0028\u0029",
-            "name": "buscarDepartamentoPorCodigo",
-            "summary": "B\u00FAsqueda\u0020de\u0020departamentos\u0020por\u0020c\u00F3digo.",
-            "url": "classes/REST.html#method_buscarDepartamentoPorCodigo"
+            "fqsen": "\\REST\u003A\u003AbuscarDepartamentoPorCodigoPropio\u0028\u0029",
+            "name": "buscarDepartamentoPorCodigoPropio",
+            "summary": "B\u00FAsqueda\u0020de\u0020departamentos\u0020por\u0020c\u00F3digo\u0020mediante\u0020API\u0020propia.",
+            "url": "classes/REST.html#method_buscarDepartamentoPorCodigoPropio"
+        },                {
+            "fqsen": "\\REST\u003A\u003AbuscarDepartamentoPorCodigoOscar\u0028\u0029",
+            "name": "buscarDepartamentoPorCodigoOscar",
+            "summary": "B\u00FAsqueda\u0020de\u0020departamentos\u0020por\u0020c\u00F3digo\u0020mediante\u0020API\u0020de\u0020\u00D3scar.",
+            "url": "classes/REST.html#method_buscarDepartamentoPorCodigoOscar"
         },                {
             "fqsen": "\\OBLIGATORIO",
             "name": "OBLIGATORIO",
-            "summary": "",
+            "summary": "REST\u0020de\u0020b\u00FAsqueda\u0020de\u0020usuarios\u0020por\u0020descripci\u00F3n\u0020\u0028no\u0020necesaria\u0029.",
             "url": "namespaces/default.html#constant_OBLIGATORIO"
         },                {
             "fqsen": "\\OPCIONAL",

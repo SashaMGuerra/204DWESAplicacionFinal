@@ -88,12 +88,12 @@
     </ul>
 
     <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">buscarDepartamentoPorCodigo.php</h2>
+        <h2 class="phpdocumentor-content__title">buscarUsuarioPorDesc.php</h2>
 
-            <p class="phpdocumentor-summary">REST de búsqueda de departametno por código.</p>
+            <p class="phpdocumentor-summary">REST de búsqueda de usuarios por descripción (no necesaria).</p>
 
-    <section class="phpdocumentor-description"><p>Dado el código de un departamento por parámetro por la url, devuelve los
-datos del departamento en formato JSON al usuario si lo encuentra.</p>
+    <section class="phpdocumentor-description"><p>Dada (o no) la descripción de un usuario por parámetro en la url, devuelve
+los datos de todos los departamentos en JSON.</p>
 </section>
 
 
@@ -115,7 +115,7 @@ datos del departamento en formato JSON al usuario si lo encuentra.</p>
                     <span class="phpdocumentor-tag__name">since</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">07/02/2022</span>
+                                            <span class="phpdocumentor-tag-link">10/02/2022</span>
                                                                                 
                                              
                                     </dd>
@@ -123,7 +123,7 @@ datos del departamento en formato JSON al usuario si lo encuentra.</p>
                     <span class="phpdocumentor-tag__name">version</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">2.1</span>
+                                            <span class="phpdocumentor-tag-link">2.2</span>
                                                                                 
                                              
                                     </dd>
@@ -134,10 +134,129 @@ datos del departamento en formato JSON al usuario si lo encuentra.</p>
 
 
 
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_OBLIGATORIO">OBLIGATORIO</a>
+    <span>
+        &nbsp;= 1                            </span>
+</dt>
+<dd>REST de búsqueda de usuarios por descripción (no necesaria).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_OPCIONAL">OPCIONAL</a>
+    <span>
+        &nbsp;= 0                            </span>
+</dt>
+<dd></dd>
+
+                    </dl>
 
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="files/api-buscarusuariopordesc.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OBLIGATORIO">
+        OBLIGATORIO
+        <a href="namespaces/default.html#constant_OBLIGATORIO" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="api/buscarUsuarioPorDesc.php"><a href="files/api-buscarusuariopordesc.html"><abbr title="api/buscarUsuarioPorDesc.php">buscarUsuarioPorDesc.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">REST de búsqueda de usuarios por descripción (no necesaria).</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OBLIGATORIO</span>
+    = <span class="phpdocumentor-signature__default-value">1</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>Dada (o no) la descripción de un usuario por parámetro en la url, devuelve
+los datos de todos los departamentos en JSON.</p>
+</section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Sasha</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">10/02/2022</span>
+                                                                                
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">version</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">2.2</span>
+                                                                                
+                                             
+                                    </dd>
+                        </dl>
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OPCIONAL">
+        OPCIONAL
+        <a href="namespaces/default.html#constant_OPCIONAL" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="api/buscarUsuarioPorDesc.php"><a href="files/api-buscarusuariopordesc.html"><abbr title="api/buscarUsuarioPorDesc.php">buscarUsuarioPorDesc.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">14</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OPCIONAL</span>
+    = <span class="phpdocumentor-signature__default-value">0</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
 
         
     </article>
@@ -154,7 +273,7 @@ datos del departamento en formato JSON al usuario si lo encuentra.</p>
 </section>
             </div>
         </div>
-        <a href="files/api-buscardepartamentoporcodigo.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/api-buscarusuariopordesc.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

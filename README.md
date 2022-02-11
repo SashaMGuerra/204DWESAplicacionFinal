@@ -3,9 +3,13 @@ Aplicación POO multicapa, basada en el paradigma Modelo-Vista-Controlador.
 
 ## Contenido.
 * Control de acceso.
-* Altas, modificaciones y bajas de usuarios.
-* Mantenimiento de departamentos: alta, modificación y eliminación.
-* Uso de dos API REST: diccionario de Google y conversor de divisas.
+* Altas, modificaciones y bajas en usuarios.
+* Mantenimiento de departamentos:
+    * Alta, modificación y eliminación.
+    * Alta y baja lógica.
+* Uso de cuatro API REST:
+    * Diccionario de Google, conversor de divisas;
+    * Búsqueda de departamentos propia y ajena.
 
 ## Entornos.
 * Explotación.

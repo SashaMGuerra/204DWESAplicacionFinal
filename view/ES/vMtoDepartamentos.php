@@ -20,18 +20,17 @@
         </div>
         <form method="post" id="departamentosForm">
             <fieldset>
-                <label for="descDepartamento">Departamento a buscar</label>
-                <input type="text" name="descDepartamento" id="descDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? ''; ?>">
-                <div class="error"><?php echo '<span>' . $aErrores['descDepartamento'] . '</span>' ?></div>
-                <button name="buscar" value="buscar">Buscar</button>
-            </fieldset>
-            <fieldset>
                 <input type="radio" name="estado" value="todos" id="departamentoTodos" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_TODOS?'checked':''):'checked'; ?>/>
                 <label for="departamentoTodos">Todos</label>
                 <input type="radio" name="estado" value="alta" id="departamentoAlta" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_ALTA?'checked':''):''; ?>/>
                 <label for="departamentoAlta">Alta</label>
                 <input type="radio" name="estado" value="baja" id="departamentoBaja" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_BAJA?'checked':''):'';  ?> />
                 <label for="departamentoBaja">Baja</label>
+            </fieldset>
+            <fieldset>
+                <input type="text" name="descDepartamento" id="descDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? ''; ?>" placeholder="Descripción del departamento">
+                <button name="buscar" value="buscar">Buscar</button>
+                <div class="error"><?php echo '<span>' . $aErrores['descDepartamento'] . '</span>' ?></div>
             </fieldset>
             <fieldset>
                 <button form="departamentosForm" type="submit" name="exportar">Exportar departamentos</button>

@@ -76,7 +76,7 @@ if (!array_key_exists($_SESSION['paginaEnCurso'], $aControladores['publico'])
 /*
  * Cargado de la página indicada.
  * 
- * Como puede estar en cualquiera de la primera dimensión del array, busca en todas
+ * Como puede estar en cualquiera de la segunda dimensión del array, busca en todas
  * mediante array_column, que devuelve todos los values de un array multidimensional
  * con el key indicado como parámetro. Se asume que no hay ninguna página repetida.
  */
