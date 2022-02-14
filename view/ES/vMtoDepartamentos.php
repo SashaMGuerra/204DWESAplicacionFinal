@@ -91,7 +91,7 @@
             <button type="submit" form="departamentosForm" name="paginaAnterior" value="paginaAnterior">
                 <img src="webroot/media/img/mtoDepartamentos/pagePrevious.png" alt="página anterior">
             </button>
-            <div id="numPagina">0</div>
+            <div id="numPagina"><?php echo $_SESSION['numPaginacionDepartamentos']; ?></div>
             <button type="submit" form="departamentosForm" name="paginaSiguiente" value="paginaSiguiente">
                 <img src="webroot/media/img/mtoDepartamentos/pageNext.png" alt="página siguiente">
             </button>
