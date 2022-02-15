@@ -18,6 +18,12 @@
         </section>
         <section>
             <article>
+                <a href="webroot/files/UsoSession.pdf" target="_blank">
+                    <img src="webroot/media/img/inicioPublico/usoSession.png" alt="Uso de la sesión">
+                    <p>Uso de la sesión</p>
+                </a>
+            </article>
+            <article>
                 <a href="webroot/files/220119CatalogoDeRequisitos.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/catalogoRequisitos.png" alt="Catálogo de requisitos">
                     <p>Catálogo de requisitos</p>

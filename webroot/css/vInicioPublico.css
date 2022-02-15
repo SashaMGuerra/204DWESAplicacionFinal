@@ -28,7 +28,7 @@ section:first-of-type{
     border-bottom: 3px solid var(--dark);
 }
 
-section article:nth-child(even){
+section article:nth-child(odd){
     background-color: var(--dark);
     color: white;
 }

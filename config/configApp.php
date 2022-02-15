@@ -61,6 +61,7 @@ $aControladores = [
         'exportarDepartamentos' => 'controller/cExportarDepartamentos.php',
     ],
     'administrador' => [
+        'mtoUsuarios' => 'controller/cMtoUsuarios.php',
     ]
 ];
 
@@ -83,4 +84,5 @@ $aVistas = [
     'consultarModificarDepartamento' => 'view/' . $_COOKIE['language'] . '/vConsultarModificarDepartamento.php',
     'eliminarDepartamento' => 'view/' . $_COOKIE['language'] . '/vEliminarDepartamento.php',
     'altaDepartamento' => 'view/' . $_COOKIE['language'] . '/vAltaDepartamento.php',
+    'mtoUsuarios' => 'view/' . $_COOKIE['language'] . '/vMtoUsuarios.php',
 ];
