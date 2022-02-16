@@ -39,7 +39,7 @@
                 <button type="submit" id="rest" name="rest" value="rest">REST</button>
                 <button type="submit" name="detalle" value="detalle">Detail</button>
                 <button type="submit" name="fallar" value="fallar">Execute a fail select</button>
-                <button type="submit" name="mantenimiento" value="mantenimiento">Go to <?php echo $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()==='administrador'?'mtoUsuarios':'mtoDepartamentos'; ?></button>
+                <button type="submit" name="mantenimiento" value="mantenimiento">Go to <?php echo $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()==='administrador'?'UserMaintenance':'DptsMaintenance'; ?></button>
             </form>
         </section>
     </div>

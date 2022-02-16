@@ -12,36 +12,36 @@
 ?>
 <main>
     <div class="container">
-        <h1>Modificación de departamento</h1>
+        <h1>Modify department</h1>
         <div>
             <form method="post" id="consultarModificarForm">
                 <fieldset class="main">
                     <div class="input">
-                        <label for='codDepartamento'>Código</label>
+                        <label for='codDepartamento'>Code</label>
                         <input type='text' name='codDepartamento' id='codDepartamento' value="<?php echo $aVConsultarModificarDepartamento['codDepartamento']; ?>" disabled/>
                     </div>
                     <div class="input">
-                        <label for='descDepartamento'>Descripción</label>
+                        <label for='descDepartamento'>Description</label>
                         <input type='text' name='descDepartamento' id='descDepartamento' value="<?php echo $aVConsultarModificarDepartamento['descDepartamento']; ?>"/>
                         <div class="error"><?php echo $aErrores['descDepartamento']; ?></div>
                     </div>
                     <div class="input">
-                        <label for='fechaCreacionDepartamento'>Fecha de creación</label>
+                        <label for='fechaCreacionDepartamento'>Creation date</label>
                         <input type='text' name='fechaCreacionDepartamento' id='fechaCreacionDepartamento' value="<?php echo $aVConsultarModificarDepartamento['fechaCreacionDepartamento']; ?>" disabled/>
                     </div>
                     <div class="input">
-                        <label for='volumenDeNegocio'>Volumen de negocio</label>
+                        <label for='volumenDeNegocio'>Turnover</label>
                         <input type='text' name='volumenDeNegocio' id='volumenDeNegocio' value="<?php echo $aVConsultarModificarDepartamento['volumenDeNegocio']; ?>"/>
                         <div class="error"><?php echo $aErrores['volumenDeNegocio']; ?></div>
                     </div>
                     <div class="input">
-                        <label for='fechaBajaDepartamento'>Fecha de baja</label>
+                        <label for='fechaBajaDepartamento'>Deactivation date</label>
                         <input type='text' name='fechaBajaDepartamento' id='fechaBajaDepartamento' value="<?php echo $aVConsultarModificarDepartamento['fechaBajaDepartamento']; ?>" disabled/>
                     </div>
                 </fieldset>
                 <fieldset class="submit">
-                    <button name="aceptar" value="aceptar">Aceptar</button>
-                    <button name="cancelar" value="cancelar">Cancelar</button>
+                    <button name="aceptar" value="aceptar">Accept</button>
+                    <button name="cancelar" value="cancelar">Cancel</button>
                 </fieldset>
             </form>
         </div>

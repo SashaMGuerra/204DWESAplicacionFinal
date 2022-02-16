@@ -1,0 +1,43 @@
+/* 
+    Created on : 16 feb. 2022, 8:39:07
+    Author     : Sasha
+*/
+
+.usuarios form{
+    display: flex;
+    justify-content: center;
+    max-width: 750px;
+    margin: 10px auto;
+}
+.usuarios form input{
+    flex-grow: 1;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: OpenSans, sans-serif;
+}
+
+main table thead{
+    text-align: center;
+    background-color: var(--blue);
+    color: white;
+    font-weight: normal;
+    padding: 10px 0;
+}
+
+main table tbody tr td{
+    border-bottom: 2px var(--lightestblue) inset;
+}
+main table tbody{
+    text-align: center;
+}
+main table tbody td:nth-of-type(1),
+main table tbody td:nth-of-type(3),
+main table tbody td:nth-of-type(6){
+    text-align: left;
+}
+main table img{
+    height: 60px;
+}
