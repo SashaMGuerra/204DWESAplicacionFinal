@@ -45,6 +45,19 @@ section article a{
     text-decoration: none;
     text-transform: uppercase;
     font-size: x-large;
+    
+    transition: .2s ease-in-out;
+    color: var(--pink);
+}
+section article a:hover{
+    font-weight: bold;
+    color: var(--blue);
+}
+section article:nth-child(odd) a{
+    color: var(--lightpink);
+}
+section article:nth-child(odd) a:hover{
+    color: var(--lightestblue);
 }
 
 section article img{
@@ -58,14 +71,3 @@ section article:nth-child(even) img{
 section article img:hover{
     height: 100%;
 }
-
-/*
-.background{
-    background-image: linear-gradient(white, var(--lightpink), var(--lightblue));
-    position: absolute;
-    z-index: -10;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;   
-    opacity: 0.5;
-}
-*/

@@ -45,14 +45,15 @@
         </div>
         <footer>
             <div class="container">
-                <div>
-                    <button type="submit" form="layoutForm" name="opiniones" value="opiniones">Ver opiniones</button>
-                </div>
                 <hr/>
                 <div class="info">
                     <a href="https://daw204.ieslossauces.es/" target="_blank">
                         <img src="webroot/media/img/footer/homepage.png" alt="web del autor">
                         <p>Author's website</p>
+                    </a>
+                    <a href="webroot/files/cv.pdf" target="_blank">
+                        <img src="webroot/media/img/footer/cv.png" alt="rss">
+                        <p>Curriculum</p>
                     </a>
                     <a href="https://github.com/SashaMGuerra/204DWESAplicacionFinal" target="_blank">
                         <img src="webroot/media/img/footer/github_logo_white.png" alt="repositorio">

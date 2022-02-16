@@ -27,9 +27,23 @@
             <?php } ?>            
         </aside>
         <section class="contenido">
-            <div class="bienvenida">Bienvenid@ <span class="user"><?php echo $aVInicioPrivado['descUsuario']; ?></span>, esta es la <?php echo $aVInicioPrivado['numConexiones']; ?>ª vez que se conecta<?php
+            <div class="bienvenida">Welcome <span class="user"><?php echo $aVInicioPrivado['descUsuario']; ?></span>, this is the <?php
+                switch ($aVInicioPrivado['numConexiones']) {
+                    case 1:
+                        echo '1st';
+                        break;
+                    case 2:
+                        echo '2nd';
+                        break;
+                    case 3:
+                        echo '3rd';
+                        break;
+                    default:
+                        echo $aVInicioPrivado['numConexiones'] . "th";
+                }
+                ?> time you login<?php
                 if (!empty($aVInicioPrivado['fechaHoraUltimaConexionAnterior'])) {
-                    ?> y su última conexión fue <?php
+                    ?> and the last time was on <?php
                     echo date('d/m/Y H:i:s', $aVInicioPrivado['fechaHoraUltimaConexionAnterior']);
                 }
                 ?>.</div>
@@ -39,7 +53,7 @@
                 <button type="submit" id="rest" name="rest" value="rest">REST</button>
                 <button type="submit" name="detalle" value="detalle">Detail</button>
                 <button type="submit" name="fallar" value="fallar">Execute a fail select</button>
-                <button type="submit" name="mantenimiento" value="mantenimiento">Go to <?php echo $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()==='administrador'?'UserMaintenance':'DptsMaintenance'; ?></button>
+                <button type="submit" name="mantenimiento" value="mantenimiento">Go to <?php echo $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil() === 'administrador' ? 'UserMaintenance' : 'DptsMaintenance'; ?></button>
             </form>
         </section>
     </div>
