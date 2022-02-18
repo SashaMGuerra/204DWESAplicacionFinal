@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="logo">
                     <h1>Aplicación de Sasha</h1>
-                    <h2>• Versión 2.2</h2>
+                    <h2>• Versión 2.3</h2>
                 </div>
                 <nav>
                     <form id="layoutForm" method="post">
@@ -45,14 +45,15 @@
         </div>
         <footer>
             <div class="container">
-                <div>
-                    <button type="submit" form="layoutForm" name="opiniones" value="opiniones">Ver opiniones</button>
-                </div>
                 <hr/>
                 <div class="info">
                     <a href="https://daw204.ieslossauces.es/" target="_blank">
                         <img src="webroot/media/img/footer/homepage.png" alt="web del autor">
                         <p>Web del autor</p>
+                    </a>
+                    <a href="webroot/files/cv.pdf" target="_blank">
+                        <img src="webroot/media/img/footer/cv.png" alt="rss">
+                        <p>Currículo</p>
                     </a>
                     <a href="https://github.com/SashaMGuerra/204DWESAplicacionFinal" target="_blank">
                         <img src="webroot/media/img/footer/github_logo_white.png" alt="repositorio">

@@ -14,6 +14,7 @@
 // Si se selecciona volver, vuelve a la página anterior..
 if (isset($_REQUEST['volver'])) {
     unset($_SESSION['criterioBusquedaDepartamentos']);
+    unset($_SESSION['numPaginacionDepartamentos']);
 
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
@@ -90,6 +91,35 @@ if (isset($_REQUEST['rehabilitar'])) {
     exit;
 }
 
+// Botones de paginación.
+if (isset($_REQUEST['paginaPrimera'])) {
+    $_SESSION['numPaginacionDepartamentos'] = 1;
+
+    // Recarga la página.
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['paginaAnterior']) && $_SESSION['numPaginacionDepartamentos']>=2) {
+    $_SESSION['numPaginacionDepartamentos']--;
+
+    // Recarga la página.
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['paginaSiguiente'])) {
+    $_SESSION['numPaginacionDepartamentos']++;
+
+    // Recarga la página.
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST['paginaUltima'])) {
+
+    // Recarga la página.
+    header('Location: index.php');
+    exit;
+}
+
 // Array de errores.
 $aErrores = [
     'descDepartamento' => '',
@@ -141,12 +171,20 @@ if ($bEntradaOK) {
     $_SESSION['criterioBusquedaDepartamentos']['estado'] = $iEstado;
 }
 
+// Si no tiene indicado un número de página, lo crea en 1.
+if (!isset($_SESSION['numPaginacionDepartamentos'])) {
+    $_SESSION['numPaginacionDepartamentos'] = 1;
+}
+
 /**
  * Se haya enviado o no el formulario, realiza la búsqueda de departamentos para
  * mostrarlos.
  */
 $aVMtoDepartamentos = [];
-$aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? '', $_SESSION['criterioBusquedaDepartamentos']['estado'] ?? DEPARTAMENTOS_TODOS);
+$aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescEstado(
+        $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? '',
+        $_SESSION['criterioBusquedaDepartamentos']['estado'] ?? DEPARTAMENTOS_TODOS,
+        $_SESSION['numPaginacionDepartamentos']);
 if ($aDepartamentos) {
     foreach ($aDepartamentos as $oDepartamento) {
         array_push($aVMtoDepartamentos, [

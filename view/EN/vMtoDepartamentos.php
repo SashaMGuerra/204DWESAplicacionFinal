@@ -13,39 +13,39 @@
 <main>
     <div class="container">
         <div class="mainH1">
-            <h1>Mantenimiento de departamentos</h1>
+            <h1>Departments Maintenance</h1>
             <div>
-                <button type="submit" form="layoutForm" name="volver" value="volver">Volver</button>
+                <button type="submit" form="layoutForm" name="volver" value="volver">Go back</button>
             </div>
         </div>
         <form method="post" id="departamentosForm">
             <fieldset>
                 <input type="radio" name="estado" value="todos" id="departamentoTodos" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_TODOS?'checked':''):'checked'; ?>/>
-                <label for="departamentoTodos">Todos</label>
+                <label for="departamentoTodos">All</label>
                 <input type="radio" name="estado" value="alta" id="departamentoAlta" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_ALTA?'checked':''):''; ?>/>
-                <label for="departamentoAlta">Alta</label>
+                <label for="departamentoAlta">Active</label>
                 <input type="radio" name="estado" value="baja" id="departamentoBaja" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_BAJA?'checked':''):'';  ?> />
-                <label for="departamentoBaja">Baja</label>
+                <label for="departamentoBaja">Inactive</label>
             </fieldset>
             <fieldset>
-                <input type="text" name="descDepartamento" id="descDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? ''; ?>" placeholder="Descripción del departamento">
-                <button name="buscar" value="buscar">Buscar</button>
+                <input type="text" name="descDepartamento" id="descDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? ''; ?>" placeholder="Department description">
+                <button name="buscar" value="buscar">Search</button>
                 <div class="error"><?php echo '<span>' . $aErrores['descDepartamento'] . '</span>' ?></div>
             </fieldset>
             <fieldset>
-                <button form="departamentosForm" type="submit" name="exportar">Exportar departamentos</button>
-                <button form="departamentosForm" type="submit" name="importar">Importar departamentos</button>
-                <button form="departamentosForm" type="submit" name="anadir">Añadir departamento</button>
+                <button form="departamentosForm" type="submit" name="exportar">Export departments</button>
+                <button form="departamentosForm" type="submit" name="importar">Import departments</button>
+                <button form="departamentosForm" type="submit" name="anadir">Add department</button>
             </fieldset>
         </form>
         <table>
             <tr>
-                <th>Código</th>
-                <th>Descripción</th>
-                <th>Fecha de creación</th>
-                <th>Volumen de negocio</th>
-                <th>Fecha de baja</th>
-                <th>Acciones</th>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Creation date</th>
+                <th>Turnover</th>
+                <th>Deactivation date</th>
+                <th>Actions</th>
             </tr>
             <?php
             if ($aVMtoDepartamentos) {

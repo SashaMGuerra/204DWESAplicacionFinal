@@ -44,15 +44,24 @@ QUERY;
      * 
      * Dado un patrón de búsqueda o no, busca en la base de datos departamentos
      * que cumplan con ello. Si no se da un patrón, devuelve todos los departamentos.
+     * Devuelve entre 0 y 3 departamentos, según la página indicada. Si no se
+     * indica una, devolverá la primera.     
      * 
      * @param String $sBusqueda Contenido que deben tener los departamentos a devolver.
-     * @return Departamento[]|false Devuelve un array con los departamentos si
-     * ha devuelto alguno, o false en caso contrario.
+     * @param int $iPagina Número de página a devolver.
+     * @return Departamento[]|false Devuelve un array con los departamentos (entre
+     * 1 y 3) si ha devuelto alguno, o false en caso contrario.
      */
-    public static function buscaDepartamentosPorDesc($sBusqueda = '') {
+    public static function buscaDepartamentosPorDesc($sBusqueda = '', $iPagina = 1) {
+        /* En el offset, se indica el departamento desde el que devolver en la
+         * búsqueda partiendo de 0, por eso, el número de página se resta 1 y
+         * se multiplica por 3 para devolver la página.
+         */
+        $iPagina = ($iPagina-1)*3;
         $sSelect = <<<QUERY
             SELECT * FROM T02_Departamento
-            WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%';
+            WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%'
+            LIMIT 3 OFFSET {$iPagina};
 QUERY;
 
         $oResultado = DBPDO::ejecutarConsulta($sSelect);
@@ -83,14 +92,18 @@ QUERY;
      * 
      * Dado un patrón de búsqueda y un estado de departamentos, busca en la base
      * de datos los departamentos que cumplan con esos criterios.
+     * Devuelve entre 0 y 3 departamentos, según la página indicada. Si no se
+     * indica una, devolverá la primera.
      * 
      * @param String $sBusqueda Contenido que deben tener los departamentos a devolver.
      * @param int $iEstado Estado de los departamentos a devolver (0 = de baja,
      * 1 = de alta, 2 = todos). Por defecto los busca todos.
+     * @param int $iPagina Número de página a devolver.
      * @return Departamento[]|false Devuelve un array con los departamentos si
-     * ha devuelto alguno, o false en caso contrario.
+     * ha devuelto alguno (entre 1 y 3), o false en caso contrario.
      */
-    public static function buscaDepartamentosPorDescEstado($sBusqueda = '', $iEstado = 2) {
+    public static function buscaDepartamentosPorDescEstado($sBusqueda = '', $iEstado = 2, $iPagina = 1) {
+        $iPagina = ($iPagina-1)*3;
         switch ($iEstado) {
             case 0:
                 $estado = 'AND T02_FechaBajaDepartamento IS NOT NULL';
@@ -106,7 +119,8 @@ QUERY;
         $sSelect = <<<QUERY
             SELECT * FROM T02_Departamento
             WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%'
-            {$estado};
+            {$estado}
+            LIMIT 3 OFFSET {$iPagina};
 QUERY;
         $oResultado = DBPDO::ejecutarConsulta($sSelect);
         $aDepartamentos = $oResultado->fetchAll();

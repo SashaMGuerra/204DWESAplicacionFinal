@@ -10,59 +10,59 @@
 <main>
     <div class="container">
         <section>
-            <h1>Aplicación final</h1>
-            <p>Práctica final de creación de una aplicación multicapa,<br>basada en el paradigma Modelo-Vista-Controlador, y orientada a objetos.</p>
+            <h1>Final Application</h1>
+            <p>Last multilayer app creation practice, based on Model-View-Controller paradigm, and object-oriented.</p>
             <form method="post">
-                <button type="submit" name="login" value="login">Iniciar sesión</button>
+                <button type="submit" name="login" value="login">Login</button>
             </form>
         </section>
         <section>
             <article>
                 <a href="webroot/files/UsoSession.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/usoSession.png" alt="Uso de la sesión">
-                    <p>Uso de la sesión</p>
+                    <p>Session use</p>
                 </a>
             </article>
             <article>
                 <a href="webroot/files/220119CatalogoDeRequisitos.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/catalogoRequisitos.png" alt="Catálogo de requisitos">
-                    <p>Catálogo de requisitos</p>
+                    <p>Catalog of requirements</p>
                 </a>
             </article>
             <article>
                 <a href="webroot/files/220119DiagramaDeCasosDeUso.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/casosDeUso.png" alt="Diagrama de casos de uso">
-                    <p>Diagrama de casos de uso</p>
+                    <p>Use case diagram</p>
                 </a>
             </article>
             <article>
                 <a href="webroot/files/220119DiagramaDeClases.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/diagramaClases.png" alt="Diagrama de clases">
-                    <p>Diagrama de clases</p>
+                    <p>Class diagram</p>
                 </a>
             </article>
             <article>
                 <a href="webroot/files/220119ArbolDeNavegación.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/arbolNavegacion.png" alt="Árbol de navegación">
-                    <p>Árbol de navegación</p>
+                    <p>Navigation tree</p>
                 </a>
             </article>
             <article>
                 <a href="webroot/files/220119RelacionDeFicheros.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/relacionFicheros.png" alt="Relación de ficheros">
-                    <p>Mapa web - relación de ficheros</p>
+                    <p>Web map - files relations</p>
                 </a>
             </article>
             <article>
                 <a href="webroot/files/211129EstandarDesarrolloDAWyEstructuraAlmacenamientoDWES.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/estructuraAlmacenamiento.png" alt="Estructura de almacenamiento">
-                    <p>Estructura de almacenamiento</p>
+                    <p>Data storage structure</p>
                 </a>
             </article>
             <article>
                 <a href="webroot/files/201127ModeloFisicoDeDatos20-21.pdf" target="_blank">
                     <img src="webroot/media/img/inicioPublico/modeloFisicoDatos.png" alt="Modelo físico de datos">
-                    <p>Modelo físico de datos</p>
+                    <p>Physical data model</p>
                 </a>
             </article>
         </section>

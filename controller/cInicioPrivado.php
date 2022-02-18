@@ -38,7 +38,7 @@ if(isset($_REQUEST['miCuenta'])){
  */
 if(isset($_REQUEST['mantenimiento'])){
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-    $_SESSION['paginaEnCurso'] = $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()==='administrador'?'wip':'mtoDepartamentos';
+    $_SESSION['paginaEnCurso'] = $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()==='administrador'?'mtoUsuarios':'mtoDepartamentos';
     header('Location: index.php');
     exit;
 }

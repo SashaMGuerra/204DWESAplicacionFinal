@@ -26,7 +26,7 @@ require_once '../model/Usuario.php';
  */
 $bEntradaOK = true;
 if(isset($_REQUEST['descUsuario'])){
-    if(validacionFormularios::comprobarAlfaNumerico($_REQUEST['descUsuario'], 255, 3, OBLIGATORIO)){
+    if(validacionFormularios::comprobarAlfaNumerico($_REQUEST['descUsuario'], 255)){
         $bEntradaOK = false;
     }
 }
