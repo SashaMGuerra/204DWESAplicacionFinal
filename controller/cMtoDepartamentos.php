@@ -91,6 +91,8 @@ if (isset($_REQUEST['rehabilitar'])) {
     exit;
 }
 
+$iTotalPaginas = DepartamentoPDO::contarPaginasDepartamentos();
+
 // Botones de paginación.
 if (isset($_REQUEST['paginaPrimera'])) {
     $_SESSION['numPaginacionDepartamentos'] = 1;
@@ -106,7 +108,7 @@ if (isset($_REQUEST['paginaAnterior']) && $_SESSION['numPaginacionDepartamentos'
     header('Location: index.php');
     exit;
 }
-if (isset($_REQUEST['paginaSiguiente'])) {
+if (isset($_REQUEST['paginaSiguiente']) && $_SESSION['numPaginacionDepartamentos']<$iTotalPaginas) {
     $_SESSION['numPaginacionDepartamentos']++;
 
     // Recarga la página.
@@ -114,6 +116,7 @@ if (isset($_REQUEST['paginaSiguiente'])) {
     exit;
 }
 if (isset($_REQUEST['paginaUltima'])) {
+    $_SESSION['numPaginacionDepartamentos'] = $iTotalPaginas;
 
     // Recarga la página.
     header('Location: index.php');
@@ -180,14 +183,17 @@ if (!isset($_SESSION['numPaginacionDepartamentos'])) {
  * Se haya enviado o no el formulario, realiza la búsqueda de departamentos para
  * mostrarlos.
  */
-$aVMtoDepartamentos = [];
+$aVMtoDepartamentos = [
+    'totalDepartamentos' => $iTotalPaginas,
+    'departamentos' => []
+];
 $aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescEstado(
         $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? '',
         $_SESSION['criterioBusquedaDepartamentos']['estado'] ?? DEPARTAMENTOS_TODOS,
         $_SESSION['numPaginacionDepartamentos']);
 if ($aDepartamentos) {
     foreach ($aDepartamentos as $oDepartamento) {
-        array_push($aVMtoDepartamentos, [
+        array_push($aVMtoDepartamentos['departamentos'], [
             'codDepartamento' => $oDepartamento->getCodDepartamento(),
             'descDepartamento' => $oDepartamento->getDescDepartamento(),
             'fechaCreacionDepartamento' => date('d/m/Y H:i:s T', $oDepartamento->getFechaCreacionDepartamento()),

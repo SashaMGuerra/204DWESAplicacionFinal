@@ -38,53 +38,14 @@ QUERY;
             return false;
         }
     }
-
-    /**
-     * Búsqueda de departamentos por descripción.
-     * 
-     * Dado un patrón de búsqueda o no, busca en la base de datos departamentos
-     * que cumplan con ello. Si no se da un patrón, devuelve todos los departamentos.
-     * Devuelve entre 0 y 3 departamentos, según la página indicada. Si no se
-     * indica una, devolverá la primera.     
-     * 
-     * @param String $sBusqueda Contenido que deben tener los departamentos a devolver.
-     * @param int $iPagina Número de página a devolver.
-     * @return Departamento[]|false Devuelve un array con los departamentos (entre
-     * 1 y 3) si ha devuelto alguno, o false en caso contrario.
-     */
-    public static function buscaDepartamentosPorDesc($sBusqueda = '', $iPagina = 1) {
-        /* En el offset, se indica el departamento desde el que devolver en la
-         * búsqueda partiendo de 0, por eso, el número de página se resta 1 y
-         * se multiplica por 3 para devolver la página.
-         */
-        $iPagina = ($iPagina-1)*3;
+    
+    public static function contarPaginasDepartamentos(){
         $sSelect = <<<QUERY
-            SELECT * FROM T02_Departamento
-            WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%'
-            LIMIT 3 OFFSET {$iPagina};
+            SELECT COUNT(*) FROM T02_Departamento;
 QUERY;
-
         $oResultado = DBPDO::ejecutarConsulta($sSelect);
-        $aDepartamentos = $oResultado->fetchAll();
-        if ($aDepartamentos) {
-            $aDevolucion = [];
-            /*
-             * Creación de cada departamento en objeto y añadido al array de
-             * devolución de departamentos con el código de departamento como
-             * key en el array.
-             */
-            foreach ($aDepartamentos as $oDepartamento) {
-                $aDevolucion[$oDepartamento['T02_CodDepartamento']] = new Departamento(
-                        $oDepartamento['T02_CodDepartamento'],
-                        $oDepartamento['T02_DescDepartamento'],
-                        $oDepartamento['T02_FechaCreacionDepartamento'],
-                        $oDepartamento['T02_VolumenDeNegocio'],
-                        $oDepartamento['T02_FechaBajaDepartamento']);
-            }
-            return $aDevolucion;
-        } else {
-            return false;
-        }
+        $oResultado = $oResultado->fetch();
+        return ceil(intval($oResultado[0])/3);
     }
 
     /**

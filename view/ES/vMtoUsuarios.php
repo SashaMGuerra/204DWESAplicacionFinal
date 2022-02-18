@@ -76,7 +76,7 @@
          * 
          * @param String usuarios String en formato JSON con los usuarios devueltos.
          */
-        function mostrarUsuarios(usuarios) {
+        function mostrarUsuarios(usuarios) {            
             var contenido = document.getElementById("mtoUsuarios");
             contenido.innerHTML = ''; // Limpieza de la tabla (si no, añade la información tras los anteriores).
             let JSONUsuarios = JSON.parse(usuarios);
