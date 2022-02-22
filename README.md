@@ -11,6 +11,11 @@ Aplicación POO multicapa, basada en el paradigma Modelo-Vista-Controlador.
     * Diccionario de Google, conversor de divisas;
     * Búsqueda de departamentos propia y ajena.
 
+## Despliegue.
+1. Descargar y descomprimir el ZIP de la última versión.
+2. Antes de su subida al servidor, debe modificarse el archivo configDB con la conexión a la base de datos correcta.
+3. Subida al servidor.
+
 ## Entornos.
 * Explotación.
 https://daw204.ieslossauces.es/AplicacionFinal/

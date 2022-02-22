@@ -116,7 +116,7 @@
         </section>
         <section id="conversor">
             <div class="conversor">
-                <h2>Conversor de divisas<sup><a href="" target="_blank">ⓘ</a></sup></h2>
+                <h2>Conversor de divisas<sup><a href="https://www.exchangerate-api.com/docs/standard-requests" target="_blank">ⓘ</a></sup></h2>
                 <div class="restDescripcion">Servicio web de conversión de divisas. Introducidos dos códigos de divisa (hágase clic en el enlace de información junto a "Divisa" para un listado completo), devuelve el valor convertido.</div>
                 <form method="post">
                     <fieldset>                      
@@ -163,7 +163,7 @@
         </section>
         <section id="buscarDPTOpropio">
             <div class="REST">
-                <h2>Búsqueda de departamentos por código (propio)<sup><a href="" target="_blank">ⓘ</a></sup></h2>
+                <h2>Búsqueda de departamentos por código (propio)<sup><a href="webroot/files/buscarDepartamentoPorCodigo.pdf" target="_blank">ⓘ</a></sup></h2>
                 <div class="restDescripcion">Servicio web de búsqueda de departamentos por código. Devuelve una tabla con el código, descripción, fecha de creación, volumen de negocio y fecha de baja —si tiene— del departamento.</div>
                 <form method="post">
                     <fieldset>

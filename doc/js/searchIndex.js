@@ -506,10 +506,10 @@ Search.appendIndex(
             "summary": "B\u00FAsqueda\u0020de\u0020departamento\u0020por\u0020c\u00F3digo.",
             "url": "classes/DepartamentoPDO.html#method_buscaDepartamentoPorCod"
         },                {
-            "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentosPorDesc\u0028\u0029",
-            "name": "buscaDepartamentosPorDesc",
-            "summary": "B\u00FAsqueda\u0020de\u0020departamentos\u0020por\u0020descripci\u00F3n.",
-            "url": "classes/DepartamentoPDO.html#method_buscaDepartamentosPorDesc"
+            "fqsen": "\\DepartamentoPDO\u003A\u003AcontarPaginasDepartamentos\u0028\u0029",
+            "name": "contarPaginasDepartamentos",
+            "summary": "",
+            "url": "classes/DepartamentoPDO.html#method_contarPaginasDepartamentos"
         },                {
             "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentosPorDescEstado\u0028\u0029",
             "name": "buscaDepartamentosPorDescEstado",
