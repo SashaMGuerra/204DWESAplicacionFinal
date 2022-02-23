@@ -162,13 +162,13 @@ if ($bEntradaOK) {
     $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] = $_REQUEST['descDepartamento'];
     switch ($_REQUEST['estado']) {
         case 'baja':
-            $iEstado = DEPARTAMENTOS_BAJA;
+            $iEstado = DepartamentoPDO::DEPARTAMENTOS_BAJA;
             break;
         case 'alta':
-            $iEstado = DEPARTAMENTOS_ALTA;
+            $iEstado = DepartamentoPDO::DEPARTAMENTOS_ALTA;
             break;
         case 'todos':
-            $iEstado = DEPARTAMENTOS_TODOS;
+            $iEstado = DepartamentoPDO::DEPARTAMENTOS_TODOS;
             break;
     }
     $_SESSION['criterioBusquedaDepartamentos']['estado'] = $iEstado;
@@ -189,7 +189,7 @@ $aVMtoDepartamentos = [
 ];
 $aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescEstado(
         $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? '',
-        $_SESSION['criterioBusquedaDepartamentos']['estado'] ?? DEPARTAMENTOS_TODOS,
+        $_SESSION['criterioBusquedaDepartamentos']['estado'] ?? DepartamentoPDO::DEPARTAMENTOS_TODOS,
         $_SESSION['numPaginacionDepartamentos']);
 if ($aDepartamentos) {
     foreach ($aDepartamentos as $oDepartamento) {

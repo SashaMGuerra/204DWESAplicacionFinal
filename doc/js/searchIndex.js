@@ -298,28 +298,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\OBLIGATORIO",
             "name": "OBLIGATORIO",
-            "summary": "REST\u0020de\u0020b\u00FAsqueda\u0020de\u0020usuarios\u0020por\u0020descripci\u00F3n\u0020\u0028no\u0020necesaria\u0029.",
+            "summary": "REST\u0020de\u0020modificaci\u00F3n\u0020de\u0020password\u0020de\u0020un\u0020usuario\u0020por\u0020c\u00F3digo.",
             "url": "namespaces/default.html#constant_OBLIGATORIO"
         },                {
             "fqsen": "\\OPCIONAL",
             "name": "OPCIONAL",
             "summary": "",
             "url": "namespaces/default.html#constant_OPCIONAL"
-        },                {
-            "fqsen": "\\DEPARTAMENTOS_BAJA",
-            "name": "DEPARTAMENTOS_BAJA",
-            "summary": "",
-            "url": "namespaces/default.html#constant_DEPARTAMENTOS_BAJA"
-        },                {
-            "fqsen": "\\DEPARTAMENTOS_ALTA",
-            "name": "DEPARTAMENTOS_ALTA",
-            "summary": "",
-            "url": "namespaces/default.html#constant_DEPARTAMENTOS_ALTA"
-        },                {
-            "fqsen": "\\DEPARTAMENTOS_TODOS",
-            "name": "DEPARTAMENTOS_TODOS",
-            "summary": "",
-            "url": "namespaces/default.html#constant_DEPARTAMENTOS_TODOS"
         },                {
             "fqsen": "\\HOST",
             "name": "HOST",
@@ -508,7 +493,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DepartamentoPDO\u003A\u003AcontarPaginasDepartamentos\u0028\u0029",
             "name": "contarPaginasDepartamentos",
-            "summary": "",
+            "summary": "Recuento\u0020de\u0020p\u00E1ginas\u0020de\u0020departamentos.",
             "url": "classes/DepartamentoPDO.html#method_contarPaginasDepartamentos"
         },                {
             "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentosPorDescEstado\u0028\u0029",
@@ -550,6 +535,21 @@ Search.appendIndex(
             "name": "exportarDepartamentosXML",
             "summary": "Exportaci\u00F3n\u0020de\u0020departamentos\u0020a\u0020formato\u0020XML.",
             "url": "classes/DepartamentoPDO.html#method_exportarDepartamentosXML"
+        },                {
+            "fqsen": "\\DepartamentoPDO\u003A\u003ADEPARTAMENTOS_BAJA",
+            "name": "DEPARTAMENTOS_BAJA",
+            "summary": "",
+            "url": "classes/DepartamentoPDO.html#constant_DEPARTAMENTOS_BAJA"
+        },                {
+            "fqsen": "\\DepartamentoPDO\u003A\u003ADEPARTAMENTOS_ALTA",
+            "name": "DEPARTAMENTOS_ALTA",
+            "summary": "",
+            "url": "classes/DepartamentoPDO.html#constant_DEPARTAMENTOS_ALTA"
+        },                {
+            "fqsen": "\\DepartamentoPDO\u003A\u003ADEPARTAMENTOS_TODOS",
+            "name": "DEPARTAMENTOS_TODOS",
+            "summary": "",
+            "url": "classes/DepartamentoPDO.html#constant_DEPARTAMENTOS_TODOS"
         },                {
             "fqsen": "\\Palabra",
             "name": "Palabra",

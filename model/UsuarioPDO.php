@@ -172,15 +172,15 @@ QUERY;
      * Dado un patrón de búsqueda o no, busca en la base de datos usuarios
      * que cumplan con ello. Si no se da un patrón, devuelve todos los usuarios.
      * 
-     * @param String $sBusqueda Información que debe contener en la descripción
+     * @param String $sDescUsuarios Información que debe contener en la descripción
      * los usuarios a devolver.
      * @return Usuario[]|false Devuelve un array con los objetos usuario encontrados
      * si los encuentra, o false si no lo hace.
      */
-    public static function buscaUsuariosporDesc($sBusqueda) {
+    public static function buscaUsuariosporDesc($sDescUsuarios) {
         $sSelect = <<<QUERY
             SELECT * FROM T01_Usuario
-            WHERE T01_DescUsuario LIKE '%{$sBusqueda}%';
+            WHERE T01_DescUsuario LIKE '%{$sDescUsuarios}%';
 QUERY;
 
         $oResultado = DBPDO::ejecutarConsulta($sSelect);

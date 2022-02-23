@@ -5,6 +5,7 @@
  * Dado el código de un departamento por parámetro por la url, devuelve los
  * datos del departamento en formato JSON al usuario si lo encuentra.
  * 
+ * @package APIRests
  * @author Sasha
  * @since 07/02/2022
  * @version 2.1

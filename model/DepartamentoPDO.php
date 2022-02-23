@@ -11,6 +11,9 @@
  * @version 2.0
  */
 class DepartamentoPDO {
+    public const DEPARTAMENTOS_BAJA = 0;
+    public const DEPARTAMENTOS_ALTA = 1;
+    public const DEPARTAMENTOS_TODOS = 2;
 
     /**
      * Búsqueda de departamento por código.
@@ -39,10 +42,40 @@ QUERY;
         }
     }
     
-    public static function contarPaginasDepartamentos(){
+    /**
+     * 
+     * @return int Número de páginas de departamentos.
+     */
+    
+    /**
+     * Recuento de páginas de departamentos.
+     * 
+     * Cuenta todo el número de departamentos que existen en la base de datos
+     * según la descripción y estado dados, paginados de 3 en 3.
+     * 
+     * @param String $sBusqueda Contenido que deben tener los departamentos a devolver.
+     * @param int $iEstado Estado de los departamentos a devolver.
+     * @return int Número de páginas en que se divide el total de departamentos.
+     */
+    public static function contarPaginasDepartamentos($sBusqueda = '', $iEstado = self::DEPARTAMENTOS_TODOS){
+        switch ($iEstado) {
+            case self::DEPARTAMENTOS_BAJA:
+                $estado = 'AND T02_FechaBajaDepartamento IS NOT NULL';
+                break;
+            case self::DEPARTAMENTOS_ALTA:
+                $estado = 'AND T02_FechaBajaDepartamento IS NULL';
+                break;
+            case self::DEPARTAMENTOS_TODOS:
+                $estado = '';
+                break;
+        }
+        
         $sSelect = <<<QUERY
-            SELECT COUNT(*) FROM T02_Departamento;
+            SELECT COUNT(*) FROM T02_Departamento
+            WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%'
+            {$estado};
 QUERY;
+            
         $oResultado = DBPDO::ejecutarConsulta($sSelect);
         $oResultado = $oResultado->fetch();
         return ceil(intval($oResultado[0])/3);
@@ -57,22 +90,21 @@ QUERY;
      * indica una, devolverá la primera.
      * 
      * @param String $sBusqueda Contenido que deben tener los departamentos a devolver.
-     * @param int $iEstado Estado de los departamentos a devolver (0 = de baja,
-     * 1 = de alta, 2 = todos). Por defecto los busca todos.
+     * @param int $iEstado Estado de los departamentos a devolver.
      * @param int $iPagina Número de página a devolver.
      * @return Departamento[]|false Devuelve un array con los departamentos si
      * ha devuelto alguno (entre 1 y 3), o false en caso contrario.
      */
-    public static function buscaDepartamentosPorDescEstado($sBusqueda = '', $iEstado = 2, $iPagina = 1) {
+    public static function buscaDepartamentosPorDescEstado($sBusqueda = '', $iEstado = self::DEPARTAMENTOS_TODOS, $iPagina = 1) {
         $iPagina = ($iPagina-1)*3;
         switch ($iEstado) {
-            case 0:
+            case self::DEPARTAMENTOS_BAJA:
                 $estado = 'AND T02_FechaBajaDepartamento IS NOT NULL';
                 break;
-            case 1:
+            case self::DEPARTAMENTOS_ALTA:
                 $estado = 'AND T02_FechaBajaDepartamento IS NULL';
                 break;
-            case 2:
+            case self::DEPARTAMENTOS_TODOS:
                 $estado = '';
                 break;
         }

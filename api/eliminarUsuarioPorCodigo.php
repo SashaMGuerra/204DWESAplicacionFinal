@@ -5,6 +5,7 @@
  * Pasado el código de un usuario en la url, elimina el usuario de la base de
  * datos del servidor.
  * 
+ * @package APIRests
  * @author Sasha
  * @since 21/02/2022
  * @version 3.0

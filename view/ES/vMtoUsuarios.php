@@ -43,6 +43,7 @@
         </div>
     </div>
     <script>
+        var xhttp = new XMLHttpRequest();
 
         // Carga de usuarios al entrar en la página.
         cargarUsuarios();
@@ -53,7 +54,7 @@
          */
         function buscarUsuarios() {
             event.preventDefault();
-            cargarUsuarios(document.getElementById("descUsuario").value)
+            cargarUsuarios(document.getElementById("descUsuario").value);
         }
 
         /**
@@ -62,7 +63,6 @@
          * @param String descUsuarios Descripción por la que buscar a los usuarios.
          */
         function cargarUsuarios(descUsuarios = '') {
-            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     mostrarUsuarios(this.responseText);
@@ -129,7 +129,6 @@
         function eliminarUsuario(btn) {
             var codUsuario = btn.value;
 
-            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     cargarUsuarios();
@@ -158,7 +157,6 @@
                 if (event.keyCode === 13) {
                     let password = inputPassword.value;
 
-                    var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             console.log(this.responseText);

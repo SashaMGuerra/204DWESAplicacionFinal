@@ -5,7 +5,7 @@
             <title>AplicacionFinal</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <base href="../">
     <link rel="icon" href="images/favicon.ico"/>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
@@ -64,7 +64,7 @@
 </h4>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/APIRests.html" class="">APIRests</a>
+    <a href="packages/APIRests.html" class="-active">APIRests</a>
 </h4>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -87,55 +87,14 @@
 </aside>
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <h2>Documentation</h2>
+                    <ul class="phpdocumentor-breadcrumbs">
+    </ul>
 
-    
-    <h3 id="packages">
-    Packages
-    <a href="#packages" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
+    <article class="phpdocumentor-element -package">
+        <h2 class="phpdocumentor-content__title">APIRests</h2>
 
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/Application.html"><abbr title="\Application">Application</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/AppFinal.html"><abbr title="\AppFinal">AppFinal</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/APIRests.html"><abbr title="\APIRests">APIRests</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -package"><a href="packages/Validacion.html"><abbr title="\Validacion">Validacion</abbr></a></dt>
-    </dl>
+        
 
-
-<h3 id="interfaces_class_traits">
-    Interfaces, Classes, Traits and Enums
-    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
-
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/DB.html"><abbr title="\DB">DB</abbr></a></dt>
-        <dd>Interfaz para conexión con la base de datos y ejecución de consultas sobre la misma.</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/UsuarioDB.html"><abbr title="\UsuarioDB">UsuarioDB</abbr></a></dt>
-        <dd>Interfaz para conexión de usuarios con la base de datos.</dd>
-    
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/AppError.html"><abbr title="\AppError">AppError</abbr></a></dt>
-        <dd>Clase que crea y utiliza errores generados en el uso de la aplicación
-(excepciones).</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/DBPDO.html"><abbr title="\DBPDO">DBPDO</abbr></a></dt>
-        <dd>Clase para conexión con la base de datos y ejecución de consultas mediante PDO.</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></dt>
-        <dd>Clase que crea y utiliza usuarios en la aplicación.</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/UsuarioPDO.html"><abbr title="\UsuarioPDO">UsuarioPDO</abbr></a></dt>
-        <dd>Conexión de usuarios con la base de datos mediante PDO.</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/REST.html"><abbr title="\REST">REST</abbr></a></dt>
-        <dd>Funciones para uso de los REST utilizados.</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/validacionFormularios.html"><abbr title="\validacionFormularios">validacionFormularios</abbr></a></dt>
-        <dd>Clase de validacion de formularios</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Departamento.html"><abbr title="\Departamento">Departamento</abbr></a></dt>
-        <dd>Clase que crea y utiliza departamentos en la aplicación.</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/DepartamentoPDO.html"><abbr title="\DepartamentoPDO">DepartamentoPDO</abbr></a></dt>
-        <dd>Conexión de departamentos con la base de datos mediante PDO.</dd>
-            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Palabra.html"><abbr title="\Palabra">Palabra</abbr></a></dt>
-        <dd>Clase para construcción de objetos palabra.</dd>
-    
-    
-    </dl>
 
 
 <h3 id="toc">
@@ -144,20 +103,6 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/default.html#constant_HOST">HOST</a>
-    <span>
-        &nbsp;= &#039;mysql:host=daw204.sauces.local;dbname=DB204DWESAplicacionFinal&#039;                            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/default.html#constant_OBLIGATORIO">OBLIGATORIO</a>
-    <span>
-        &nbsp;= 1                            </span>
-</dt>
-<dd></dd>
-
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_OBLIGATORIO">OBLIGATORIO</a>
     <span>
@@ -200,93 +145,14 @@
 </dt>
 <dd></dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/default.html#constant_OPCIONAL">OPCIONAL</a>
-    <span>
-        &nbsp;= 0                            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/default.html#constant_PASSWORD">PASSWORD</a>
-    <span>
-        &nbsp;= &#039;paso&#039;                            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/default.html#constant_USER">USER</a>
-    <span>
-        &nbsp;= &#039;User204DWESAplicacionFinal&#039;                            </span>
-</dt>
-<dd></dd>
-
                     </dl>
 
-    
+        
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="namespaces/default.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="packages/APIRests.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HOST">
-        HOST
-        <a href="namespaces/default.html#constant_HOST" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="config/configDB.php"><a href="files/config-configdb.html"><abbr title="config/configDB.php">configDB.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">13</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HOST</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;mysql:host=daw204.sauces.local;dbname=DB204DWESAplicacionFinal&#039;</span>
-</code>
-
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_OBLIGATORIO">
-        OBLIGATORIO
-        <a href="namespaces/default.html#constant_OBLIGATORIO" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="config/configApp.php"><a href="files/config-configapp.html"><abbr title="config/configApp.php">configApp.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">17</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">OBLIGATORIO</span>
-    = <span class="phpdocumentor-signature__default-value">1</span>
-</code>
-
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_OBLIGATORIO">
         OBLIGATORIO
@@ -482,35 +348,6 @@ datos del servidor.</p>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="config/configApp.php"><a href="files/config-configapp.html"><abbr title="config/configApp.php">configApp.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">18</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">OPCIONAL</span>
-    = <span class="phpdocumentor-signature__default-value">0</span>
-</code>
-
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_OPCIONAL">
-        OPCIONAL
-        <a href="namespaces/default.html#constant_OPCIONAL" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="api/buscarUsuarioPorDesc.php"><a href="files/api-buscarusuariopordesc.html"><abbr title="api/buscarUsuarioPorDesc.php">buscarUsuarioPorDesc.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">15</span>
@@ -591,67 +428,10 @@ datos del servidor.</p>
     
 
 </article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_PASSWORD">
-        PASSWORD
-        <a href="namespaces/default.html#constant_PASSWORD" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="config/configDB.php"><a href="files/config-configdb.html"><abbr title="config/configDB.php">configDB.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">15</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">PASSWORD</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;paso&#039;</span>
-</code>
-
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_USER">
-        USER
-        <a href="namespaces/default.html#constant_USER" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="config/configDB.php"><a href="files/config-configdb.html"><abbr title="config/configDB.php">configDB.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">14</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">USER</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;User204DWESAplicacionFinal&#039;</span>
-</code>
-
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
             </section>
 
-    
+        
+    </article>
                 <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
@@ -665,7 +445,7 @@ datos del servidor.</p>
 </section>
             </div>
         </div>
-        <a href="index.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="packages/APIRests.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
