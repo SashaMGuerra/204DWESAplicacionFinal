@@ -48,8 +48,8 @@
                 <th>Acciones</th>
             </tr>
             <?php
-            if ($aVMtoDepartamentos['departamentos']) {
-                foreach ($aVMtoDepartamentos['departamentos'] as $aDepartamento) {
+            if ($aVMtoDepartamentos) {
+                foreach ($aVMtoDepartamentos as $aDepartamento) {
                     ?>
                     <tr class="<?php echo empty($aDepartamento['fechaBajaDepartamento'])?'alta':'baja'; ?>">
                         <td><?php echo $aDepartamento['codDepartamento']; ?></td>
@@ -91,7 +91,7 @@
             <button type="submit" form="departamentosForm" name="paginaAnterior" value="paginaAnterior">
                 <img src="webroot/media/img/mtoDepartamentos/pagePrevious.png" alt="página anterior">
             </button>
-            <div id="numPagina"><?php echo $_SESSION['numPaginacionDepartamentos']."/".$aVMtoDepartamentos['totalDepartamentos']; ?></div>
+            <div id="numPagina"><?php echo $_SESSION['paginacionDepartamentos']['numPagina']."/".$_SESSION['paginacionDepartamentos']['totalPaginas']; ?></div>
             <button type="submit" form="departamentosForm" name="paginaSiguiente" value="paginaSiguiente">
                 <img src="webroot/media/img/mtoDepartamentos/pageNext.png" alt="página siguiente">
             </button>

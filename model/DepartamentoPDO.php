@@ -43,11 +43,6 @@ QUERY;
     }
     
     /**
-     * 
-     * @return int Número de páginas de departamentos.
-     */
-    
-    /**
      * Recuento de páginas de departamentos.
      * 
      * Cuenta todo el número de departamentos que existen en la base de datos
@@ -269,7 +264,7 @@ QUERY;
      * si se ha guardado en temporal correctamente, o false en caso contrario.
      */
     public static function exportarDepartamentosXML() {
-        $aDepartamentos = self::buscaDepartamentosPorDesc();
+        $aDepartamentos = self::buscaDepartamentosPorDescEstado();
 
         if ($aDepartamentos) {
 

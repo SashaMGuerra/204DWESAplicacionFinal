@@ -14,7 +14,8 @@
 // Si se selecciona volver, vuelve a la página anterior..
 if (isset($_REQUEST['volver'])) {
     unset($_SESSION['criterioBusquedaDepartamentos']);
-    unset($_SESSION['numPaginacionDepartamentos']);
+    unset($_SESSION['paginacionDepartamentos']);
+    unset($_SESSION['codDepartamentoEnCurso']);
 
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
@@ -28,12 +29,15 @@ if (isset($_REQUEST['volver'])) {
  * por el usuario.
  */
 if (isset($_REQUEST['exportar'])) {
+    /*
     $_SESSION['URLArchivoEnCurso'] = DepartamentoPDO::exportarDepartamentosXML();
     
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'exportarDepartamentos';
     header('Location: index.php');
     exit;
+     * 
+     */
 }
 
 
@@ -91,32 +95,30 @@ if (isset($_REQUEST['rehabilitar'])) {
     exit;
 }
 
-$iTotalPaginas = DepartamentoPDO::contarPaginasDepartamentos();
-
 // Botones de paginación.
 if (isset($_REQUEST['paginaPrimera'])) {
-    $_SESSION['numPaginacionDepartamentos'] = 1;
+    $_SESSION['paginacionDepartamentos']['numPagina'] = 1;
 
     // Recarga la página.
     header('Location: index.php');
     exit;
 }
-if (isset($_REQUEST['paginaAnterior']) && $_SESSION['numPaginacionDepartamentos']>=2) {
-    $_SESSION['numPaginacionDepartamentos']--;
+if (isset($_REQUEST['paginaAnterior']) && $_SESSION['paginacionDepartamentos']['numPagina']>=2) {
+    $_SESSION['paginacionDepartamentos']['numPagina']--;
 
     // Recarga la página.
     header('Location: index.php');
     exit;
 }
-if (isset($_REQUEST['paginaSiguiente']) && $_SESSION['numPaginacionDepartamentos']<$iTotalPaginas) {
-    $_SESSION['numPaginacionDepartamentos']++;
+if (isset($_REQUEST['paginaSiguiente']) && $_SESSION['paginacionDepartamentos']['numPagina']<$_SESSION['paginacionDepartamentos']['totalPaginas']) {
+    $_SESSION['paginacionDepartamentos']['numPagina']++;
 
     // Recarga la página.
     header('Location: index.php');
     exit;
 }
 if (isset($_REQUEST['paginaUltima'])) {
-    $_SESSION['numPaginacionDepartamentos'] = $iTotalPaginas;
+    $_SESSION['paginacionDepartamentos']['numPagina'] = $_SESSION['paginacionDepartamentos']['totalPaginas'];
 
     // Recarga la página.
     header('Location: index.php');
@@ -172,28 +174,29 @@ if ($bEntradaOK) {
             break;
     }
     $_SESSION['criterioBusquedaDepartamentos']['estado'] = $iEstado;
+    $_SESSION['paginacionDepartamentos']['numPagina'] = 1;
 }
 
 // Si no tiene indicado un número de página, lo crea en 1.
-if (!isset($_SESSION['numPaginacionDepartamentos'])) {
-    $_SESSION['numPaginacionDepartamentos'] = 1;
+if (!isset($_SESSION['paginacionDepartamentos']['numPagina'])) {
+    $_SESSION['paginacionDepartamentos']['numPagina'] = 1;
 }
 
 /**
  * Se haya enviado o no el formulario, realiza la búsqueda de departamentos para
  * mostrarlos.
  */
-$aVMtoDepartamentos = [
-    'totalDepartamentos' => $iTotalPaginas,
-    'departamentos' => []
-];
+$_SESSION['paginacionDepartamentos']['totalPaginas'] = DepartamentoPDO::contarPaginasDepartamentos(
+        $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? '',
+        $_SESSION['criterioBusquedaDepartamentos']['estado'] ?? DepartamentoPDO::DEPARTAMENTOS_TODOS);
+$aVMtoDepartamentos = [];
 $aDepartamentos = DepartamentoPDO::buscaDepartamentosPorDescEstado(
         $_SESSION['criterioBusquedaDepartamentos']['descripcionBusqueda'] ?? '',
         $_SESSION['criterioBusquedaDepartamentos']['estado'] ?? DepartamentoPDO::DEPARTAMENTOS_TODOS,
-        $_SESSION['numPaginacionDepartamentos']);
+        $_SESSION['paginacionDepartamentos']['numPagina']);
 if ($aDepartamentos) {
     foreach ($aDepartamentos as $oDepartamento) {
-        array_push($aVMtoDepartamentos['departamentos'], [
+        array_push($aVMtoDepartamentos, [
             'codDepartamento' => $oDepartamento->getCodDepartamento(),
             'descDepartamento' => $oDepartamento->getDescDepartamento(),
             'fechaCreacionDepartamento' => date('d/m/Y H:i:s T', $oDepartamento->getFechaCreacionDepartamento()),
