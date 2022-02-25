@@ -20,11 +20,11 @@
         </div>
         <form method="post" id="departamentosForm">
             <fieldset>
-                <input type="radio" name="estado" value="todos" id="departamentoTodos" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_TODOS?'checked':''):'checked'; ?>/>
+                <input type="radio" name="estado" value="todos" id="departamentoTodos" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DepartamentoPDO::DEPARTAMENTOS_TODOS?'checked':''):'checked'; ?>/>
                 <label for="departamentoTodos">Todos</label>
-                <input type="radio" name="estado" value="alta" id="departamentoAlta" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_ALTA?'checked':''):''; ?>/>
+                <input type="radio" name="estado" value="alta" id="departamentoAlta" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DepartamentoPDO::DEPARTAMENTOS_ALTA?'checked':''):''; ?>/>
                 <label for="departamentoAlta">Alta</label>
-                <input type="radio" name="estado" value="baja" id="departamentoBaja" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DEPARTAMENTOS_BAJA?'checked':''):'';  ?> />
+                <input type="radio" name="estado" value="baja" id="departamentoBaja" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado'])?($_SESSION['criterioBusquedaDepartamentos']['estado']==DepartamentoPDO::DEPARTAMENTOS_BAJA?'checked':''):'';  ?> />
                 <label for="departamentoBaja">Baja</label>
             </fieldset>
             <fieldset>
@@ -91,7 +91,7 @@
             <button type="submit" form="departamentosForm" name="paginaAnterior" value="paginaAnterior">
                 <img src="webroot/media/img/mtoDepartamentos/pagePrevious.png" alt="página anterior">
             </button>
-            <div id="numPagina"><?php echo $_SESSION['numPaginacionDepartamentos']; ?></div>
+            <div id="numPagina"><?php echo $_SESSION['paginacionDepartamentos']['numPagina']."/".$_SESSION['paginacionDepartamentos']['totalPaginas']; ?></div>
             <button type="submit" form="departamentosForm" name="paginaSiguiente" value="paginaSiguiente">
                 <img src="webroot/media/img/mtoDepartamentos/pageNext.png" alt="página siguiente">
             </button>

@@ -116,7 +116,7 @@
         </section>
         <section id="conversor">
             <div class="conversor">
-                <h2>Currency converter<sup><a href="" target="_blank">ⓘ</a></sup></h2>
+                <h2>Currency converter<sup><a href="https://www.exchangerate-api.com/docs/standard-requests" target="_blank">ⓘ</a></sup></h2>
                 <div class="restDescripcion">Currency converter web service. Given two currency codes (click on the information link next to "Currency" for a full list), returns the converted value.</div>
                 <form method="post">
                     <fieldset>                      
@@ -163,8 +163,8 @@
         </section>
         <section id="buscarDPTOpropio">
             <div class="REST">
-                <h2>Department search by code (own)<sup><a href="" target="_blank">ⓘ</a></sup></h2>
-                <div class="restDescripcion">Department search web service. If exists, returns a table with the code, description, creation date, turnover and deactivation date —if inactive— of the department.</div>
+                <h2>Department search by code (own)<sup><a href="webroot/files/buscarDepartamentoPorCodigo.pdf" target="_blank">ⓘ</a></sup></h2>
+                <div class="restDescripcion">Department search web service. If exists, it returns a table with the code, description, creation date, turnover and deactivation date —if inactive— of the department.</div>
                 <form method="post">
                     <fieldset>
                         <label for="codDepartamento">Department code</label>
@@ -210,7 +210,7 @@
         <section id="buscarDPTOajeno">
             <div class="REST">
                 <h2>Department search by code (Óscar)<sup><a href="" target="_blank">ⓘ</a></sup></h2>
-                <div class="restDescripcion">Department search web service. If exists, returns a table with the code, description, creation date, turnover and deactivation date —if inactive— of the department.</div>
+                <div class="restDescripcion">Department search web service. If exists, it returns a table with the code, description, creation date, turnover and deactivation date —if inactive— of the department.</div>
                 <form method="post">
                     <fieldset>
                         <label for="codDepartamento">Department code</label>

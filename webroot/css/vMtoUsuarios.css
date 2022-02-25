@@ -41,3 +41,13 @@ main table tbody td:nth-of-type(6){
 main table img{
     height: 60px;
 }
+
+table button,
+table button:hover{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+table button img{
+    height: 45px;
+}

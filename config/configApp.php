@@ -1,7 +1,8 @@
 <?php
-
 /*
  * Fichero de configuración de aplicación.
+ * 
+ * Contiene las constantes, y los require de librerías y contenido de la aplicación.
  * 
  * @package AppFinal
  * @author Sasha
@@ -15,10 +16,6 @@ require_once 'core/libreriaValidacion.php';
 // Constantes para el parámetro "obligatorio" de la validación de formularios.
 define("OBLIGATORIO", 1);
 define("OPCIONAL", 0);
-
-define("DEPARTAMENTOS_BAJA", 0);
-define("DEPARTAMENTOS_ALTA", 1);
-define("DEPARTAMENTOS_TODOS", 2);
 
 // Constantes para la conexión a la base de datos.
 require_once 'config/configDB.php';
@@ -42,6 +39,7 @@ $aControladores = [
         'login' => 'controller/cLogin.php',
         'registro' => 'controller/cRegistro.php',
         'wip' => 'controller/cWIP.php',
+        'tecnologias' => 'controller/cTecnologias.php',
         'error' => 'controller/cError.php'
     ],
     'privado' => [
@@ -50,7 +48,6 @@ $aControladores = [
         'cambiarPassword' => 'controller/cCambiarPassword.php',
         'borrarCuenta' => 'controller/cBorrarCuenta.php',
         'detalle' => 'controller/cDetalle.php',
-        'tecnologias' => 'controller/cTecnologias.php',
         'rest' => 'controller/cREST.php',
     ],
     'usuario' => [

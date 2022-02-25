@@ -5,6 +5,7 @@
  * Dada (o no) la descripción de un usuario por parámetro en la url, devuelve
  * los datos de todos los departamentos en JSON.
  * 
+ * @package APIRests
  * @author Sasha
  * @since 10/02/2022
  * @version 2.2

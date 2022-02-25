@@ -8,7 +8,6 @@
 /* Inserción en tablas */
 USE DB204DWESAplicacionFinal;
 
-/*
 -- Inserción de usuarios no administradores.
 INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_FechaHoraUltimaConexion) VALUES
     ('albertoF',SHA2('albertoFpaso',256),'AlbertoF', UNIX_TIMESTAMP()),
@@ -24,7 +23,6 @@ INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Fecha
     ('amor',SHA2('amorpaso',256),'Amor', UNIX_TIMESTAMP()),
     ('antonio',SHA2('antoniopaso',256),'Antonio', UNIX_TIMESTAMP()),
     ('albertoB',SHA2('albertoBpaso',256),'AlbertoB', UNIX_TIMESTAMP());
-*/
 
 -- Inserción de usuarios administradores.
 INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_FechaHoraUltimaConexion, T01_Perfil) VALUES

@@ -29,13 +29,7 @@ session_start();
  * la lista de idiomas, modifica la cookie y recarga la página.
  */
 if (isset($_REQUEST['cookieLanguage']) && !validacionFormularios::validarElementoEnLista($_REQUEST['cookieLanguage'], ['ES', 'EN'])) {
-    /*
-      $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-      $_SESSION['paginaEnCurso'] = 'wip';
-     * 
-     */
-
-    setcookie('language', $_REQUEST['cookieLanguage'], time() + 60 * 60 * 24 * 30);
+    setcookie('language', $_REQUEST['cookieLanguage'], time() + 60 * 60 * 24 * 30); 
 
     header('Location: index.php');
     exit;
@@ -59,19 +53,30 @@ if (isset($_REQUEST['tecnologias'])) {
 
 // Comprobaciones previas a cargado de página.
 
-// Si no hay una página a cargar indicada, carga el login.
+// Si no hay una página a cargar indicada, carga el inicio público.
 if (!isset($_SESSION['paginaEnCurso'])) {
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
 }
-
-/* Si la página que se pide es privada (no está en el array público) y el usuario
- * no ha hecho login, le manda al inicio público.
- */
-if (!array_key_exists($_SESSION['paginaEnCurso'], $aControladores['publico'])
-        && !isset($_SESSION['usuarioDAW204AplicacionFinal'])) {
-    $_SESSION['paginaEnCurso'] = 'inicioPublico';
+else{
+    /* Si la página que se pide es privada (no está en el array público) y el usuario
+     * no ha hecho login, le manda al inicio público.
+     */
+    if (!array_key_exists($_SESSION['paginaEnCurso'], $aControladores['publico'])
+            && !isset($_SESSION['usuarioDAW204AplicacionFinal'])) {
+        $_SESSION['paginaEnCurso'] = 'inicioPublico';
+    }
+    /*
+     * Si la página que se pide es privada de administrador, y el usuario no es administrador,
+     * o si la página es de usuario normal, y el usuario no es usuario normal,
+     * envía al inicio privado (ya se ha comprobado en la opción anterior si ha iniciado sesión).
+     */
+    else if((array_key_exists($_SESSION['paginaEnCurso'], $aControladores['administrador'])
+            && $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()!='administrador')
+            || (array_key_exists($_SESSION['paginaEnCurso'], $aControladores['usuario'])
+            && $_SESSION['usuarioDAW204AplicacionFinal']->getPerfil()!='usuario')){
+        $_SESSION['paginaEnCurso'] = 'inicioPrivado';
+    }
 }
-
 
 /*
  * Cargado de la página indicada.

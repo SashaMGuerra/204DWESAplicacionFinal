@@ -34,6 +34,7 @@
                         <th>Número de conexiones</th>
                         <th>Perfil</th>
                         <th>Imagen de usuario</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="mtoUsuarios">
@@ -42,6 +43,8 @@
         </div>
     </div>
     <script>
+        var xhttp = new XMLHttpRequest();
+
         // Carga de usuarios al entrar en la página.
         cargarUsuarios();
 
@@ -51,7 +54,7 @@
          */
         function buscarUsuarios() {
             event.preventDefault();
-            cargarUsuarios(document.getElementById("descUsuario").value)
+            cargarUsuarios(document.getElementById("descUsuario").value);
         }
 
         /**
@@ -60,7 +63,6 @@
          * @param String descUsuarios Descripción por la que buscar a los usuarios.
          */
         function cargarUsuarios(descUsuarios = '') {
-            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     mostrarUsuarios(this.responseText);
@@ -87,44 +89,85 @@
                 newTR = document.createElement("tr");
                 let newTD;
 
-                // codUsuario
-                newTD = document.createElement("td");
-                newTD.innerHTML = Usuario['codUsuario'];
-                newTR.appendChild(newTD);
+                // Información sobre el usuario.
+                for (key in Usuario) {
+                    newTD = document.createElement("td");
+                    switch (key) {
+                        case 'password':
+                            newTD.innerHTML = `<input id="password${Usuario['codUsuario']}" form='formUsuarios' type='password' value='${Usuario[key]}' disabled>`;
+                            break;
+                        case 'fechaHoraUltimaConexion':
+                            let fechaHora = new Date(parseInt(Usuario['fechaHoraUltimaConexion']) * 1000); // *1000 para que esté en milisegundos.
+                            newTD.innerHTML = fechaHora.toUTCString();
+                            break;
+                        case 'imagenUsuario':
+                            newTD.innerHTML = Usuario[key] ? `<img src="data:image/png;base64,${Usuario['imagenUsuario']}" alt="imagen de usuario">` : '-';
+                            break;
+                        default:
+                            newTD.innerHTML = Usuario[key]??'-';
+                                    break;
+                    }
+                    newTR.appendChild(newTD);
+                }
 
-                // password
+                // Botones.
                 newTD = document.createElement("td");
-                newTD.innerHTML = "*********";
-                newTR.appendChild(newTD);
-
-                // descUsuario
-                newTD = document.createElement("td");
-                newTD.innerHTML = Usuario['descUsuario'];
-                newTR.appendChild(newTD);
-
-                // fechaHoraUltimaConexion
-                let fechaHora = new Date(parseInt(Usuario['fechaHoraUltimaConexion']) * 1000); // *1000 para que esté en milisegundos.
-                newTD = document.createElement("td");
-                newTD.innerHTML = fechaHora.toUTCString();
-                newTR.appendChild(newTD);
-
-                // numConexiones
-                newTD = document.createElement("td");
-                newTD.innerHTML = Usuario['numConexiones'];
-                newTR.appendChild(newTD);
-
-                // perfil
-                newTD = document.createElement("td");
-                newTD.innerHTML = Usuario['perfil'];
-                newTR.appendChild(newTD);
-
-                // imagen de usuario
-                newTD = document.createElement("td");
-                newTD.innerHTML = Usuario['imagenUsuario'] ? `<img src="data:image/png;base64,${Usuario['imagenUsuario']}" alt="imagen de usuario">` : '-';
+                newTD.innerHTML = `<button onclick='eliminarUsuario(this)' value="${Usuario['codUsuario']}"><img src='webroot/media/img/mtoUsuarios/delete.png' alt='Eliminar usuario'></button>
+                                <button onclick='modificarPassword(this)' value="${Usuario['codUsuario']}"><img src='webroot/media/img/mtoUsuarios/modifyPassword.png' alt='Resetear contraseña'></button>`;
                 newTR.appendChild(newTD);
 
                 contenido.appendChild(newTR);
             }
+        }
+
+        /**
+         * Elimina el usuario indicado.
+         *     
+         * @param DOMElement btn Botón pulsado, que contiene en el value el código
+         * del usuario a eliminar.
+         */
+        function eliminarUsuario(btn) {
+            var codUsuario = btn.value;
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    cargarUsuarios();
+                }
+            };
+            xhttp.open("DELETE", "http://daw204.sauces.local/AplicacionFinal/api/eliminarUsuarioPorCodigo.php?codUsuario=" + codUsuario, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send("Your JSON Data Here");
+        }
+
+        /**
+         * Modificación de contraseña del usuario indicado.
+         * 
+         * @param DOMElement btn Botón pulsado, que contiene en el value el código
+         * del usuario a modificar su password.
+         */
+        function modificarPassword(btn) {
+            var codUsuario = btn.value;
+            var inputPassword = document.getElementById('password' + codUsuario);
+
+            inputPassword.disabled = false;
+            inputPassword.value = '';
+
+            inputPassword.addEventListener('keydown', function () {
+                // Si se ha pulsado enter.
+                if (event.keyCode === 13) {
+                    let password = inputPassword.value;
+
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            console.log(this.responseText);
+                            cargarUsuarios();
+                        }
+                    };
+                    xhttp.open("GET", ("http://daw204.sauces.local/AplicacionFinal/api/modificarPasswordUsuarioPorCodigo.php?codUsuario=" + codUsuario + "&password=" + password), true);
+                    xhttp.setRequestHeader("Content-type", "application/json");
+                    xhttp.send("Your JSON Data Here");
+                }
+            });
         }
     </script>
 </main>
