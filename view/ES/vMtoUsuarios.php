@@ -134,7 +134,7 @@
                     cargarUsuarios();
                 }
             };
-            xhttp.open("DELETE", "http://daw204.sauces.local/AplicacionFinal/api/eliminarUsuarioPorCodigo.php?codUsuario=" + codUsuario, true);
+            xhttp.open("DELETE", "http://daw204.ieslossauces.es/AplicacionFinal/api/eliminarUsuarioPorCodigo.php?codUsuario=" + codUsuario, true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send("Your JSON Data Here");
         }
@@ -163,7 +163,7 @@
                             cargarUsuarios();
                         }
                     };
-                    xhttp.open("GET", ("http://daw204.sauces.local/AplicacionFinal/api/modificarPasswordUsuarioPorCodigo.php?codUsuario=" + codUsuario + "&password=" + password), true);
+                    xhttp.open("GET", ("http://daw204.ieslossauces.es/AplicacionFinal/api/modificarPasswordUsuarioPorCodigo.php?codUsuario=" + codUsuario + "&password=" + password), true);
                     xhttp.setRequestHeader("Content-type", "application/json");
                     xhttp.send("Your JSON Data Here");
                 }
