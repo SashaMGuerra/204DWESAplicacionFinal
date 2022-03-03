@@ -12,29 +12,29 @@
 <main>
     <div class="container">
         <div class="mainH1">
-            <h1>Mantenimiento de usuarios</h1>
+            <h1>User Maintenance</h1>
             <div>
                 <form method="post">
-                    <button type="submit" name="volver" value="volver">Volver</button>
+                    <button type="submit" name="volver" value="volver">Go back</button>
                 </form>
             </div>
         </div>
         <div class="usuarios">
             <form onsubmit="buscarUsuarios()">
-                <input type="text" name="descUsuario" id="descUsuario" placeholder="Descripción">
-                <button>Buscar usuarios</button>
+                <input type="text" name="descUsuario" id="descUsuario" placeholder="Description">
+                <button>Search</button>
             </form>
             <table>
                 <thead>
                     <tr>
-                        <th>Código</th>
+                        <th>Code</th>
                         <th>Password</th>
-                        <th>Descripción</th>
-                        <th>Fecha-hora de última conexión</th>
-                        <th>Número de conexiones</th>
-                        <th>Perfil</th>
-                        <th>Imagen de usuario</th>
-                        <th>Acciones</th>
+                        <th>Description</th>
+                        <th>Last time connection</th>
+                        <th>Amount of conections</th>
+                        <th>Profile</th>
+                        <th>User images</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="mtoUsuarios">

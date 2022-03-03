@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="logo">
                     <h1>Aplicación de Sasha</h1>
-                    <h2>• Versión 3.0</h2>
+                    <h2>• Versión 3.1</h2>
                 </div>
                 <nav>
                     <form id="layoutForm" method="post">
