@@ -9,11 +9,32 @@ body{
 
 section{
     margin-top: 5px;
-    height: 95%;
+
     display: grid;
-    
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     justify-items: center;
     align-items: center;
+    gap: 10px;
 }
+section img{
+    max-height: 150px;
+}
+
+@media (max-width: 450px){
+    section{
+        grid-auto-columns: 1fr;
+    }
+}
+@media (min-width: 450px){
+    section{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 850px){
+    section{
+        height: 90%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+

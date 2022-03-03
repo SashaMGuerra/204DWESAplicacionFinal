@@ -10,7 +10,7 @@
 <main>
     <div class="container">
         <div class="mainH1">
-            <h1>Tecnologías</h1>
+            <h1>Technologies</h1>
             <div>
                 <form method="post">
                     <button type="submit" name="volver" value="volver">Volver</button>
