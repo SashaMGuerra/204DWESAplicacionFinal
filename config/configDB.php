@@ -9,31 +9,6 @@
  * 
  */
 
-// Desarrollo - sauces.
-define('HOST', 'mysql:host=daw204.sauces.local;dbname=DB204DWESAplicacionFinal');
-define('USER', 'User204DWESAplicacionFinal');
+define('HOST', 'mysql:host=direccionhost.local;dbname=DB204DWESAplicacionFinal');
+define('USER', 'usuario');
 define('PASSWORD', 'paso');
-
-// Desarrollo - Instituto, máquina virtual.
-/*
-define('HOST', 'mysql:host=192.168.3.104;dbname=DB204DWESAplicacionFinal');
-define('USER', 'User204DWESAplicacionFinal');
-define('PASSWORD', 'paso');
- * 
- */
-
-/*
-// Desarrollo - Casa.
-define('HOST', 'mysql:host=192.168.1.30;dbname=DB204DWESAplicacionFinal');
-define('USER', 'User204DWESAplicacionFinal');
-define('PASSWORD', 'paso');
- * 
- */
-
-/*
-// Explotación - 1 & 1;
-define('HOST', 'mysql:host=db5005797392.hosting-data.io;dbname=dbs4868794');
-define('USER', 'dbu2267525');
-define('PASSWORD', 'daw2_Sauces');
- * 
- */
